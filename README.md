@@ -15,7 +15,7 @@ A claims-support agent that converses naturally but follows a fixed, server-enfo
 
 **Claims help**
 - Finds the claim from a description ("my denied healthcare claim from January"), a claim ID, a policy number, or the *My claims* panel. When several claims match, it lists them and asks.
-- Answers status, denial reason, billed / allowed / paid amounts, required documents, deadlines and the one available next step. Every date, amount and claim ID is checked against the record before it is shown.
+- Answers status, denial reason, amounts (expected reimbursement, allowed maximum, net pay, net fee), required documents, deadlines and the one available next step. Every date, amount and claim ID is checked against the record before it is shown.
 - Remembers what you asked before verifying and answers it afterwards; switching between claims keeps each claim's context.
 - Understands English and Chinese messages.
 
