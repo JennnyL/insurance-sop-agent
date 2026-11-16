@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "checks": [
+    "form verifies through live UI",
+    "the user's exact follow-ups get contextual model-written answers",
+    "returning to a case restores its own remembered conversation"
+  ],
+  "replies": [
+    {
+      "question": "how to resoleve it",
+      "answer": "To resolve the denial, you should provide the missing pathology report and the treating provider office note. If you don’t have the originals, ask your hospital, lab, or provider for replacement copies or a complete visit summary that they can send directly. Since the appeal deadline has passed, you may want to contact a claims representative to see if any manual options remain for late submissions or alternatives."
+    },
+    {
+      "question": "please explain why",
+      "answer": "Your claim was denied because the review file did not include the pathology report and the treating provider's office note, which are necessary for processing the claim."
+    },
+    {
+      "question": "why",
+      "answer": "The claim was denied because it lacked the necessary pathology report and treating provider's office note, which are essential for claim processing. Without these documents, the insurer cannot verify and approve the services billed."
+    },
+    {
+      "question": "What is the status of this case?",
+      "answer": "Your claim CL-2102 is currently open with no denials or document requests recorded. It was created on February 28, 2026, and no payment has been finalized yet. The expected reimbursement is $3,200, with an allowed maximum of $3,500 for covered services."
+    },
+    {
+      "question": "What were we discussing on this case earlier?",
+      "answer": "Earlier, we discussed that your claim was denied because the review file did not include the required pathology report and the treating provider's office note, which are essential for verifying and approving the services billed."
+    }
+  ],
+  "browser_errors": []
+}

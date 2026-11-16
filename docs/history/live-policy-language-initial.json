@@ -1,0 +1,145 @@
+{
+  "status": "FAIL",
+  "checks": [
+    "Policy number alone lists four owned claims; keeps previous selection and grant",
+    "Selecting auto claim replaces healthcare facts and follow-up uses the auto record",
+    "Unknown policy and foreign claim leave current claim and authentication intact without disclosure"
+  ],
+  "turns": [
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "name": "Margaret Chen",
+          "dob": "1985-03-15",
+          "email": "margaret@email.com",
+          "case_id": "CL-2048"
+        }
+      },
+      "answer": "Your healthcare claim CL-2048 was denied because the review file did not include the pathology report and the treating provider office note. Without these documents, the claim cannot be approved and no reimbursement is expected. Since the appeal deadline passed, you may contact a human representative for review of any remaining options or document submission guidance.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5601,
+        "output_tokens": 247,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3390
+      }
+    },
+    {
+      "input": "POL-9921",
+      "answer": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "status": "MODEL_ANSWER_UNAVAILABLE",
+        "calls": 4,
+        "input_tokens": 6442,
+        "output_tokens": 375,
+        "usage_reports": 4
+      }
+    },
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "case_id": "CL-2102"
+        }
+      },
+      "answer": "Your claim CL-2102 is open and is an auto claim created on February 28, 2026. There is no denial reason recorded, no documents currently requested, and no finalized insurer payment yet. The expected reimbursement is $3,200 with an allowed maximum of $3,500, but these don't guarantee payment or your out-of-pocket cost. No appeal deadline or processing time estimate is provided in this record. For any further specific details or actions, a claims representative can assist you.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4242,
+        "output_tokens": 311,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3427
+      }
+    },
+    {
+      "input": "How much was paid on this case?",
+      "answer": "No payment has yet been recorded on your claim CL-2102; the finalized insurer payment is $0.00. However, the expected reimbursement amount is $3,200 and the allowed maximum is $3,500, but these do not guarantee payment. For detailed payment status, a claims representative can assist you further.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4669,
+        "output_tokens": 252,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3320
+      }
+    },
+    {
+      "input": "POL-0000",
+      "answer": "No payment has been recorded yet for your claim CL-2102; the finalized insurer payment amount is zero at this time.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3257,
+        "output_tokens": 128,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 1724
+      }
+    },
+    {
+      "input": "CL-3001",
+      "answer": "I couldn't find a claim matching CL-3001 in your verified account. Please check the claim number or use the 'My claims' button to view your claims and select the correct one.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3271,
+        "output_tokens": 162,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2876
+      }
+    },
+    {
+      "input": "CL-2048",
+      "answer": "Claim CL-2048 was denied because the pathology report and the treating provider office note were missing from the review file. No reimbursement will be issued since these required documents are not present, and the appeal deadline of March 18, 2026, has passed. For any further options or submission guidance, please contact a human representative.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5916,
+        "output_tokens": 204,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2574
+      }
+    },
+    {
+      "input": "What were we discussing on this case earlier?",
+      "answer": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "status": "MODEL_ANSWER_UNAVAILABLE",
+        "calls": 4,
+        "input_tokens": 6540,
+        "output_tokens": 359,
+        "usage_reports": 4
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.5.0",
+  "response_prompt_version": "insurance-response-1.3.1",
+  "model_name": "gpt-4.1-mini",
+  "error": ""
+}

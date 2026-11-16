@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Normal startup connects, hides startup status and verifies sample",
+    "Transient session-read failure is visible; retry restores the same verified session",
+    "Wrong-service HTML response explains address/port mismatch instead of staying blank",
+    "Stalled startup request times out in 12 seconds and Retry reconnects",
+    "Blocked JavaScript asset produces a visible reload action",
+    "Denied browser storage and unavailable randomUUID still permit startup and form submission"
+  ],
+  "browser_errors": []
+}

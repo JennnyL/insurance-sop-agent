@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "base_url": "http://demo-host:8000",
+  "checks": [
+    {
+      "scenario": "No pending human request",
+      "body": "Conclusion: Claim CL-2048 remains denied. No claim decision or submission was made in this conversation.\n\nDiscussion: This consultation was conducted by David Chen as representative for policyholder Margaret Chen, with the policyholder's approved consent. David Chen asked about claim status, reason for the recorded denial, appeal deadline.\n\nNext steps: The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. The representative or policyholder may submit a human handling request for representative assessment; no response time is promised.\n\nReferences: CL-2048."
+    },
+    {
+      "scenario": "Existing human request",
+      "body": "Conclusion: Claim CL-2048 remains denied. No claim decision or submission was made in this conversation.\n\nDiscussion: This consultation was conducted by David Chen as representative for policyholder Margaret Chen, with the policyholder's approved consent. David Chen asked about claim status.\n\nNext steps: The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. The representative's existing request H-D314699ED4724FDE is available for representative assessment. The representative or policyholder may check this request for updates or choose to add a question; no response time is promised.\n\nReferences: CL-2048, H-D314699ED4724FDE."
+    }
+  ],
+  "turns": [
+    {
+      "action": "message",
+      "phase": "VERIFY_ID",
+      "reply": "The policyholder\u2019s three identity fields matched. A consent request has been started and is still pending. Claim details stay private until approval. Choose Check policyholder consent or request human help."
+    },
+    {
+      "action": "consent_check",
+      "phase": "RESOLVE_INTENT",
+      "reply": "Policyholder consent approved. David Chen, you are authorized to discuss policyholder Margaret Chen\u2019s claims.\n\nIs CL-2048 (healthcare, created 2026-01-12) the claim you want to discuss?"
+    },
+    {
+      "action": "confirm_claim",
+      "phase": "PROCESS_CASE",
+      "reply": "The healthcare claim created on January 12, 2026, was denied because the review file did not include the pathology report and the treating provider's office note. The appeal deadline was March 18, 2026, and it has now passed. Only a representative can assess if any options remain; you may submit a human handling request for representative assessment, though no response time is promised. Claim reference: CL-2048 (healthcare, created 2026-01-12)."
+    },
+    {
+      "action": "finish",
+      "phase": "POST_PROCESS",
+      "reply": "I\u2019ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to the policyholder's registered email (m\u2022\u2022\u2022@email.com) in the demo outbox, or skip email? No real email is sent in this demo."
+    },
+    {
+      "action": "form",
+      "phase": "PROCESS_CASE",
+      "reply": "Claim CL-2048 for Margaret Chen is a healthcare claim created on January 12, 2026, and its current status is denied. Please let me know if you have any questions about this claim. Claim reference: CL-2048 (healthcare, created 2026-01-12)."
+    },
+    {
+      "action": "human",
+      "phase": "PROCESS_CASE",
+      "reply": "Your asynchronous human handling request is H-D314699ED4724FDE. A representative would follow up through the policyholder's registered email or the policyholder\u2019s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-D314699ED4724FDE."
+    },
+    {
+      "action": "finish",
+      "phase": "POST_PROCESS",
+      "reply": "I\u2019ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to the policyholder's registered email (m\u2022\u2022\u2022@email.com) in the demo outbox, or skip email? No real email is sent in this demo."
+    }
+  ],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.7.1",
+    "response_prompt_version": "insurance-response-1.7.5",
+    "sop_version": "1.1",
+    "app_version": "1.7.2",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  }
+}

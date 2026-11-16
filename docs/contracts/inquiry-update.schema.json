@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "message_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "title": "Message Id",
+      "type": "string"
+    },
+    "expected_revision": {
+      "minimum": 1,
+      "title": "Expected Revision",
+      "type": "integer"
+    },
+    "action": {
+      "enum": [
+        "followup",
+        "demo_reply",
+        "close",
+        "cancel"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "text": {
+      "default": "",
+      "maxLength": 1000,
+      "title": "Text",
+      "type": "string"
+    }
+  },
+  "required": [
+    "message_id",
+    "expected_revision",
+    "action"
+  ],
+  "title": "InquiryUpdate",
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "kind": "browser_races_with_delayed_offline_interpreter",
+  "checks": [
+    "new draft survives earlier reply completion",
+    "new message interrupts old reply and preserves prior identity and case hints",
+    "stop reply pauses queued email across the worker dispatch window",
+    "human help interrupts a pending reply and leaves chat active",
+    "reset handles a committed but delayed response without stale rendering",
+    "mobile stop control keeps unsent draft without horizontal overflow"
+  ],
+  "browser_errors": []
+}

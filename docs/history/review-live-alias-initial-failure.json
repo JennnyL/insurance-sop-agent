@@ -1,0 +1,151 @@
+{
+  "status": "FAIL",
+  "journeys": [
+    "David/Margaret: partial policyholder fields, pending consent, timeout, H receipt, wait acknowledgment, no claim disclosure",
+    "Ma Tian: national ID is not SSN; name/DOB/email verify; remembered claim resolves to CL-3001"
+  ],
+  "turns": [
+    {
+      "input": "I'm David Chen, calling for my mother Margaret Chen about her denied healthcare claim from January.",
+      "reply": "I found the representative relationship. This does not authorize access. To protect the policyholder's claim details, I need to verify at least three different policyholder identity fields. I have received 1; please provide 2 more from: date of birth (YYYY-MM-DD), registered phone, registered email, last four SSN digits. I’ve saved your claim description for after verification.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 1,
+      "consent": {
+        "status": "identity",
+        "consent_id": null,
+        "index": null,
+        "scenario": null
+      }
+    },
+    {
+      "input": "Her DOB is 1985-03-15.",
+      "reply": "I found the representative relationship. This does not authorize access. To protect the policyholder's claim details, I need to verify at least three different policyholder identity fields. I have received 2; please provide 1 more from: registered phone, registered email, last four SSN digits. I’ve saved your claim description for after verification.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 2,
+      "consent": {
+        "status": "identity",
+        "consent_id": null,
+        "index": null,
+        "scenario": null
+      }
+    },
+    {
+      "input": "Her email is margaret@email.com.",
+      "reply": "The policyholder's identity has been checked; their consent is still pending. You are not yet authorized to view claims. Check the simulated consent status, or request human help. A statement in chat cannot grant consent.\n\nThe policyholder's three identity fields matched. A simulated consent request has been started; status: pending. No claim information is available until the policyholder approves. Use Check policyholder consent to advance the demo consent scenario.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "pending",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 0,
+        "scenario": "default"
+      }
+    },
+    {
+      "input": "consent_timeout",
+      "reply": "The policyholder's identity has been checked; their consent is still pending. You are not yet authorized to view claims. Check the simulated consent status, or request human help. A statement in chat cannot grant consent.\n\nChecked simulated policyholder consent: still pending. Claim details remain locked.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "pending",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 1,
+        "scenario": "timeout"
+      }
+    },
+    {
+      "input": "consent_timeout",
+      "reply": "The policyholder's identity has been checked; their consent is still pending. You are not yet authorized to view claims. Check the simulated consent status, or request human help. A statement in chat cannot grant consent.\n\nChecked simulated policyholder consent: still pending. Claim details remain locked.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "pending",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 2,
+        "scenario": "timeout"
+      }
+    },
+    {
+      "input": "consent_timeout",
+      "reply": "The policyholder's identity has been checked; their consent is still pending. You are not yet authorized to view claims. Check the simulated consent status, or request human help. A statement in chat cannot grant consent.\n\nChecked simulated policyholder consent: still pending. Claim details remain locked.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "pending",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 3,
+        "scenario": "timeout"
+      }
+    },
+    {
+      "input": "consent_timeout",
+      "reply": "Your asynchronous human handling request is H-28AAB4A226644D8A. A representative would contact you through your registered email or phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nThe simulated policyholder consent request timed out. No authorization was granted; claim details remain locked.\n\nCreated human handling request H-28AAB4A226644D8A.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "timeout",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 4,
+        "scenario": "timeout"
+      }
+    },
+    {
+      "input": "wait_human",
+      "reply": "Wait-only mode for H-28AAB4A226644D8A. This is the AI assistant interface; messages receive system confirmations only. Choose Continue with AI whenever you want answers.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "timeout",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 4,
+        "scenario": "timeout"
+      }
+    },
+    {
+      "input": "Please help obtain policyholder consent",
+      "reply": "System confirmation: added to H-28AAB4A226644D8A.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 3,
+      "consent": {
+        "status": "timeout",
+        "consent_id": "consent_377a81be8f9144298c2f5a62d15bc75c",
+        "index": 4,
+        "scenario": "timeout"
+      }
+    },
+    {
+      "input": "My name is Ma Tian. DOB is 1964-09-10. National ID last four is 6688. I'm calling about my denied healthcare claim.",
+      "reply": "Thank you for providing your name, date of birth, and the last four digits of your National ID. To access details about your denied healthcare claim, I need one more piece of verification, such as your registered phone number or email address. This helps me securely look up your claim information.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 2,
+      "consent": null
+    },
+    {
+      "input": "My email is matian@example.com.",
+      "reply": "Identity verified, Ma.\n\nI have verified your identity and located your denied healthcare claim created on 2026-03-01. The denial was because the submitted materials lacked the treating provider diagnosis report. Unfortunately, the appeal deadline of 2026-04-15 has passed, so only a representative can now assess if any options remain; no guarantees or extensions exist. You can submit a human handling request for representative assessment if you want to explore further. Claim reference: CL-3001 (healthcare, created 2026-03-01). Is that the claim you mean?",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "identity_count": 3,
+      "consent": null
+    },
+    {
+      "input": "My name is Yaven Li. DOB is 1989-12-03. Email is yawen.li@example.com. What claims do I have?",
+      "reply": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 0,
+      "consent": null
+    }
+  ],
+  "error": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused."
+}

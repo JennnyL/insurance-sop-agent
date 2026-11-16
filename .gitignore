@@ -1,0 +1,41 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+secrets/
+
+# Runtime data and sessions
+data/
+*.sqlite3*
+*.db
+
+# Logs
+*.log
+logs/
+
+# Python / tooling
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.tar
+*.tar.gz
+*.tar.sha256
+
+# Local evaluation output
+evals/results-live.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

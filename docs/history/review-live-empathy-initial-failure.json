@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "checks": [
+    "Representative: three policyholder fields, locked consent pending, approved fixture grant and visible receipt",
+    "New tab: shared representative authorization, four claim choices, hidden identity form"
+  ],
+  "errors": [],
+  "failure": "Locator expected not to contain text 'couldn’t produce a reliable answer'\nActual value: Harbor AI assistantI couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused. \nCall log:\n  - Expect \"not_to_contain_text\" locator(\"#messages .assistant\").last with timeout 5000ms\n  - waiting for locator(\"#messages .assistant\").last\n    14 × locator resolved to <div class=\"message assistant\">…</div>\n       - unexpected value \"Harbor AI assistantI couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.\"\n\nAria snapshot:\n- text: Harbor AI assistant I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+  "last_reply": "HARBOR AI ASSISTANT\nI couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused."
+}

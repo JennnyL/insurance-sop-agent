@@ -1,0 +1,12 @@
+{
+  "url": "http://demo-host:8000",
+  "health": {
+    "status": "ok",
+    "profile": "R0",
+    "model_mode": "openai",
+    "app_version": "1.7.0"
+  },
+  "observer": "insurance-observer-1.7.1",
+  "writer": "insurance-response-1.7.3",
+  "status": "PASS"
+}

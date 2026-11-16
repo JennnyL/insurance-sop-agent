@@ -1,0 +1,100 @@
+{
+  "status": "FAIL",
+  "checks": [
+    "Policy number alone lists four owned claims; keeps previous selection and grant",
+    "Selecting auto claim replaces healthcare facts and follow-up uses the auto record"
+  ],
+  "turns": [
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "name": "Margaret Chen",
+          "dob": "1985-03-15",
+          "email": "margaret@email.com",
+          "case_id": "CL-2048"
+        }
+      },
+      "answer": "Claim CL-2048 was denied because the pathology report and the treating provider's office note were missing from the review file. These documents are needed to proceed. If you can provide complete copies of these documents, ideally scanned clearly or originals if required, the claim can be reconsidered, but acceptance of substitutes is subject to review.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5815,
+        "output_tokens": 280,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2903
+      }
+    },
+    {
+      "input": "POL-9921",
+      "answer": "Your policy POL-9921 has four claims: CL-2102 (auto, open), CL-2048 (healthcare, denied), CL-1899 (dental, closed), and CL-2011 (healthcare, closed). You can choose any claim to switch to; your current claim is CL-2048.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3615,
+        "output_tokens": 186,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2313
+      }
+    },
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "case_id": "CL-2102"
+        }
+      },
+      "answer": "Your auto claim CL-2102 is open and was created on 2026-02-28. No payment has been made yet, and there is no denial reason or documents requested at this time. Expected reimbursement is $3,200, with an allowed maximum of $3,500, but these amounts do not guarantee your out-of-pocket costs or payment. If you have further questions or need assistance, I can help or connect you to a representative.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4437,
+        "output_tokens": 285,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3135
+      }
+    },
+    {
+      "input": "How much was paid on this case?",
+      "answer": "No payment has been made yet on your claim CL-2102; the finalized insurer payment recorded is $0.00. The expected reimbursement is $3,200, and the allowed maximum amount is $3,500, but these amounts do not guarantee any payment yet.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4878,
+        "output_tokens": 245,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2669
+      }
+    },
+    {
+      "input": "POL-0000",
+      "answer": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "status": "MODEL_ANSWER_UNAVAILABLE",
+        "calls": 2,
+        "input_tokens": 3334,
+        "output_tokens": 144,
+        "usage_reports": 2
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.5.0",
+  "response_prompt_version": "insurance-response-1.4.0",
+  "model_name": "gpt-4.1-mini",
+  "error": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused."
+}

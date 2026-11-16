@@ -1,0 +1,448 @@
+{
+  "status": "FAIL",
+  "base_url": "http://127.0.0.1:8000",
+  "checks": [],
+  "turns": [
+    {
+      "input": "I'm Margaret Chen, DOB 1985-03-15, email margaret@email.com. My denied healthcare claim from January.",
+      "reply": "Identity verified, Margaret.\n\nYour healthcare claim from January 12, 2026, was denied because the pathology report and treating provider's office note were missing from the review file. The appeal deadline was March 18, 2026, and it has now passed, so no automatic extensions are available. You may submit a human request for a representative to assess whether any options remain, but no response time can be promised. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "Why did nobody tell me? How was I notified?",
+      "reply": "I understand that repeating these steps is frustrating.\n\nThere is no notification history available in your claim records, so I cannot confirm whether or how you were notified about the denial.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "What if I cannot get the report?",
+      "reply": "If you cannot obtain the pathology report and office note needed for your claim review, the appeal deadline has already passed, so no automatic extension or exceptions apply. A claims representative can assess whether any options remain, but no guarantee or response time is promised. You may submit a human request for representative assessment if you wish to explore this further.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "i need human",
+      "reply": "Your asynchronous human handling request is H-8C37BF6C28A04F69. A representative would follow up through your registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-8C37BF6C28A04F69.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "#finish",
+      "reply": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    }
+  ],
+  "browser_errors": [],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.7.1",
+    "response_prompt_version": "insurance-response-1.7.0",
+    "sop_version": "1.1",
+    "app_version": "1.7.0",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "failure": "",
+  "state_at_failure": {
+    "session_id": "s_27e22a979a0a4f61a860a042a842ed97",
+    "episode_id": "ep_9071b3335d2243b6a3c09849791f960a",
+    "phase": "POST_PROCESS",
+    "lifecycle": "ACTIVE",
+    "version": 6,
+    "authorization_epoch": 0,
+    "verified": true,
+    "caller": {
+      "role": "policyholder",
+      "name": "Margaret Chen"
+    },
+    "data_subject": {
+      "party_id": "P9",
+      "name": "Margaret Chen"
+    },
+    "authorization_method": "three_identity_fields",
+    "claim_confirmation": null,
+    "handoff_note_offer": null,
+    "representative_consent": null,
+    "support_mode": "ai",
+    "anonymous_support_active": false,
+    "closing_pending": false,
+    "next_steps": {
+      "expired": true,
+      "deadline": "2026-03-18",
+      "actions": [
+        {
+          "label": "View human request",
+          "action": "handoff_status"
+        }
+      ],
+      "text": "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. Your existing request H-8C37BF6C28A04F69 is available for representative assessment. You can check this request for updates or choose to add a question; no response time is promised."
+    },
+    "identity_collected": [],
+    "identity_count": 3,
+    "refused_fields": [],
+    "verification_locked": false,
+    "memory": {
+      "hints": {
+        "status": {
+          "value": "denied",
+          "source_turn": "09ff24de-324e-4b88-8057-7b807439fb07",
+          "provenance": "user_reported"
+        },
+        "case_type": {
+          "value": "healthcare",
+          "source_turn": "09ff24de-324e-4b88-8057-7b807439fb07",
+          "provenance": "user_reported"
+        },
+        "month": {
+          "value": "1",
+          "source_turn": "09ff24de-324e-4b88-8057-7b807439fb07",
+          "provenance": "user_reported"
+        }
+      },
+      "intents": [
+        "document_guidance"
+      ],
+      "pending_topics": [],
+      "recent_cases": [
+        "CL-2048"
+      ],
+      "case_history": {
+        "case_id": "CL-2048",
+        "turn_count": 4,
+        "discussed_topics": [
+          "status",
+          "denial",
+          "deadline",
+          "documents",
+          "notification"
+        ],
+        "open_questions": [],
+        "updated_at": 1794772675.3740063
+      }
+    },
+    "selected_case_id": "CL-2048",
+    "candidates": [],
+    "case_picker": null,
+    "resolution_kind": "MATCH",
+    "messages": [
+      {
+        "role": "assistant",
+        "text": "Hello, I’m your claims support assistant. I can help explain a claim, its amounts, or the documents you need. First, to protect your information, please share any three: full name, date of birth, registered phone, registered email, or the last four digits of your SSN. You can tell me what you’re calling about at the same time.",
+        "at": 0
+      },
+      {
+        "role": "user",
+        "text": "I'm [NAME], DOB [DOB], email [EMAIL]. My denied healthcare claim from January.",
+        "at": 1794772660.0558493
+      },
+      {
+        "role": "assistant",
+        "text": "Identity verified, Margaret.\n\nYour healthcare claim from January 12, 2026, was denied because the pathology report and treating provider's office note were missing from the review file. The appeal deadline was March 18, 2026, and it has now passed, so no automatic extensions are available. You may submit a human request for a representative to assess whether any options remain, but no response time can be promised. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+        "at": 1794772660.0560143
+      },
+      {
+        "role": "user",
+        "text": "Why did nobody tell me? How was I notified?",
+        "at": 1794772664.836453
+      },
+      {
+        "role": "assistant",
+        "text": "I understand that repeating these steps is frustrating.\n\nThere is no notification history available in your claim records, so I cannot confirm whether or how you were notified about the denial.",
+        "at": 1794772664.83657
+      },
+      {
+        "role": "user",
+        "text": "What if I cannot get the report?",
+        "at": 1794772669.4536834
+      },
+      {
+        "role": "assistant",
+        "text": "If you cannot obtain the pathology report and office note needed for your claim review, the appeal deadline has already passed, so no automatic extension or exceptions apply. A claims representative can assess whether any options remain, but no guarantee or response time is promised. You may submit a human request for representative assessment if you wish to explore this further.",
+        "at": 1794772669.4537942
+      },
+      {
+        "role": "user",
+        "text": "i need human",
+        "at": 1794772670.6703668
+      },
+      {
+        "role": "assistant",
+        "text": "Your asynchronous human handling request is H-8C37BF6C28A04F69. A representative would follow up through your registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-8C37BF6C28A04F69.",
+        "at": 1794772670.6704876
+      },
+      {
+        "role": "system",
+        "text": "Finish & review summary",
+        "at": 1794772675.3727787
+      },
+      {
+        "role": "assistant",
+        "text": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+        "at": 1794772675.372782
+      }
+    ],
+    "draft": {
+      "id": "offer_76a55a09174c4e72a5283f0e51bba25e",
+      "subject": "Insurance claim consultation summary",
+      "body": "Conclusion: Claim CL-2048 remains denied. No claim decision or submission was made in this conversation.\n\nDiscussion: We discussed claim status, reason for the recorded denial, appeal deadline, missing documents, the availability of notification records.\n\nNext steps: The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. Your existing request H-8C37BF6C28A04F69 is available for representative assessment. You can check this request for updates or choose to add a question; no response time is promised.\n\nReferences: CL-2048, H-8C37BF6C28A04F69.",
+      "hash": "7480b14ee83aa8b54d79c31bc45d94c5a30d7fd90d8d0a6aa2bc682947530370",
+      "expires_at": 1794773275.3706746,
+      "paused": false,
+      "note": "",
+      "recipient": "m•••@email.com",
+      "footer": "Demo notice: this conversation copy and all email and representative handling are simulated. No real email is sent and no real representative is contacted.",
+      "recipient_label": "your registered email"
+    },
+    "email_operation": null,
+    "handoff": {
+      "id": "H-8C37BF6C28A04F69",
+      "channel": "MOCK",
+      "status": "SIMULATED_RECORDED",
+      "created_at": 1794772670.666962,
+      "updated_at": 1794772670.666962,
+      "revision": 1,
+      "label": "Awaiting representative review (simulated)",
+      "response_time": "NOT_CONFIGURED",
+      "simulated": true,
+      "representative": null,
+      "details_locked": false,
+      "can_update": true,
+      "case_id": "CL-2048",
+      "summary": {
+        "phase": "PROCESS_CASE",
+        "verified_at_request": true,
+        "discussed": [
+          "status",
+          "denial",
+          "deadline",
+          "documents",
+          "notification",
+          "unknown"
+        ],
+        "open_questions": [
+          "Customer requests representative review of the unresolved discussion."
+        ],
+        "claim_description": {
+          "status": "denied",
+          "case_type": "healthcare",
+          "month": "1"
+        },
+        "discussion": [
+          "I'm [NAME], DOB [DOB], email [EMAIL]. My denied healthcare claim from January.",
+          "Identity verified, Margaret.\n\nYour healthcare claim from January 12, 2026, was denied because the pathology report and treating provider's office note were missing from the review file. The appeal deadline was March 18, 2026, and it has now passed, so no automatic extensions are available. You may submit a human request for a representative to assess whether any options remain, but no response time can be promised. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+          "Why did nobody tell me? How was I notified?",
+          "I understand that repeating these steps is frustrating.\n\nThere is no notification history available in your claim records, so I cannot confirm whether or how you were notified about the denial.",
+          "What if I cannot get the report?",
+          "If you cannot obtain the pathology report and office note needed for your claim review, the appeal deadline has already passed, so no automatic extension or exceptions apply. A claims representative can assess whether any options remain, but no guarantee or response time is promised. You may submit a human request for representative assessment if you wish to explore this further."
+        ],
+        "verified_identity": {
+          "party_id": "P9",
+          "name": "Margaret Chen",
+          "fields": [
+            "name",
+            "dob",
+            "email"
+          ]
+        },
+        "representative_context": null,
+        "reason": "USER_REQUEST",
+        "contact_method": "Registered email or phone after identity verification",
+        "handoff_reason": "i need human"
+      },
+      "timeline": [
+        {
+          "at": 1794772670.666962,
+          "actor": "system",
+          "status": "SIMULATED_RECORDED",
+          "text": "Asynchronous request saved. In a connected service, a representative would contact you by registered email or phone; no response time is promised. This demo simulates handling and contacts nobody. Choose Continue with AI or Wait for human only."
+        }
+      ]
+    },
+    "evidence": [
+      {
+        "id": "CL-2048:status,case_type,created_at",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "status,case_type,created_at",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794772662.0414722
+      },
+      {
+        "id": "CL-2048:denial_reason",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "denial_reason",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794772662.041475
+      },
+      {
+        "id": "CL-2048:notification_history",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "notification_history",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794772662.0453908
+      },
+      {
+        "id": "CL-2048:permitted_next_steps",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "permitted_next_steps",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794772666.5201461
+      },
+      {
+        "id": "CL-2048:documents_needed",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "documents_needed",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794772666.520158
+      },
+      {
+        "id": "CL-2048:appeal_deadline",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "appeal_deadline",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794772666.520188
+      },
+      {
+        "id": "CL-2048:expired_deadline",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "expired_deadline",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794772666.5201895
+      }
+    ],
+    "visited_phases": [
+      "VERIFY_ID",
+      "RESOLVE_INTENT",
+      "PROCESS_CASE",
+      "POST_PROCESS"
+    ],
+    "model_status": {
+      "mode": "openai",
+      "calls": 1,
+      "input_tokens": 3301,
+      "output_tokens": 83,
+      "usage_reports": 1,
+      "latency_ms": 885,
+      "status": "ok",
+      "rejected_hint_sources": 0
+    },
+    "user_confirmed_resolved": false,
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "handoffs": [
+      {
+        "id": "H-8C37BF6C28A04F69",
+        "channel": "MOCK",
+        "status": "SIMULATED_RECORDED",
+        "created_at": 1794772670.666962,
+        "updated_at": 1794772670.666962,
+        "revision": 1,
+        "label": "Awaiting representative review (simulated)",
+        "response_time": "NOT_CONFIGURED",
+        "simulated": true,
+        "representative": null,
+        "details_locked": false,
+        "can_update": true,
+        "case_id": "CL-2048",
+        "summary": {
+          "phase": "PROCESS_CASE",
+          "verified_at_request": true,
+          "discussed": [
+            "status",
+            "denial",
+            "deadline",
+            "documents",
+            "notification",
+            "unknown"
+          ],
+          "open_questions": [
+            "Customer requests representative review of the unresolved discussion."
+          ],
+          "claim_description": {
+            "status": "denied",
+            "case_type": "healthcare",
+            "month": "1"
+          },
+          "discussion": [
+            "I'm [NAME], DOB [DOB], email [EMAIL]. My denied healthcare claim from January.",
+            "Identity verified, Margaret.\n\nYour healthcare claim from January 12, 2026, was denied because the pathology report and treating provider's office note were missing from the review file. The appeal deadline was March 18, 2026, and it has now passed, so no automatic extensions are available. You may submit a human request for a representative to assess whether any options remain, but no response time can be promised. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+            "Why did nobody tell me? How was I notified?",
+            "I understand that repeating these steps is frustrating.\n\nThere is no notification history available in your claim records, so I cannot confirm whether or how you were notified about the denial.",
+            "What if I cannot get the report?",
+            "If you cannot obtain the pathology report and office note needed for your claim review, the appeal deadline has already passed, so no automatic extension or exceptions apply. A claims representative can assess whether any options remain, but no guarantee or response time is promised. You may submit a human request for representative assessment if you wish to explore this further."
+          ],
+          "verified_identity": {
+            "party_id": "P9",
+            "name": "Margaret Chen",
+            "fields": [
+              "name",
+              "dob",
+              "email"
+            ]
+          },
+          "representative_context": null,
+          "reason": "USER_REQUEST",
+          "contact_method": "Registered email or phone after identity verification",
+          "handoff_reason": "i need human"
+        },
+        "timeline": [
+          {
+            "at": 1794772670.666962,
+            "actor": "system",
+            "status": "SIMULATED_RECORDED",
+            "text": "Asynchronous request saved. In a connected service, a representative would contact you by registered email or phone; no response time is promised. This demo simulates handling and contacts nobody. Choose Continue with AI or Wait for human only."
+          }
+        ]
+      }
+    ],
+    "support_availability": {
+      "channel": "MOCK",
+      "configured": true,
+      "demo_staff_enabled": false,
+      "online_count": 0
+    },
+    "available_claims": []
+  }
+}

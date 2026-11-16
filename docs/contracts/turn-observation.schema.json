@@ -1,0 +1,284 @@
+{
+  "$defs": {
+    "Hint": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "enum": [
+            "case_type",
+            "status",
+            "month",
+            "year",
+            "case_id"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "occurrence": {
+          "title": "Occurrence",
+          "type": "integer"
+        },
+        "assertion": {
+          "enum": [
+            "affirm",
+            "replace",
+            "retract",
+            "negated",
+            "unknown"
+          ],
+          "title": "Assertion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "quote",
+        "occurrence",
+        "assertion"
+      ],
+      "title": "Hint",
+      "type": "object"
+    },
+    "IdentityObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "enum": [
+            "name",
+            "dob",
+            "phone",
+            "email",
+            "ssn_last4",
+            "national_id_last4",
+            "policy_number"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "occurrence": {
+          "title": "Occurrence",
+          "type": "integer"
+        },
+        "subject": {
+          "enum": [
+            "self",
+            "other",
+            "unknown"
+          ],
+          "title": "Subject",
+          "type": "string"
+        },
+        "assertion": {
+          "enum": [
+            "affirm",
+            "replace",
+            "retract",
+            "refuse",
+            "unknown",
+            "negated",
+            "quoted",
+            "hypothetical"
+          ],
+          "title": "Assertion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value",
+        "quote",
+        "occurrence",
+        "subject",
+        "assertion"
+      ],
+      "title": "IdentityObservation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "scope": {
+      "enum": [
+        "in_scope",
+        "out_of_scope",
+        "mixed",
+        "uncertain",
+        "claim_term"
+      ],
+      "title": "Scope",
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "self",
+        "representative",
+        "unknown"
+      ],
+      "title": "Role",
+      "type": "string"
+    },
+    "identity": {
+      "items": {
+        "$ref": "#/$defs/IdentityObservation"
+      },
+      "title": "Identity",
+      "type": "array"
+    },
+    "hints": {
+      "items": {
+        "$ref": "#/$defs/Hint"
+      },
+      "title": "Hints",
+      "type": "array"
+    },
+    "case_relation": {
+      "enum": [
+        "same",
+        "new",
+        "uncertain"
+      ],
+      "title": "Case Relation",
+      "type": "string"
+    },
+    "subject_changed": {
+      "title": "Subject Changed",
+      "type": "boolean"
+    },
+    "intents": {
+      "items": {
+        "enum": [
+          "status_inquiry",
+          "denial_question",
+          "document_guidance",
+          "amount_question",
+          "next_steps",
+          "human_help"
+        ],
+        "type": "string"
+      },
+      "title": "Intents",
+      "type": "array"
+    },
+    "topics": {
+      "items": {
+        "enum": [
+          "status",
+          "denial",
+          "documents",
+          "alternatives",
+          "amounts",
+          "deadline",
+          "timing",
+          "submission",
+          "receipt",
+          "unknown",
+          "verification"
+        ],
+        "type": "string"
+      },
+      "title": "Topics",
+      "type": "array"
+    },
+    "emotion": {
+      "enum": [
+        "neutral",
+        "frustration",
+        "anxiety",
+        "anger",
+        "confusion",
+        "refusal"
+      ],
+      "title": "Emotion",
+      "type": "string"
+    },
+    "emotion_quote": {
+      "title": "Emotion Quote",
+      "type": "string"
+    },
+    "action": {
+      "enum": [
+        "continue",
+        "finish",
+        "human",
+        "handoff_status",
+        "inquiry_status",
+        "my_claims",
+        "case_lookup",
+        "consent_status",
+        "refuse_all",
+        "cancel",
+        "confirm_no_match"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "email_preference": {
+      "enum": [
+        "unmentioned",
+        "want",
+        "skip",
+        "uncertain"
+      ],
+      "title": "Email Preference",
+      "type": "string"
+    },
+    "requires_human_decision": {
+      "title": "Requires Human Decision",
+      "type": "boolean"
+    },
+    "alternatives_exhausted": {
+      "title": "Alternatives Exhausted",
+      "type": "boolean"
+    },
+    "resolved_confirmation": {
+      "title": "Resolved Confirmation",
+      "type": "boolean"
+    },
+    "style": {
+      "enum": [
+        "warm",
+        "concise",
+        "stepwise"
+      ],
+      "title": "Style",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scope",
+    "role",
+    "identity",
+    "hints",
+    "case_relation",
+    "subject_changed",
+    "intents",
+    "topics",
+    "emotion",
+    "emotion_quote",
+    "action",
+    "email_preference",
+    "requires_human_decision",
+    "alternatives_exhausted",
+    "resolved_confirmation",
+    "style"
+  ],
+  "title": "Observation",
+  "type": "object"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PARTIAL_FAIL",
+  "prompt_version": "insurance-observer-1.3.1",
+  "response_prompt_version": "insurance-response-1.1.0",
+  "checks": [
+    "Identity plus natural account-list request verifies in the same turn and lists all four owned claims",
+    "Chinese email-entry question receives an answer without a claim lookup ID"
+  ],
+  "replies": [
+    {
+      "question": "[Three identity fields supplied together with a request to list all claims]",
+      "answer": "I found several claims associated with your account: CL-2048 (healthcare, denied), CL-2011 (healthcare, closed), CL-1899 (dental, closed), and CL-2102 (auto, open). Please tell me which claim you'd like details for, or if you want information on all of them.",
+      "phase": "RESOLVE_INTENT",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2024,
+        "output_tokens": 176,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2607
+      }
+    },
+    {
+      "question": "我想写一封邮件总结，在哪里操作？",
+      "answer": "您可以在您的邮箱客户端或邮件服务网站中撰写和发送总结邮件。如果需要针对具体的理赔事项写邮件，请告诉我您想联系的理赔编号，我可以帮助提供相关信息。",
+      "phase": "RESOLVE_INTENT",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2137,
+        "output_tokens": 159,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2189
+      }
+    }
+  ],
+  "failed_check": "Chinese email-entry answer incorrectly directed the customer to an external mail client. Retained initial evidence; superseded by the service-platform language regression."
+}

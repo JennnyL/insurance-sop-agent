@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Human request before verification: reference, process, wait acknowledgment and AI resume",
+    "New tab and New session retain identity; claims, email and pending H request share authorization",
+    "Policy switching; expired next steps; natural closing and in-chat email Send/Skip with H reference",
+    "Human request feedback, tracking and cancellation",
+    "Logout revokes all tabs and future conversations, including email access",
+    "Mobile loads without horizontal overflow"
+  ],
+  "browser_errors": []
+}

@@ -1,0 +1,95 @@
+{
+  "status": "FAIL",
+  "turns": [
+    {
+      "input": "I already told you who I am. This is ridiculous. Just tell me why my claim was denied.",
+      "reply": "I understand you're frustrated, and I want to help. To explain why your claim was denied, I first need to verify your identity with at least three pieces of information such as your full name, date of birth, registered phone, registered email, or last four digits of your SSN. This is to protect your privacy and ensure I provide details about your specific claim.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3179,
+        "output_tokens": 189,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2376
+      },
+      "draft": null
+    },
+    {
+      "input": "I won't give you my SSN. What else can I use?",
+      "reply": "That’s okay—you can choose which identity fields to share.\n\nYou don’t need to provide your SSN if you prefer not to. To verify your identity and protect your claim details, you can share any three of these instead: full name, date of birth, registered phone number, or registered email address. Please provide any three from these options so I can assist you further.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3482,
+        "output_tokens": 177,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2203
+      },
+      "draft": null
+    },
+    {
+      "input": "My name is Margaret Chen. I am calling about my denied healthcare claim from January.",
+      "reply": "To protect your claim details and assist you with the denial reason for your January healthcare claim, I need to verify at least three identity fields. You have given your full name; please provide two more from date of birth (YYYY-MM-DD), registered phone number, or registered email address. Once verified, I can help explain why your claim was denied.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3443,
+        "output_tokens": 189,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2356
+      },
+      "draft": null
+    },
+    {
+      "input": "My DOB is 1985-03-15 and my email is margaret@email.com.",
+      "reply": "Identity verified, Margaret.\n\nYour healthcare claim created on 2026-01-12 was denied because the review file lacked the required pathology report and treating provider office note. The appeal deadline was 2026-03-18 and has passed, so only a claims representative can assess if any options remain. You can submit a human handling request for representative assessment, but no response time is promised. Is that the claim you mean?",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6076,
+        "output_tokens": 255,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2564
+      },
+      "draft": null
+    }
+  ],
+  "checks": [],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.6.1",
+    "response_prompt_version": "insurance-response-1.5.1",
+    "sop_version": "1.1",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "error": ""
+}

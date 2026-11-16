@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "message_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "title": "Message Id",
+      "type": "string"
+    },
+    "case_id": {
+      "anyOf": [
+        {
+          "maxLength": 30,
+          "pattern": "^CL-\\d+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Case Id"
+    },
+    "subject": {
+      "maxLength": 150,
+      "minLength": 1,
+      "title": "Subject",
+      "type": "string"
+    },
+    "body": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Body",
+      "type": "string"
+    }
+  },
+  "required": [
+    "message_id",
+    "subject",
+    "body"
+  ],
+  "title": "InquiryCreate",
+  "type": "object"
+}

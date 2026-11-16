@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "base_url": "http://demo-host:8000",
+  "checks": [
+    "Seeded Margaret notification/document-alternative discussion, H request and summary",
+    "Pending/approved concise; correct caller/data subject; waits for claim confirmation and then answers deferred denial; subject-owned picker; prior dialogue and correspondence isolated",
+    "New tab shares representative grant and labels, without importing consultation content",
+    "Human-only decision requires explicit add-question consent; one update and visible receipt",
+    "Explicit ending goes straight to inline summary; caller and consent attribution, policyholder email, fresh-only discussion; refresh/mobile remain usable",
+    "Logout removes both tabs’ references, drafts and grants; welcome restored"
+  ],
+  "turns": [
+    {
+      "input": "I'm Margaret Chen, DOB 1985-03-15, email margaret@email.com. My denied healthcare claim from January.",
+      "reply": "Identity verified, Margaret.\n\nYour healthcare claim from January 2026 was denied because the pathology report and the treating provider's office note were missing from the review file. The appeal deadline was March 18, 2026, and it has now passed. Only a claims representative can assess if any options remain, but no exceptions or late appeals are currently established. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "Why did nobody tell me? How was I notified?",
+      "reply": "I understand this is frustrating.\n\nThe available records do not show any notification history, so I cannot confirm whether or when you were notified about this claim denial.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "What document alternatives are available if I cannot get the report?",
+      "reply": "There are no alternative documents listed for replacing the missing pathology report and office note in your claim file. Since the appeal deadline has passed, only a claims representative can assess if any options remain. You may request a human handling assessment for further help.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "i need human",
+      "reply": "Your asynchronous human handling request is H-12C6E18F848548DB. A representative would follow up through your registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-12C6E18F848548DB.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "#finish",
+      "reply": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "I'm David Chen, calling for my mother Margaret Chen. DOB 1985-03-15, email margaret@email.com. Her denied healthcare claim from January.",
+      "reply": "The policyholder’s three identity fields matched. A consent request has been started and is still pending. Claim details stay private until approval. Choose Check policyholder consent or request human help.",
+      "phase": "VERIFY_ID",
+      "caller": null
+    },
+    {
+      "input": "#suggestions button:has-text(\"Check policyholder consent\")",
+      "reply": "Policyholder consent approved. David Chen, you are authorized to discuss policyholder Margaret Chen’s claims.\n\nIs CL-2048 (healthcare, created 2026-01-12) the claim you want to discuss?",
+      "phase": "RESOLVE_INTENT",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    },
+    {
+      "input": "#suggestions button:has-text(\"Yes, this claim\")",
+      "reply": "Claim CL-2048, created on January 12, 2026, was denied because the review file lacked the pathology report and treating provider office note. The appeal deadline was March 18, 2026, and has now passed, so only a representative can assess if any options remain; no extensions or late appeals are established by these records. You may submit a human handling request for representative assessment, but no response time can be promised. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    },
+    {
+      "input": "i need human",
+      "reply": "Your asynchronous human handling request is H-3C57EE6C5DD8431A. A representative would follow up through the policyholder's registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-3C57EE6C5DD8431A.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    },
+    {
+      "input": "Can the deadline be extended for me?",
+      "reply": "The appeal deadline for claim CL-2048 has passed as of March 18, 2026. Only a claims representative can assess whether any options remain; no extension or late acceptance is established by the records. You can use the existing human request H-3C57EE6C5DD8431A to ask for further assessment, but no response time can be guaranteed.\n\nWould you like me to add this question to H-3C57EE6C5DD8431A? Nothing has been added yet.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    },
+    {
+      "input": "#suggestions button:has-text(\"Add question to request\")",
+      "reply": "Your question was added to H-3C57EE6C5DD8431A for representative assessment. No deadline or claim decision has changed.\n\nSystem confirmation: added to H-3C57EE6C5DD8431A.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    },
+    {
+      "input": "no, that’s all, thanks",
+      "reply": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to the policyholder's registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    }
+  ],
+  "browser_errors": [],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.7.1",
+    "response_prompt_version": "insurance-response-1.7.4",
+    "sop_version": "1.1",
+    "app_version": "1.7.1",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "summary": "Conclusion: Claim CL-2048 remains denied. No claim decision or submission was made in this conversation.\n\nDiscussion: This consultation was conducted by David Chen as representative for policyholder Margaret Chen, with the policyholder's approved consent. David Chen asked about claim status, reason for the recorded denial, and appeal deadline. Unresolved representative questions included whether the deadline can be extended.\n\nNext steps: The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension, or late acceptance is established by these records. Your existing request H-3C57EE6C5DD8431A is available for representative assessment. You can check this request for updates or choose to add a question; no response time is promised.\n\nReferences: CL-2048, H-3C57EE6C5DD8431A."
+}

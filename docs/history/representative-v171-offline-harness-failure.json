@@ -1,0 +1,434 @@
+{
+  "status": "FAIL",
+  "base_url": "http://127.0.0.1:8003",
+  "checks": [],
+  "turns": [
+    {
+      "input": "I'm Margaret Chen, DOB 1985-03-15, email margaret@email.com. My denied healthcare claim from January.",
+      "reply": "Identity verified, Margaret.\n\nSelected CL-2048, the healthcare claim created on 2026-01-12.\n\nThe recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nClaim CL-2048 is denied. It is a healthcare claim created on 2026-01-12.\n\nThe recorded reason for denial is that the review file did not include the pathology report and the treating provider office note.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "Why did nobody tell me? How was I notified?",
+      "reply": "I couldn’t identify which claim question you want answered. You can ask about status, the denial reason, documents or alternatives, amounts, deadlines, submission, or review timing. Your verified identity and claim context are saved. This offline demo recognizes limited English and Chinese examples. Try ‘How much was paid?’ or ‘需要什么材料？’.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "What document alternatives are available if I cannot get the report?",
+      "reply": "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "i need human",
+      "reply": "Your asynchronous human handling request is H-1AD58DB216FA4E0A. A representative would follow up through your registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-1AD58DB216FA4E0A.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "#finish",
+      "reply": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    }
+  ],
+  "browser_errors": [],
+  "config": {
+    "model_mode": "offline",
+    "model_name": "Scripted offline parser",
+    "prompt_version": "insurance-observer-1.7.1",
+    "response_prompt_version": "insurance-response-1.7.4",
+    "sop_version": "1.1",
+    "app_version": "1.7.1",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "failure": "",
+  "state_at_failure": {
+    "session_id": "s_86b613eed368494b9006bea60c3d7ab3",
+    "episode_id": "ep_2813aca73b5f41878df8c0e05dc40cb4",
+    "phase": "POST_PROCESS",
+    "lifecycle": "ACTIVE",
+    "version": 6,
+    "authorization_epoch": 0,
+    "verified": true,
+    "caller": {
+      "role": "policyholder",
+      "name": "Margaret Chen"
+    },
+    "data_subject": {
+      "party_id": "P9",
+      "name": "Margaret Chen"
+    },
+    "authorization_method": "three_identity_fields",
+    "claim_confirmation": null,
+    "handoff_note_offer": null,
+    "representative_consent": null,
+    "support_mode": "ai",
+    "anonymous_support_active": false,
+    "closing_pending": false,
+    "next_steps": {
+      "expired": true,
+      "deadline": "2026-03-18",
+      "actions": [
+        {
+          "label": "View human request",
+          "action": "handoff_status"
+        }
+      ],
+      "text": "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. Your existing request H-1AD58DB216FA4E0A is available for representative assessment. You can check this request for updates or choose to add a question; no response time is promised."
+    },
+    "identity_collected": [],
+    "identity_count": 3,
+    "refused_fields": [],
+    "verification_locked": false,
+    "memory": {
+      "hints": {
+        "case_type": {
+          "value": "healthcare",
+          "source_turn": "8287d0a7-54cd-4acc-a665-78857a9e2a77",
+          "provenance": "user_reported"
+        },
+        "status": {
+          "value": "denied",
+          "source_turn": "8287d0a7-54cd-4acc-a665-78857a9e2a77",
+          "provenance": "user_reported"
+        },
+        "month": {
+          "value": "1",
+          "source_turn": "8287d0a7-54cd-4acc-a665-78857a9e2a77",
+          "provenance": "user_reported"
+        }
+      },
+      "intents": [
+        "document_guidance"
+      ],
+      "pending_topics": [],
+      "recent_cases": [
+        "CL-2048"
+      ],
+      "case_history": {
+        "case_id": "CL-2048",
+        "turn_count": 4,
+        "discussed_topics": [
+          "denial",
+          "status",
+          "deadline",
+          "documents",
+          "alternatives"
+        ],
+        "open_questions": [],
+        "updated_at": 1794775284.228033
+      }
+    },
+    "selected_case_id": "CL-2048",
+    "candidates": [],
+    "case_picker": null,
+    "resolution_kind": "MATCH",
+    "messages": [
+      {
+        "role": "assistant",
+        "text": "Hello, I’m your claims support assistant. I can help explain a claim, its amounts, or the documents you need. First, to protect your information, please share any three: full name, date of birth, registered phone, registered email, or the last four digits of your SSN. You can tell me what you’re calling about at the same time.",
+        "at": 0
+      },
+      {
+        "role": "user",
+        "text": "I'm [NAME], DOB [DOB], email [EMAIL]. My denied healthcare claim from January.",
+        "at": 1794775283.7065873
+      },
+      {
+        "role": "assistant",
+        "text": "Identity verified, Margaret.\n\nSelected CL-2048, the healthcare claim created on 2026-01-12.\n\nThe recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nClaim CL-2048 is denied. It is a healthcare claim created on 2026-01-12.\n\nThe recorded reason for denial is that the review file did not include the pathology report and the treating provider office note.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary.",
+        "at": 1794775283.7084117
+      },
+      {
+        "role": "user",
+        "text": "Why did nobody tell me? How was I notified?",
+        "at": 1794775283.8393507
+      },
+      {
+        "role": "assistant",
+        "text": "I couldn’t identify which claim question you want answered. You can ask about status, the denial reason, documents or alternatives, amounts, deadlines, submission, or review timing. Your verified identity and claim context are saved. This offline demo recognizes limited English and Chinese examples. Try ‘How much was paid?’ or ‘需要什么材料？’.",
+        "at": 1794775283.8394547
+      },
+      {
+        "role": "user",
+        "text": "What document alternatives are available if I cannot get the report?",
+        "at": 1794775283.9541876
+      },
+      {
+        "role": "assistant",
+        "text": "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary.",
+        "at": 1794775283.9542892
+      },
+      {
+        "role": "user",
+        "text": "i need human",
+        "at": 1794775284.0902865
+      },
+      {
+        "role": "assistant",
+        "text": "Your asynchronous human handling request is H-1AD58DB216FA4E0A. A representative would follow up through your registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-1AD58DB216FA4E0A.",
+        "at": 1794775284.09036
+      },
+      {
+        "role": "system",
+        "text": "Finish & review summary",
+        "at": 1794775284.2270975
+      },
+      {
+        "role": "assistant",
+        "text": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+        "at": 1794775284.2271001
+      }
+    ],
+    "draft": {
+      "id": "offer_1f8077a24a8c419fb25f58d11b70a02e",
+      "subject": "Insurance claim consultation summary",
+      "body": "Conclusion: Claim CL-2048 remains denied. No claim decision or submission was made in this conversation.\n\nDiscussion: We discussed reason for the recorded denial, claim status, appeal deadline, missing documents, document alternatives.\n\nNext steps: The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. Your existing request H-1AD58DB216FA4E0A is available for representative assessment. You can check this request for updates or choose to add a question; no response time is promised.\n\nReferences: CL-2048, H-1AD58DB216FA4E0A.",
+      "hash": "ea53603f33a4f3225a17c52c7b3fe75c6f94deae5b05826c7834444cc8a14b63",
+      "expires_at": 1794775884.226316,
+      "paused": false,
+      "note": "",
+      "recipient": "m•••@email.com",
+      "footer": "Demo notice: this conversation copy and all email and representative handling are simulated. No real email is sent and no real representative is contacted.",
+      "recipient_label": "your registered email"
+    },
+    "email_operation": null,
+    "handoff": {
+      "id": "H-1AD58DB216FA4E0A",
+      "channel": "MOCK",
+      "status": "SIMULATED_RECORDED",
+      "created_at": 1794775284.089215,
+      "updated_at": 1794775284.089215,
+      "revision": 1,
+      "label": "Awaiting representative review (simulated)",
+      "response_time": "NOT_CONFIGURED",
+      "simulated": true,
+      "representative": null,
+      "details_locked": false,
+      "can_update": true,
+      "case_id": "CL-2048",
+      "summary": {
+        "phase": "PROCESS_CASE",
+        "verified_at_request": true,
+        "discussed": [
+          "denial",
+          "status",
+          "deadline",
+          "documents",
+          "alternatives"
+        ],
+        "open_questions": [
+          "Customer requests representative review of the unresolved discussion."
+        ],
+        "claim_description": {
+          "case_type": "healthcare",
+          "status": "denied",
+          "month": "1"
+        },
+        "discussion": [
+          "I'm [NAME], DOB [DOB], email [EMAIL]. My denied healthcare claim from January.",
+          "Identity verified, Margaret.\n\nSelected CL-2048, the healthcare claim created on 2026-01-12.\n\nThe recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nClaim CL-2048 is denied. It is a healthcare claim created on 2026-01-12.\n\nThe recorded reason for denial is that the review file did not include the pathology report and the treating provider office note.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary.",
+          "Why did nobody tell me? How was I notified?",
+          "I couldn’t identify which claim question you want answered. You can ask about status, the denial reason, documents or alternatives, amounts, deadlines, submission, or review timing. Your verified identity and claim context are saved. This offline demo recognizes limited English and Chinese examples. Try ‘How much was paid?’ or ‘需要什么材料？’.",
+          "What document alternatives are available if I cannot get the report?",
+          "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary."
+        ],
+        "verified_identity": {
+          "party_id": "P9",
+          "name": "Margaret Chen",
+          "fields": [
+            "name",
+            "dob",
+            "email"
+          ]
+        },
+        "representative_context": null,
+        "reason": "USER_REQUEST",
+        "contact_method": "Registered email or phone after identity verification",
+        "handoff_reason": "i need human"
+      },
+      "timeline": [
+        {
+          "at": 1794775284.089215,
+          "actor": "system",
+          "status": "SIMULATED_RECORDED",
+          "text": "Asynchronous request saved. In a connected service, a representative would contact you by registered email or phone; no response time is promised. This demo simulates handling and contacts nobody. Choose Continue with AI or Wait for human only."
+        }
+      ]
+    },
+    "evidence": [
+      {
+        "id": "CL-2048:status,case_type,created_at",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "status,case_type,created_at",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775283.70587
+      },
+      {
+        "id": "CL-2048:denial_reason",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "denial_reason",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775283.7058725
+      },
+      {
+        "id": "CL-2048:permitted_next_steps",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "permitted_next_steps",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794775283.9536252
+      },
+      {
+        "id": "CL-2048:documents_needed",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "documents_needed",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775283.9536326
+      },
+      {
+        "id": "CL-2048:appeal_deadline",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "appeal_deadline",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775283.9536421
+      },
+      {
+        "id": "CL-2048:expired_deadline",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "expired_deadline",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794775283.9536436
+      }
+    ],
+    "visited_phases": [
+      "VERIFY_ID",
+      "RESOLVE_INTENT",
+      "PROCESS_CASE",
+      "POST_PROCESS"
+    ],
+    "model_status": {
+      "mode": "offline",
+      "calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "status": "scripted"
+    },
+    "user_confirmed_resolved": false,
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "handoffs": [
+      {
+        "id": "H-1AD58DB216FA4E0A",
+        "channel": "MOCK",
+        "status": "SIMULATED_RECORDED",
+        "created_at": 1794775284.089215,
+        "updated_at": 1794775284.089215,
+        "revision": 1,
+        "label": "Awaiting representative review (simulated)",
+        "response_time": "NOT_CONFIGURED",
+        "simulated": true,
+        "representative": null,
+        "details_locked": false,
+        "can_update": true,
+        "case_id": "CL-2048",
+        "summary": {
+          "phase": "PROCESS_CASE",
+          "verified_at_request": true,
+          "discussed": [
+            "denial",
+            "status",
+            "deadline",
+            "documents",
+            "alternatives"
+          ],
+          "open_questions": [
+            "Customer requests representative review of the unresolved discussion."
+          ],
+          "claim_description": {
+            "case_type": "healthcare",
+            "status": "denied",
+            "month": "1"
+          },
+          "discussion": [
+            "I'm [NAME], DOB [DOB], email [EMAIL]. My denied healthcare claim from January.",
+            "Identity verified, Margaret.\n\nSelected CL-2048, the healthcare claim created on 2026-01-12.\n\nThe recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nClaim CL-2048 is denied. It is a healthcare claim created on 2026-01-12.\n\nThe recorded reason for denial is that the review file did not include the pathology report and the treating provider office note.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary.",
+            "Why did nobody tell me? How was I notified?",
+            "I couldn’t identify which claim question you want answered. You can ask about status, the denial reason, documents or alternatives, amounts, deadlines, submission, or review timing. Your verified identity and claim context are saved. This offline demo recognizes limited English and Chinese examples. Try ‘How much was paid?’ or ‘需要什么材料？’.",
+            "What document alternatives are available if I cannot get the report?",
+            "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised.\n\nThe review file is missing: pathology report, office note.\n\nThe recorded appeal deadline is 2026-03-18; it has passed as of 2026-11-15.\n\nA claims representative must check whether any options remain after that date. I cannot extend the deadline or promise that a late appeal will be accepted.\n\nWhat else would you like to clarify? You can also finish and review a summary."
+          ],
+          "verified_identity": {
+            "party_id": "P9",
+            "name": "Margaret Chen",
+            "fields": [
+              "name",
+              "dob",
+              "email"
+            ]
+          },
+          "representative_context": null,
+          "reason": "USER_REQUEST",
+          "contact_method": "Registered email or phone after identity verification",
+          "handoff_reason": "i need human"
+        },
+        "timeline": [
+          {
+            "at": 1794775284.089215,
+            "actor": "system",
+            "status": "SIMULATED_RECORDED",
+            "text": "Asynchronous request saved. In a connected service, a representative would contact you by registered email or phone; no response time is promised. This demo simulates handling and contacts nobody. Choose Continue with AI or Wait for human only."
+          }
+        ]
+      }
+    ],
+    "support_availability": {
+      "channel": "MOCK",
+      "configured": true,
+      "demo_staff_enabled": false,
+      "online_count": 0
+    },
+    "available_claims": []
+  }
+}

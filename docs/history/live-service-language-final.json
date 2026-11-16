@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Emotional refusal before verification preserves identity gate, offers non-SSN options, then uses early denied-healthcare-January context",
+    "Exact user follow-ups get distinct, grounded reason versus next-step responses",
+    "Chinese enquiry question points to built-in insurer enquiry form; tracked simulated sending is reported without re-verification",
+    "Human request creates online text-chat receipt and honestly reports unavailable/waiting status",
+    "All four phases reached; mandatory summary content provided and customer skip is honored without signing out"
+  ],
+  "turns": [
+    {
+      "question": "My name is Margaret Chen. I'm calling about my denied healthcare claim from January.",
+      "answer": "To assist with your denied healthcare claim from January, please provide two more details for identity verification—such as your date of birth, registered phone number, registered email, or the last four digits of your SSN—so I can securely access your claim information.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "model_status": {
+        "mode": "openai",
+        "calls": 4,
+        "input_tokens": 6043,
+        "output_tokens": 358,
+        "usage_reports": 4,
+        "status": "ok",
+        "latency_ms": 4516
+      }
+    },
+    {
+      "question": "I already told you who I am. This is ridiculous. Just tell me why my claim was denied. I do not want to share my SSN.",
+      "answer": "I understand your frustration, and to protect your privacy and claim details, I need to verify at least two more pieces of information from you, such as your date of birth, registered phone number, or registered email. Once verified, I can access your claim details and explain why it was denied. Please share two of these details so I can assist you further.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3148,
+        "output_tokens": 207,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3196
+      }
+    },
+    {
+      "question": "DOB is 1985-03-15. My email is margaret@email.com.",
+      "answer": "Your healthcare claim from January 2026 was denied because the pathology report and treating provider office note were missing from the review file. These documents should include specific details like patient name, specimen information, visit dates, and clinician signatures. If you want to inquire about next steps or discuss possible document submissions, you may use the 'Email enquiry' button to send a question to the insurer or continue here for more assistance.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6067,
+        "output_tokens": 346,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3228
+      }
+    },
+    {
+      "question": "please explain why",
+      "answer": "Your claim was denied because the review file did not include the required pathology report and treating provider office note. These documents must show detailed and complete information to process your claim.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6232,
+        "output_tokens": 159,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2378
+      }
+    },
+    {
+      "question": "how to resoleve it",
+      "answer": "To resolve the denial, you need to provide the missing pathology report and treating provider office note with complete, readable details. You can start by contacting your provider or lab to get these documents, then you may submit them through the member portal or follow up with a claims representative for the correct submission method. If you want, you can also send a question to the insurer via the 'Email enquiry' button here for guidance on next steps or alternatives.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6367,
+        "output_tokens": 340,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3426
+      }
+    },
+    {
+      "question": "我想写邮件给保险公司询问这个理赔的问题，在哪里写？",
+      "answer": "您可以点击页面顶部导航栏中的“Email enquiry”按钮，打开内置的邮件咨询表单。在那里填写您的主题、咨询内容以及相关理赔单，就可以向保险公司发送理赔相关的问题。",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2692,
+        "output_tokens": 177,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2193
+      }
+    },
+    {
+      "question": "What is the progress of my email enquiry E-6ADEE2947E614A41?",
+      "answer": "Your email enquiry with reference E-6ADEE2947E614A41 for claim CL-2048 has been queued for simulated sending and is awaiting a simulated official reply. Since this is a demo, no real email was sent or received yet. You can track the progress of this enquiry through the Email enquiry section in the interface.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2862,
+        "output_tokens": 209,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2801
+      }
+    },
+    {
+      "question": "i need human",
+      "answer": "Your request for a live representative is H-61635AD7125A4A60. No representative is online right now. Your request is saved; you can leave a message and check for updates. Use the current message box to message the representative, or choose Continue with AI. You can track this request in Online customer service. No response time is promised.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2893,
+        "output_tokens": 70,
+        "usage_reports": 1,
+        "latency_ms": 970,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    },
+    {
+      "question": "finish",
+      "answer": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered address (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2893,
+        "output_tokens": 70,
+        "usage_reports": 1,
+        "latency_ms": 970,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    },
+    {
+      "question": "email_skip",
+      "answer": "Email skipped. No pending email will be sent. Thank you for chatting with me.",
+      "phase": "POST_PROCESS",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2893,
+        "output_tokens": 70,
+        "usage_reports": 1,
+        "latency_ms": 970,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.5.0",
+  "response_prompt_version": "insurance-response-1.4.1",
+  "model_name": "gpt-4.1-mini"
+}

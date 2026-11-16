@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "url": "http://demo-host:8000/",
+  "errors": [],
+  "checks": [
+    "Direct server IP startup with live model and no JavaScript errors",
+    "Human-first form verification shows CL-2048",
+    "Wait-only returns system acknowledgment",
+    "Active human request fits mobile viewport"
+  ]
+}

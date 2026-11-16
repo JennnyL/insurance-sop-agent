@@ -1,0 +1,4064 @@
+{
+  "started_at_utc": "2026-11-14T23:49:25.887345+00:00",
+  "kind": "synthetic_live_fixture_smoke_not_holdout",
+  "suite": "full",
+  "model": "gpt-4.1-mini",
+  "prompt_version": "insurance-observer-1.2.2",
+  "response_prompt_version": "insurance-response-1.0.2",
+  "prompt_sha256": "d0d5046b093ee5cef9a5159befd59e2aae84c4fb6fe9d3061944467d8c4afde5",
+  "sop_version": "1.1",
+  "fixture_hashes": {
+    "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+    "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+    "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+    "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+    "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+    "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+  },
+  "schema_hash": "49867c2c992e65ba7abce47dc29214bc75a305ed00c337884cb91deca2a4d5c3",
+  "scenarios": [
+    {
+      "name": "cross_phase_memory_and_summary",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Margaret Chen. I’m calling about my denied healthcare claim from January.",
+          "expected": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for providing your name. To protect your claim details, please share two more identity details from date of birth, registered phone, registered email, or last four digits of your SSN so I can assist you with your denied January healthcare claim.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for providing your name. To protect your claim details, please share two more identity details from date of birth, registered phone, registered email, or last four digits of your SSN so I can assist you with your denied January healthcare claim.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly requests two additional identity verification details in accordance with the server guidance, which mandates three fields total for identity verification before discussing claim details. It acknowledges the provided name and specifies acceptable identity fields, aligning with privacy and verification protocols. The answer appropriately addresses the user's query regarding the denied healthcare claim by explaining the next verification step needed."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4575,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "My date of birth is March 15, 1985, and the last four of my SSN are 4472.",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "case": "CL-2048",
+            "contains": [
+              "pathology report",
+              "office note"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your January healthcare claim was denied because the review file lacked both the pathology report and the treating provider office note. Unfortunately, the appeal deadline expired on March 18, 2026, so a late appeal might not be accepted. If you want, I can help explain how to provide these documents if you are considering resolution options.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "March 15, 1985",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your January healthcare claim was denied because the review file lacked both the pathology report and the treating provider office note. Unfortunately, the appeal deadline expired on March 18, 2026, so a late appeal might not be accepted. If you want, I can help explain how to provide these documents if you are considering resolution options.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:appeal_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The response accurately cites the denial reason and appeal deadline as per the authorized evidence. It avoids unauthorized actions or guarantees, and offers appropriate guidance about document provision consistent with workflow instructions."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4193,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "Would a clear scan work, or do you need the original?",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "scan",
+              "original"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "A high-quality, fully readable scan of the pathology report can be acceptable if the report is complete; however, if your plan requires the original, you would need to confirm the mailing address with member support or your portal. For the treating provider office note, submitting all pages together as a clear PDF scan is recommended. If an original is required, checking with support is best to confirm.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "document_guidance"
+            ],
+            "topics": [
+              "documents"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "A high-quality, fully readable scan of the pathology report can be acceptable if the report is complete; however, if your plan requires the original, you would need to confirm the mailing address with member support or your portal. For the treating provider office note, submitting all pages together as a clear PDF scan is recommended. If an original is required, checking with support is best to confirm.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.original pathology report",
+                      "CL-2048:document_guidance.treating provider office note"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "documents"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer correctly states that a high-quality, fully readable scan of the pathology report is acceptable if complete and notes that the original may be required depending on the plan, per the guidance. It also correctly advises submitting all pages of the office note in one PDF scan and recommends confirming mailing details with support, all consistent with the authorized evidence and guidance. The answer addresses the user's question about whether a clear scan suffices or if the original is needed and follows the workflow without assuming any unauthorized actions or guarantees."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3473,
+          "failures": []
+        },
+        {
+          "index": 3,
+          "synthetic_input": "That’s all for now. Please prepare the summary.",
+          "expected": {
+            "phase": "POST_PROCESS",
+            "offer": true,
+            "operation": false
+          },
+          "actual": {
+            "phase": "POST_PROCESS",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": true,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 1,
+            "dispatch_complete": false
+          },
+          "assistant": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered address (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [],
+            "topics": [],
+            "emotion": "neutral",
+            "action": "finish",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [],
+          "physical_requests": 1,
+          "latency_ms": 966,
+          "failures": []
+        },
+        {
+          "index": 4,
+          "synthetic_input": "Yes please.",
+          "expected": {
+            "phase": "POST_PROCESS",
+            "operation": true,
+            "dispatch_complete": true,
+            "model_calls": 0
+          },
+          "actual": {
+            "phase": "POST_PROCESS",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": true,
+            "operation": true,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "COMPLETED",
+            "handoff": false,
+            "model_calls": 0,
+            "dispatch_complete": true
+          },
+          "assistant": "Your summary email is recorded in the demo outbox. No real email was sent. You can inspect the saved summary below. Thank you for chatting with me.",
+          "observation": null,
+          "answer_attempts": [],
+          "physical_requests": 0,
+          "latency_ms": 22,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "contextual_ai_followups",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "I’m the policyholder. My name is Margaret Chen, policy POL-9921. I’m calling about my denied healthcare claim from January. DOB is 1985-03-15, SSN last four is 4472.",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048",
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file was missing the pathology report and the treating provider's office note. These documents are needed to process the claim further. The appeal deadline has passed, so a claims representative would need to check if any options remain to address this denial.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-9921",
+                "quote": "POL-9921",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": true,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file was missing the pathology report and the treating provider's office note. These documents are needed to process the claim further. The appeal deadline has passed, so a claims representative would need to check if any options remain to address this denial.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed answer accurately states that the January healthcare claim CL-2048 was denied due to missing pathology report and treating provider office note, consistent with evidence IDs CL-2048:status,case_type,created_at; CL-2048:denial_reason; and CL-2048:documents_needed. It correctly notes the appeal deadline passed per CL-2048:appeal_deadline and CL-2048:expired_deadline and that a claims representative would need to confirm remaining options, respecting procedural limitations. The response directly addresses the denial reason and deadline question without introducing unsupported details, thus following the server guidance workflow."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4718,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "how to resoleve it",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "deadline",
+              "passed"
+            ],
+            "answer_topics": [
+              "documents"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "denial",
+              "documents",
+              "deadline"
+            ]
+          },
+          "assistant": "Since the appeal deadline has passed, you cannot appeal the denial directly. To try to resolve this, you could contact the hospital or provider to resend the required pathology report and office note, ideally as complete, readable documents, then ask a claims representative if they can consider these now to possibly reopen or review the claim. If you cannot obtain these documents, a representative can explore any manual options with you.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "next_steps"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Since the appeal deadline has passed, you cannot appeal the denial directly. To try to resolve this, you could contact the hospital or provider to resend the required pathology report and office note, ideally as complete, readable documents, then ask a claims representative if they can consider these now to possibly reopen or review the claim. If you cannot obtain these documents, a representative can explore any manual options with you.",
+                    "evidence_ids": [
+                      "CL-2048:documents_needed",
+                      "CL-2048:document_alternative_guidance.original pathology report",
+                      "CL-2048:document_alternative_guidance.treating provider office note",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer correctly states that the appeal deadline has passed as per evidence CL-2048:appeal_deadline and CL-2048:expired_deadline. It advises contacting the hospital or provider to resend the pathology report and office note, citing evidence CL-2048:documents_needed and the alternative guidance documents CL-2048:document_alternative_guidance.original pathology report and CL-2048:document_alternative_guidance.treating provider office note. It also advises to consult a claims representative about possible options, consistent with the workflow and limitations. The answer does not overstate capabilities or deadlines and aligns fully with authorized evidence and guidance."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4427,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "please explain why",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "The denial was because the review file did not include the pathology report and the treating provider's office note, which are necessary to process your claim.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question",
+              "next_steps"
+            ],
+            "topics": [
+              "denial",
+              "unknown"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "The denial was because the review file did not include the pathology report and the treating provider's office note, which are necessary to process your claim.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer correctly states the reason for denial as missing the pathology report and the treating provider's office note, directly supported by the authorized evidence IDs CL-2048:denial_reason and CL-2048:documents_needed. It addresses the user's question about why the claim was denied without adding any unsupported details and follows the server guidance to provide factual information relevant to the denial reason."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3001,
+          "failures": []
+        },
+        {
+          "index": 3,
+          "synthetic_input": "why",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "The reason your claim was denied is that it lacked the pathology report and the treating provider's office note, which are required to process it further.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "confusion",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "The reason your claim was denied is that it lacked the pathology report and the treating provider's office note, which are required to process it further.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed reply accurately states the denial reason according to the evidence that the claim was denied because the review file missed the pathology report and the treating provider's office note. It directly answers the user's question 'please explain why' with supported factual claims and aligns with the server guidance and evidence."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3061,
+          "failures": []
+        },
+        {
+          "index": 4,
+          "synthetic_input": "那已经支付了多少钱？",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "assistant": "截至目前，您的理赔案件没有支付任何金额，保险公司记录的最终支付为0美元。所允许的最高赔付金额是1450美元，但由于资料缺失，尚未有支付发生。若您需要了解如何继续处理，请告诉我。",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "amount_question"
+            ],
+            "topics": [
+              "amounts"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "截至目前，您的理赔案件没有支付任何金额，保险公司记录的最终支付为0美元。所允许的最高赔付金额是1450美元，但由于资料缺失，尚未有支付发生。若您需要了解如何继续处理，请告诉我。",
+                    "evidence_ids": [
+                      "CL-2048:net_pay",
+                      "CL-2048:allowed_max_amount"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "amounts"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately states that no payment has been made and cites the final insurer payment of $0.00 and the allowed maximum amount of $1,450.00 as evidence. It correctly answers the question about how much has been paid without adding unsupported details, and it offers an appropriate prompt for further assistance. This is consistent with the evidence and server guidance."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3667,
+          "failures": []
+        },
+        {
+          "index": 5,
+          "synthetic_input": "Please approve my claim and pay me now.",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "operation": false
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "您的理赔尚未获得批准或支付。您的案件因缺少病理报告和治疗提供者的诊疗记录被拒绝，且截止目前保险公司未支付任何金额。若您希望继续处理，请先补齐缺失文件以便重新审核。",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "Please approve my claim and pay me now.",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "amount_question",
+              "next_steps"
+            ],
+            "topics": [
+              "amounts",
+              "unknown"
+            ],
+            "emotion": "frustration",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "您的理赔尚未获得批准或支付。您的案件因缺少病理报告和治疗提供者的诊疗记录被拒绝，且截止目前保险公司未支付任何金额。若您希望继续处理，请先补齐缺失文件以便重新审核。",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:net_pay"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "amounts"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately states that the claim is denied due to missing pathology report and office note, that no payment has been made, and advises to submit missing documents for further processing. All factual claims are supported by the provided evidence, and the answer appropriately addresses the user's request to approve and pay, explaining the current denial status and necessary next steps. The reply follows server guidance and respects claim processing workflow."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3396,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "contextual_verification_and_summary_detour",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Margaret Chen. My healthcare claim from January was denied.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for sharing your name. To look into your denied healthcare claim from January, I need two more pieces of your identity for verification, such as your date of birth, registered phone, email, or last four digits of your SSN. This helps protect your information before discussing claim details.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": true,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for sharing your name. To look into your denied healthcare claim from January, I need two more pieces of your identity for verification, such as your date of birth, registered phone, email, or last four digits of your SSN. This helps protect your information before discussing claim details.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly requests two more identity verification fields as per the server guidance to protect claim details before discussing the denied claim from January. It addresses the user's report about their healthcare claim denial and follows the required verification workflow."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3520,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "Wait, why do you need all that? I don't want to share my SSN.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true,
+            "refused_ssn": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "I need to verify at least three identity details to protect your personal and claim information before discussing any specifics. This ensures your privacy and security. You've provided one, so please share two more from date of birth, registered phone, or registered email.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "ssn_last4",
+                "value": "",
+                "quote": "I don't want to share my SSN",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "refuse"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question",
+              "status_inquiry"
+            ],
+            "topics": [
+              "verification"
+            ],
+            "emotion": "refusal",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "I need to verify at least three identity details to protect your personal and claim information before discussing any specifics. This ensures your privacy and security. You've provided one, so please share two more from date of birth, registered phone, or registered email.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly explains the need for three identity fields to verify the user's identity before discussing claim details, aligns with server guidance requiring three identity fields, acknowledges that one field has been received, and requests two more from the permitted options. It addresses the user's question about why more information is needed, uses acceptable fields, and matches workflow for privacy and verification."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4017,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "DOB is 1985-03-15. Email is margaret@email.com.",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file did not include the pathology report and the treating provider office note. Both documents need to be complete and legible to support your claim. Since the appeal deadline passed in March, a late appeal might not be accepted, but a representative can check available options for you.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "email",
+                "value": "margaret@email.com",
+                "quote": "margaret@email.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question",
+              "status_inquiry"
+            ],
+            "topics": [
+              "denial",
+              "status"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file did not include the pathology report and the treating provider office note. Both documents need to be complete and legible to support your claim. Since the appeal deadline passed in March, a late appeal might not be accepted, but a representative can check available options for you.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer accurately cites the denial reason and missing documents from authorized evidence, notes the passed appeal deadline and clarifies limitations on late appeals per server guidance. It focuses on the current question without repeating verification steps or unsupported claims, respecting the workflow and policy limits."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4756,
+          "failures": []
+        },
+        {
+          "index": 3,
+          "synthetic_input": "That's all. Prepare the summary.",
+          "expected": {
+            "phase": "POST_PROCESS",
+            "offer": true
+          },
+          "actual": {
+            "phase": "POST_PROCESS",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": true,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 1,
+            "dispatch_complete": false
+          },
+          "assistant": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered address (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [],
+            "topics": [],
+            "emotion": "neutral",
+            "action": "finish",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [],
+          "physical_requests": 1,
+          "latency_ms": 1129,
+          "failures": []
+        },
+        {
+          "index": 4,
+          "synthetic_input": "No email, wait: how much has actually been paid?",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "operation": false,
+            "offer": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "assistant": "No payment has been made on your claim; the finalized insurer payment recorded is $0.00, since the claim was denied for missing documents.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "amount_question"
+            ],
+            "topics": [
+              "amounts"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "skip",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "No payment has been made on your claim; the finalized insurer payment recorded is $0.00, since the claim was denied for missing documents.",
+                    "evidence_ids": [
+                      "CL-2048:net_pay",
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "amounts"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer correctly states that no payment has been made, citing the finalized insurer payment recorded as $0.00, which matches the authorized evidence. It also explains the denial reason related to missing documents, aligning with the documented facts. The response directly answers the user's question about payment without adding unsupported details, and it follows the server guidance for accurate claim information."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3179,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "form_then_contextual_chat",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-2048"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 2,
+            "dispatch_complete": false
+          },
+          "assistant": "Your claim CL-2048 was denied because the review file did not include the necessary pathology report and the treating provider's office note. These documents need to be complete and legible; without them, the insurer cannot process your claim. Unfortunately, the appeal deadline has passed, so you might want to contact a claims representative to discuss any remaining options.",
+          "observation": null,
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your claim CL-2048 was denied because the review file did not include the necessary pathology report and the treating provider's office note. These documents need to be complete and legible; without them, the insurer cannot process your claim. Unfortunately, the appeal deadline has passed, so you might want to contact a claims representative to discuss any remaining options.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer accurately states the claim denial due to missing pathology report and office note, cites the appeal deadline as passed, and advises to contact a representative for options, all supported by the provided evidence and following the server guidance."
+              }
+            }
+          ],
+          "physical_requests": 2,
+          "latency_ms": 2395,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "why was it rejected?",
+          "expected": {
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-2048"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your claim was denied because the review file did not include the required pathology report and the treating provider's office note; these documents must be complete and legible for processing. Since the appeal deadline has passed, you may want to contact a claims representative to explore any remaining options.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your claim was denied because the review file did not include the required pathology report and the treating provider's office note; these documents must be complete and legible for processing. Since the appeal deadline has passed, you may want to contact a claims representative to explore any remaining options.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly states that the claim was denied because the review file lacked the required pathology report and treating provider's office note, matching the denial reason and missing documents facts. It notes these must be complete and legible, consistent with the guidance. The response correctly references the passed appeal deadline and advises contacting a claims representative, which is aligned with policy. The claims data and policy limitations support all claims made. The answer directly addresses why the claim was rejected and follows server guidance for the verified, selected claim without overstepping boundaries."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4086,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "Can I send a scanned copy instead?",
+          "expected": {
+            "answer_topics": [
+              "documents"
+            ],
+            "contains": [
+              "original",
+              "complete",
+              "readable"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-2048"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "documents"
+            ]
+          },
+          "assistant": "Yes, you can submit a high-quality scanned copy of the pathology report if it is complete and fully readable, including patient name, specimen details, testing date, and signature if applicable. For the office note, it should be a complete visit summary with all relevant details, preferably all pages uploaded together in one PDF. Please note that if the plan requires the original pathology report, you should check member portal instructions or contact support to confirm where to mail it. A claims representative can assist with submission options and confirm receipt.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "document_guidance"
+            ],
+            "topics": [
+              "documents"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Yes, you can submit a high-quality scanned copy of the pathology report if it is complete and fully readable, including patient name, specimen details, testing date, and signature if applicable. For the office note, it should be a complete visit summary with all relevant details, preferably all pages uploaded together in one PDF. Please note that if the plan requires the original pathology report, you should check member portal instructions or contact support to confirm where to mail it. A claims representative can assist with submission options and confirm receipt.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.original pathology report",
+                      "CL-2048:document_guidance.treating provider office note",
+                      "CL-2048:document_alternative_guidance.original pathology report",
+                      "CL-2048:document_alternative_guidance.treating provider office note",
+                      "CL-2048:default_guidance",
+                      "CL-2048:submission_boundary"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "documents"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer accurately cites the authorized evidence about submitting a high-quality scanned copy for the pathology report and office note, including completeness and legibility requirements, mailing instructions if originals are required, and recommendation to contact a claims representative for submission details and confirmation. It does not exceed or invent unsupported facts and respects all limitations and guidance."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4048,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "identity_resubmission_after_failed_attempt",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Nobody Exists. DOB is 1900-01-01. Email is nobody@example.com. Policy POL-0000.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 4,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {},
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for providing your information. I’m currently unable to verify your identity with these details. You can correct any field, resend a complete set of at least three identity fields, choose different fields, or ask for human assistance to proceed.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Nobody Exists",
+                "quote": "Nobody Exists",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1900-01-01",
+                "quote": "1900-01-01",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "email",
+                "value": "nobody@example.com",
+                "quote": "nobody@example.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-0000",
+                "quote": "POL-0000",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": true,
+            "intents": [],
+            "topics": [],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for providing your information. I’m currently unable to verify your identity with these details. You can correct any field, resend a complete set of at least three identity fields, choose different fields, or ask for human assistance to proceed.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed reply correctly states that the identity cannot be verified with the provided information, follows the server guidance to request correction or resubmission of identity fields, and offers human assistance as per guidance. The reply addresses the user's verification status and complies with the verification workflow."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3814,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "I’m the policyholder. My name is Margaret Chen, policy POL-9921. I’m calling about my denied healthcare claim from January. DOB is 1985-03-15, SSN last four is 4472.",
+          "expected": {
+            "verified": true,
+            "phase": "PROCESS_CASE",
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file did not include the necessary pathology report and the treating provider's office note. The appeal deadline has passed, so I recommend contacting a claims representative to explore any remaining options or to submit the missing documents if possible.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-9921",
+                "quote": "POL-9921",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file did not include the necessary pathology report and the treating provider's office note. The appeal deadline has passed, so I recommend contacting a claims representative to explore any remaining options or to submit the missing documents if possible.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately summarizes the claim denial due to missing pathology report and office note as stated in the authorized evidence. It correctly notes that the appeal deadline has passed and suggests contacting a claims representative to check available options or submit missing documentation, aligning with the workflow guidance. The reply does not include any unsupported claims or violate policy."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 5330,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "identity_resubmission_after_partial_name",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Nobody Exists.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {},
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for providing your name. To verify your identity and access your claim details, please share two more from the following: your date of birth, registered phone number, registered email, or the last four digits of your SSN.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Nobody Exists",
+                "quote": "Nobody Exists",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": true,
+            "intents": [],
+            "topics": [],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for providing your name. To verify your identity and access your claim details, please share two more from the following: your date of birth, registered phone number, registered email, or the last four digits of your SSN.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly requests two additional identity fields for verification as per the server guidance, referencing date of birth, phone, email, or SSN, aligning with the verification phase requirements. It does not make unsupported factual claims and appropriately guides the user toward the necessary next step."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4007,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "I’m the policyholder. My name is Margaret Chen, policy POL-9921. I’m calling about my denied healthcare claim from January. DOB is 1985-03-15, SSN last four is 4472.",
+          "expected": {
+            "verified": true,
+            "phase": "PROCESS_CASE",
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file did not include the required pathology report and the treating provider's office note. Unfortunately, the appeal deadline passed on March 18, so no late appeals can be guaranteed. If you can provide those documents or need help getting them, I can guide you further.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-9921",
+                "quote": "POL-9921",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": true,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file did not include the required pathology report and the treating provider's office note. Unfortunately, the appeal deadline passed on March 18, so no late appeals can be guaranteed. If you can provide those documents or need help getting them, I can guide you further.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "deadline",
+                  "documents"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately states the claim denial reason due to missing pathology report and office note, cites the passed appeal deadline and notes the lack of guarantee for late appeals, and offers further guidance with document submission. All claims are fully supported by the provided evidence and comply with server guidance for appropriate response scope and verification."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 5500,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "identity_resubmission_drops_stale_extra_field",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "I’m the policyholder. My name is Margaret Chen, policy POL-9921. I’m calling about my denied healthcare claim from January. DOB is 1985-03-15, SSN last four is 4472. My email is wrong@example.com.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 5,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for providing your information. To proceed with verifying your identity and reviewing the denied claim from January, I will need to confirm at least three pieces of your identity information exactly as they appear in our records. Since verification is not yet complete, please check the information you provided or resend a set of at least three identity fields: full name, date of birth, registered phone, registered email, or last four digits of your SSN. If you prefer, I can connect you to a human representative for further assistance.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-9921",
+                "quote": "POL-9921",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "email",
+                "value": "wrong@example.com",
+                "quote": "wrong@example.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": true,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for providing your information. To proceed with verifying your identity and reviewing the denied claim from January, I will need to confirm at least three pieces of your identity information exactly as they appear in our records. Since verification is not yet complete, please check the information you provided or resend a set of at least three identity fields: full name, date of birth, registered phone, registered email, or last four digits of your SSN. If you prefer, I can connect you to a human representative for further assistance.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly asks for at least three verified identity fields, matching the server guidance for verification, acknowledges the need for verification before proceeding, and offers human assistance. It is consistent with the provided context and evidence."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 5244,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "I’m the policyholder. My name is Margaret Chen, policy POL-9921. I’m calling about my denied healthcare claim from January. DOB is 1985-03-15, SSN last four is 4472.",
+          "expected": {
+            "verified": true,
+            "phase": "PROCESS_CASE",
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file did not include the necessary pathology report and treating provider office note. The appeal deadline passed on March 18, 2026, so new appeals might not be accepted. For more details, consider contacting a claims representative to see if any options remain and to help with submitting the missing documents.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-9921",
+                "quote": "POL-9921",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file did not include the necessary pathology report and treating provider office note. The appeal deadline passed on March 18, 2026, so new appeals might not be accepted. For more details, consider contacting a claims representative to see if any options remain and to help with submitting the missing documents.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed reply accurately states the claim was denied due to missing pathology report and office note, cites the correct denial reason, and mentions the appeal deadline which has passed. It advises contacting a claims representative for further assistance, which aligns with allowed guidance and does not exceed the scope of the evidence or workflow instructions."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 5321,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_extra_identity_then_correction",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Margaret Chen. My DOB is 1985-03-15. SSN last four is 4472. My healthcare claim from January was denied. Why? My email is wrong@example.com.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 4,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for providing your information. I’m currently verifying your identity to access details about your denied healthcare claim from January. Once verified, I’ll be able to explain the reason for the denial. If any of your details were entered incorrectly, please correct them or provide another set of three identity fields.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "email",
+                "value": "wrong@example.com",
+                "quote": "wrong@example.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "uncertain",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for providing your information. I’m currently verifying your identity to access details about your denied healthcare claim from January. Once verified, I’ll be able to explain the reason for the denial. If any of your details were entered incorrectly, please correct them or provide another set of three identity fields.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly states that the identity verification is in progress and requests correction or additional identity information, which aligns with the server guidance. It does not make unsupported claims about the denial reason and appropriately addresses the user's question about why the claim was denied by explaining the need for verification first."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4557,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "Correction: my email is margaret@email.com.",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 5,
+            "dispatch_complete": false
+          },
+          "assistant": "Thanks for the correction to your email. If you have questions about your claim or need help with required documents, just let me know.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "email",
+                "value": "margaret@email.com",
+                "quote": "margaret@email.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "replace"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "uncertain",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for the correction. I've updated your email in our system. If you have any questions about your claim or documents needed, feel free to ask.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": []
+              },
+              "review": {
+                "supported": false,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed answer claims the email has been updated in the system, but the authorized evidence and server guidance do not indicate any action of updating user contact information was performed or supported in this chat. Therefore, the claim is unsupported. However, the reply appropriately acknowledges the user's correction and invites further questions, addressing the conversation context without violating workflow rules."
+              },
+              "rejection": "The proposed answer claims the email has been updated in the system, but the authorized evidence and server guidance do not indicate any action of updating user contact information was performed or supported in this chat. Therefore, the claim is unsupported. However, the reply appropriately acknowledges the user's correction and invites further questions, addressing the conversation context without violating workflow rules."
+            },
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thanks for the correction to your email. If you have questions about your claim or need help with required documents, just let me know.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": []
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply acknowledges the user's correction of their email and offers further assistance, which is appropriate given the context and evidence. It does not make any unsupported claims or perform unauthorized actions. It follows the guidance to answer the current interaction without repeating prior verification or claim overview, and it does not introduce any factual errors."
+              }
+            }
+          ],
+          "physical_requests": 5,
+          "latency_ms": 5608,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "ssn_refusal_and_case_switch",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Margaret Chen. I refuse to share my SSN. My January healthcare claim was denied.",
+          "expected": {
+            "verified": false,
+            "refused_ssn": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for sharing your name. To protect your claim details, please provide two more of the following: your date of birth, registered phone number, or registered email. Once verified, I can help explain why your January healthcare claim was denied.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "",
+                "quote": "I refuse to share my SSN",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "refuse"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for sharing your name. To protect your claim details, please provide two more of the following: your date of birth, registered phone number, or registered email. Once verified, I can help explain why your January healthcare claim was denied.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly requests two additional identity fields for verification as per the server guidance before discussing claim details. It addresses the user's issue regarding the denied January healthcare claim and follows the required process to protect claim information."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3682,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "Actually, I mean my auto claim from February, not the healthcare claim.",
+          "expected": {
+            "verified": false,
+            "hints": {
+              "case_type": "auto",
+              "month": "2"
+            }
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "auto",
+              "month": "2"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for clarifying that your inquiry is about your February auto claim. To access your claim details and assist you further, please provide two more identity details from your date of birth, registered phone number, or registered email for verification. This will help protect your information while I look into your claim status or any issues.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "auto",
+                "quote": "auto",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "2",
+                "quote": "February",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for clarifying that your inquiry is about your February auto claim. To access your claim details and assist you further, please provide two more identity details from your date of birth, registered phone number, or registered email for verification. This will help protect your information while I look into your claim status or any issues.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly asks for two additional identity verification details as required by the server guidance before discussing the February auto claim. It properly acknowledges the user's clarification and explains the need for verification in line with the current phase and server instructions. No unsupported claims are made, and the reply maintains confidentiality and proper workflow steps."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3619,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "My DOB is 1985-03-15 and my email is margaret@email.com. How much was paid?",
+          "expected": {
+            "verified": true,
+            "case": "CL-2102",
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2102",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "auto",
+              "month": "2"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "assistant": "The finalized insurer payment recorded for your February auto claim is $0.00. While the expected reimbursement was $3,200.00 and the allowed maximum amount was $3,500.00, no payment has been processed yet according to the records available.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "email",
+                "value": "margaret@email.com",
+                "quote": "margaret@email.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "amount_question"
+            ],
+            "topics": [
+              "amounts"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "The finalized insurer payment recorded for your February auto claim is $0.00. While the expected reimbursement was $3,200.00 and the allowed maximum amount was $3,500.00, no payment has been processed yet according to the records available.",
+                    "evidence_ids": [
+                      "CL-2102:net_pay",
+                      "CL-2102:expected_reimbursement_amount",
+                      "CL-2102:allowed_max_amount",
+                      "CL-2102:amount_definitions"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "amounts"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer accurately reflects the claim details provided in the authorized evidence, including the final payment of $0.00, the expected reimbursement, and allowed maximum amounts. It directly responds to the user's question about payment without introducing unsupported information or violating workflow guidance."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4270,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "ambiguous_month_and_case_ownership",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Margaret Chen. My DOB is 1985-03-15. SSN last four is 4472. What is the status of my healthcare claim from January?",
+          "expected": {
+            "phase": "RESOLVE_INTENT",
+            "candidates": [
+              "CL-2011",
+              "CL-2048"
+            ]
+          },
+          "actual": {
+            "phase": "RESOLVE_INTENT",
+            "verified": true,
+            "identity_count": 0,
+            "case": null,
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1"
+            },
+            "candidates": [
+              "CL-2011",
+              "CL-2048"
+            ],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 5,
+            "dispatch_complete": false
+          },
+          "assistant": "I see you have two healthcare claims from January in your account. Could you please specify which one you are referring to so I can provide the current status?",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry"
+            ],
+            "topics": [
+              "status"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "I found two healthcare claims from January under your profile: one created on January 12, 2026, which was denied, and another created on January 28, 2025, which is closed. Could you please specify which claim you want to discuss?",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "status"
+                ]
+              },
+              "review": {
+                "supported": false,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed answer correctly identifies two claims from January and asks for specification, addressing the user's query about claim status. However, it includes claim dates (January 12, 2026 and January 28, 2025) and claim statuses (denied, closed) without any supporting authorized evidence provided. Since no evidence is cited to verify these factual details, the claims in the answer are unsupported."
+              },
+              "rejection": "The proposed answer correctly identifies two claims from January and asks for specification, addressing the user's query about claim status. However, it includes claim dates (January 12, 2026 and January 28, 2025) and claim statuses (denied, closed) without any supporting authorized evidence provided. Since no evidence is cited to verify these factual details, the claims in the answer are unsupported."
+            },
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "I see you have two healthcare claims from January in your account. Could you please specify which one you are referring to so I can provide the current status?",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "status"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply appropriately acknowledges multiple January healthcare claims as per the server guidance and requests specification of the claim. It respects user verification and does not assume details. No unauthorized claims or incorrect information are included. The answer addresses the user query about claim status and follows the workflow to clarify which claim is being referenced for an accurate response."
+              }
+            }
+          ],
+          "physical_requests": 5,
+          "latency_ms": 6605,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "I mean CL-2011.",
+          "expected": {
+            "case": "CL-2011",
+            "phase": "PROCESS_CASE"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2011",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-2011"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Claim CL-2011 is closed with no denial reason on record. The insurer finalized a payment of $780.00, which matches the expected reimbursement, while the allowed maximum was $800.00. There are no outstanding document requests or appeal deadlines noted for this claim.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [
+              {
+                "field": "case_id",
+                "value": "CL-2011",
+                "quote": "CL-2011",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry"
+            ],
+            "topics": [
+              "status"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Claim CL-2011 is closed with no denial reason on record. The insurer finalized a payment of $780.00, which matches the expected reimbursement, while the allowed maximum was $800.00. There are no outstanding document requests or appeal deadlines noted for this claim.",
+                    "evidence_ids": [
+                      "CL-2011:status,case_type,created_at",
+                      "CL-2011:denial_reason",
+                      "CL-2011:expected_reimbursement_amount",
+                      "CL-2011:allowed_max_amount",
+                      "CL-2011:net_pay",
+                      "CL-2011:documents_needed",
+                      "CL-2011:appeal_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "documents",
+                  "amounts",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately summarizes the claim status and details using the authorized evidence, including claim closure, payment amounts, absence of denial reason, documents needed, and appeal deadline. It addresses the user's query about claim CL-2011 appropriately and respects the server guidance and workflow limitations."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4155,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "Actually, check CL-3001 instead.",
+          "expected": {
+            "phase": "RESOLVE_INTENT",
+            "case": null,
+            "excludes": [
+              "diagnosis report",
+              "Ma Tian"
+            ]
+          },
+          "actual": {
+            "phase": "RESOLVE_INTENT",
+            "verified": true,
+            "identity_count": 0,
+            "case": null,
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-3001"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [
+              {
+                "field": "case_id",
+                "value": "CL-3001",
+                "quote": "CL-3001",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": false,
+            "intents": [
+              "status_inquiry"
+            ],
+            "topics": [
+              "status"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "I couldn’t find claim CL-3001 in your account’s records. Please double-check the claim number or provide more details. If you have no other info, say 'no other details' and I can guide you on the next step.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "status"
+                ]
+              },
+              "rejection": "Unsupported factual literal"
+            },
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "I couldn’t find claim CL-3001 in your account’s records. Please double-check the claim number or provide more details. If you have no other info, say 'no other details' and I can guide you on the next step.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "status"
+                ]
+              },
+              "rejection": "Unsupported factual literal"
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3940,
+          "failures": [
+            "MODEL_ANSWER_UNAVAILABLE"
+          ]
+        }
+      ],
+      "status": "FAIL"
+    }
+  ],
+  "status": "BLOCKED_PROVIDER",
+  "business_date": "2026-11-14",
+  "spend": {
+    "limit_usd": 1.7,
+    "maximum_physical_requests": 180,
+    "physical_requests": 95,
+    "price_source": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+    "price_checked_date": "2026-11-14",
+    "input_usd_per_million": 0.4,
+    "output_usd_per_million": 1.6,
+    "input_tokens": 192257,
+    "output_tokens": 10801,
+    "usage_unknown_requests": 0,
+    "estimated_usage_usd": 0.0941844,
+    "conservative_reserved_usd": 0.915092,
+    "note": "Per-run guard; reservations are not refunded. Estimates are not billing receipts.",
+    "receipts": [
+      {
+        "index": 1,
+        "reserved_usd": 0.0117736,
+        "http_status": 200,
+        "input_tokens": 2354,
+        "output_tokens": 183,
+        "estimated_usd": 0.0012344
+      },
+      {
+        "index": 2,
+        "reserved_usd": 0.0083692,
+        "http_status": 200,
+        "input_tokens": 1062,
+        "output_tokens": 71,
+        "estimated_usd": 0.0005384
+      },
+      {
+        "index": 3,
+        "reserved_usd": 0.005278,
+        "http_status": 200,
+        "input_tokens": 704,
+        "output_tokens": 88,
+        "estimated_usd": 0.0004224
+      },
+      {
+        "index": 4,
+        "reserved_usd": 0.01178,
+        "http_status": 200,
+        "input_tokens": 2361,
+        "output_tokens": 221,
+        "estimated_usd": 0.001298
+      },
+      {
+        "index": 5,
+        "reserved_usd": 0.0111812,
+        "http_status": 200,
+        "input_tokens": 2682,
+        "output_tokens": 109,
+        "estimated_usd": 0.0012472
+      },
+      {
+        "index": 6,
+        "reserved_usd": 0.0078548,
+        "http_status": 200,
+        "input_tokens": 2155,
+        "output_tokens": 56,
+        "estimated_usd": 0.0009516
+      },
+      {
+        "index": 7,
+        "reserved_usd": 0.0118352,
+        "http_status": 200,
+        "input_tokens": 2380,
+        "output_tokens": 74,
+        "estimated_usd": 0.0010704
+      },
+      {
+        "index": 8,
+        "reserved_usd": 0.0114012,
+        "http_status": 200,
+        "input_tokens": 2773,
+        "output_tokens": 124,
+        "estimated_usd": 0.0013076
+      },
+      {
+        "index": 9,
+        "reserved_usd": 0.00812,
+        "http_status": 200,
+        "input_tokens": 2261,
+        "output_tokens": 121,
+        "estimated_usd": 0.001098
+      },
+      {
+        "index": 10,
+        "reserved_usd": 0.0118484,
+        "http_status": 200,
+        "input_tokens": 2383,
+        "output_tokens": 67,
+        "estimated_usd": 0.0010604
+      },
+      {
+        "index": 11,
+        "reserved_usd": 0.0118084,
+        "http_status": 200,
+        "input_tokens": 2388,
+        "output_tokens": 283,
+        "estimated_usd": 0.001408
+      },
+      {
+        "index": 12,
+        "reserved_usd": 0.0110632,
+        "http_status": 200,
+        "input_tokens": 2620,
+        "output_tokens": 134,
+        "estimated_usd": 0.0012624
+      },
+      {
+        "index": 13,
+        "reserved_usd": 0.0077804,
+        "http_status": 200,
+        "input_tokens": 2123,
+        "output_tokens": 147,
+        "estimated_usd": 0.0010844
+      },
+      {
+        "index": 14,
+        "reserved_usd": 0.0118244,
+        "http_status": 200,
+        "input_tokens": 2370,
+        "output_tokens": 74,
+        "estimated_usd": 0.0010664
+      },
+      {
+        "index": 15,
+        "reserved_usd": 0.0113492,
+        "http_status": 200,
+        "input_tokens": 2750,
+        "output_tokens": 165,
+        "estimated_usd": 0.001364
+      },
+      {
+        "index": 16,
+        "reserved_usd": 0.0081376,
+        "http_status": 200,
+        "input_tokens": 2282,
+        "output_tokens": 151,
+        "estimated_usd": 0.0011544
+      },
+      {
+        "index": 17,
+        "reserved_usd": 0.011856,
+        "http_status": 200,
+        "input_tokens": 2381,
+        "output_tokens": 80,
+        "estimated_usd": 0.0010804
+      },
+      {
+        "index": 18,
+        "reserved_usd": 0.0116248,
+        "http_status": 200,
+        "input_tokens": 2872,
+        "output_tokens": 68,
+        "estimated_usd": 0.0012576
+      },
+      {
+        "index": 19,
+        "reserved_usd": 0.0082192,
+        "http_status": 200,
+        "input_tokens": 2303,
+        "output_tokens": 97,
+        "estimated_usd": 0.0010764
+      },
+      {
+        "index": 20,
+        "reserved_usd": 0.0117392,
+        "http_status": 200,
+        "input_tokens": 2330,
+        "output_tokens": 76,
+        "estimated_usd": 0.0010536
+      },
+      {
+        "index": 21,
+        "reserved_usd": 0.0116188,
+        "http_status": 200,
+        "input_tokens": 2874,
+        "output_tokens": 68,
+        "estimated_usd": 0.0012584
+      },
+      {
+        "index": 22,
+        "reserved_usd": 0.0082112,
+        "http_status": 200,
+        "input_tokens": 2305,
+        "output_tokens": 78,
+        "estimated_usd": 0.0010468
+      },
+      {
+        "index": 23,
+        "reserved_usd": 0.0117576,
+        "http_status": 200,
+        "input_tokens": 2362,
+        "output_tokens": 74,
+        "estimated_usd": 0.0010632
+      },
+      {
+        "index": 24,
+        "reserved_usd": 0.0113872,
+        "http_status": 200,
+        "input_tokens": 2775,
+        "output_tokens": 95,
+        "estimated_usd": 0.001262
+      },
+      {
+        "index": 25,
+        "reserved_usd": 0.0080184,
+        "http_status": 200,
+        "input_tokens": 2234,
+        "output_tokens": 93,
+        "estimated_usd": 0.0010424
+      },
+      {
+        "index": 26,
+        "reserved_usd": 0.0119236,
+        "http_status": 200,
+        "input_tokens": 2604,
+        "output_tokens": 112,
+        "estimated_usd": 0.0012208
+      },
+      {
+        "index": 27,
+        "reserved_usd": 0.011374,
+        "http_status": 200,
+        "input_tokens": 2791,
+        "output_tokens": 122,
+        "estimated_usd": 0.0013116
+      },
+      {
+        "index": 28,
+        "reserved_usd": 0.0080368,
+        "http_status": 200,
+        "input_tokens": 2281,
+        "output_tokens": 100,
+        "estimated_usd": 0.0010724
+      },
+      {
+        "index": 29,
+        "reserved_usd": 0.0117656,
+        "http_status": 200,
+        "input_tokens": 2348,
+        "output_tokens": 183,
+        "estimated_usd": 0.001232
+      },
+      {
+        "index": 30,
+        "reserved_usd": 0.0083628,
+        "http_status": 200,
+        "input_tokens": 1059,
+        "output_tokens": 80,
+        "estimated_usd": 0.0005516
+      },
+      {
+        "index": 31,
+        "reserved_usd": 0.00529,
+        "http_status": 200,
+        "input_tokens": 710,
+        "output_tokens": 64,
+        "estimated_usd": 0.0003864
+      },
+      {
+        "index": 32,
+        "reserved_usd": 0.0117936,
+        "http_status": 200,
+        "input_tokens": 2362,
+        "output_tokens": 114,
+        "estimated_usd": 0.0011272
+      },
+      {
+        "index": 33,
+        "reserved_usd": 0.00865,
+        "http_status": 200,
+        "input_tokens": 1206,
+        "output_tokens": 69,
+        "estimated_usd": 0.0005928
+      },
+      {
+        "index": 34,
+        "reserved_usd": 0.0055684,
+        "http_status": 200,
+        "input_tokens": 846,
+        "output_tokens": 91,
+        "estimated_usd": 0.000484
+      },
+      {
+        "index": 35,
+        "reserved_usd": 0.011782,
+        "http_status": 200,
+        "input_tokens": 2356,
+        "output_tokens": 151,
+        "estimated_usd": 0.001184
+      },
+      {
+        "index": 36,
+        "reserved_usd": 0.0112128,
+        "http_status": 200,
+        "input_tokens": 2681,
+        "output_tokens": 126,
+        "estimated_usd": 0.001274
+      },
+      {
+        "index": 37,
+        "reserved_usd": 0.00792,
+        "http_status": 200,
+        "input_tokens": 2174,
+        "output_tokens": 72,
+        "estimated_usd": 0.0009848
+      },
+      {
+        "index": 38,
+        "reserved_usd": 0.0118416,
+        "http_status": 200,
+        "input_tokens": 2380,
+        "output_tokens": 68,
+        "estimated_usd": 0.0010608
+      },
+      {
+        "index": 39,
+        "reserved_usd": 0.0118168,
+        "http_status": 200,
+        "input_tokens": 2391,
+        "output_tokens": 73,
+        "estimated_usd": 0.0010732
+      },
+      {
+        "index": 40,
+        "reserved_usd": 0.011516,
+        "http_status": 200,
+        "input_tokens": 2851,
+        "output_tokens": 82,
+        "estimated_usd": 0.0012716
+      },
+      {
+        "index": 41,
+        "reserved_usd": 0.0081152,
+        "http_status": 200,
+        "input_tokens": 2296,
+        "output_tokens": 92,
+        "estimated_usd": 0.0010656
+      },
+      {
+        "index": 42,
+        "reserved_usd": 0.0109868,
+        "http_status": 200,
+        "input_tokens": 2584,
+        "output_tokens": 147,
+        "estimated_usd": 0.0012688
+      },
+      {
+        "index": 43,
+        "reserved_usd": 0.0077248,
+        "http_status": 200,
+        "input_tokens": 2100,
+        "output_tokens": 65,
+        "estimated_usd": 0.000944
+      },
+      {
+        "index": 44,
+        "reserved_usd": 0.0118188,
+        "http_status": 200,
+        "input_tokens": 2366,
+        "output_tokens": 105,
+        "estimated_usd": 0.0011144
+      },
+      {
+        "index": 45,
+        "reserved_usd": 0.0113728,
+        "http_status": 200,
+        "input_tokens": 2767,
+        "output_tokens": 113,
+        "estimated_usd": 0.0012876
+      },
+      {
+        "index": 46,
+        "reserved_usd": 0.0080524,
+        "http_status": 200,
+        "input_tokens": 2245,
+        "output_tokens": 127,
+        "estimated_usd": 0.0011012
+      },
+      {
+        "index": 47,
+        "reserved_usd": 0.0117828,
+        "http_status": 200,
+        "input_tokens": 2345,
+        "output_tokens": 74,
+        "estimated_usd": 0.0010564
+      },
+      {
+        "index": 48,
+        "reserved_usd": 0.0115452,
+        "http_status": 200,
+        "input_tokens": 2834,
+        "output_tokens": 199,
+        "estimated_usd": 0.001452
+      },
+      {
+        "index": 49,
+        "reserved_usd": 0.0084124,
+        "http_status": 200,
+        "input_tokens": 2400,
+        "output_tokens": 85,
+        "estimated_usd": 0.001096
+      },
+      {
+        "index": 50,
+        "reserved_usd": 0.0117736,
+        "http_status": 200,
+        "input_tokens": 2362,
+        "output_tokens": 198,
+        "estimated_usd": 0.0012616
+      },
+      {
+        "index": 51,
+        "reserved_usd": 0.0083404,
+        "http_status": 200,
+        "input_tokens": 1036,
+        "output_tokens": 68,
+        "estimated_usd": 0.0005232
+      },
+      {
+        "index": 52,
+        "reserved_usd": 0.0052524,
+        "http_status": 200,
+        "input_tokens": 675,
+        "output_tokens": 74,
+        "estimated_usd": 0.0003884
+      },
+      {
+        "index": 53,
+        "reserved_usd": 0.0117956,
+        "http_status": 200,
+        "input_tokens": 2371,
+        "output_tokens": 283,
+        "estimated_usd": 0.0014012
+      },
+      {
+        "index": 54,
+        "reserved_usd": 0.0112344,
+        "http_status": 200,
+        "input_tokens": 2704,
+        "output_tokens": 130,
+        "estimated_usd": 0.0012896
+      },
+      {
+        "index": 55,
+        "reserved_usd": 0.0079496,
+        "http_status": 200,
+        "input_tokens": 2203,
+        "output_tokens": 85,
+        "estimated_usd": 0.0010172
+      },
+      {
+        "index": 56,
+        "reserved_usd": 0.0117476,
+        "http_status": 200,
+        "input_tokens": 2340,
+        "output_tokens": 96,
+        "estimated_usd": 0.0010896
+      },
+      {
+        "index": 57,
+        "reserved_usd": 0.0082836,
+        "http_status": 200,
+        "input_tokens": 1016,
+        "output_tokens": 67,
+        "estimated_usd": 0.0005136
+      },
+      {
+        "index": 58,
+        "reserved_usd": 0.0051852,
+        "http_status": 200,
+        "input_tokens": 654,
+        "output_tokens": 75,
+        "estimated_usd": 0.0003816
+      },
+      {
+        "index": 59,
+        "reserved_usd": 0.011768,
+        "http_status": 200,
+        "input_tokens": 2357,
+        "output_tokens": 283,
+        "estimated_usd": 0.0013956
+      },
+      {
+        "index": 60,
+        "reserved_usd": 0.011224,
+        "http_status": 200,
+        "input_tokens": 2703,
+        "output_tokens": 131,
+        "estimated_usd": 0.0012908
+      },
+      {
+        "index": 61,
+        "reserved_usd": 0.0079336,
+        "http_status": 200,
+        "input_tokens": 2203,
+        "output_tokens": 82,
+        "estimated_usd": 0.0010124
+      },
+      {
+        "index": 62,
+        "reserved_usd": 0.0118208,
+        "http_status": 200,
+        "input_tokens": 2395,
+        "output_tokens": 313,
+        "estimated_usd": 0.0014588
+      },
+      {
+        "index": 63,
+        "reserved_usd": 0.0084308,
+        "http_status": 200,
+        "input_tokens": 1090,
+        "output_tokens": 124,
+        "estimated_usd": 0.0006344
+      },
+      {
+        "index": 64,
+        "reserved_usd": 0.00546,
+        "http_status": 200,
+        "input_tokens": 785,
+        "output_tokens": 63,
+        "estimated_usd": 0.0004148
+      },
+      {
+        "index": 65,
+        "reserved_usd": 0.0119612,
+        "http_status": 200,
+        "input_tokens": 2459,
+        "output_tokens": 284,
+        "estimated_usd": 0.001438
+      },
+      {
+        "index": 66,
+        "reserved_usd": 0.0113516,
+        "http_status": 200,
+        "input_tokens": 2760,
+        "output_tokens": 136,
+        "estimated_usd": 0.0013216
+      },
+      {
+        "index": 67,
+        "reserved_usd": 0.0080716,
+        "http_status": 200,
+        "input_tokens": 2263,
+        "output_tokens": 82,
+        "estimated_usd": 0.0010364
+      },
+      {
+        "index": 68,
+        "reserved_usd": 0.011798,
+        "http_status": 200,
+        "input_tokens": 2377,
+        "output_tokens": 274,
+        "estimated_usd": 0.0013892
+      },
+      {
+        "index": 69,
+        "reserved_usd": 0.0083992,
+        "http_status": 200,
+        "input_tokens": 1075,
+        "output_tokens": 80,
+        "estimated_usd": 0.000558
+      },
+      {
+        "index": 70,
+        "reserved_usd": 0.005342,
+        "http_status": 200,
+        "input_tokens": 726,
+        "output_tokens": 77,
+        "estimated_usd": 0.0004136
+      },
+      {
+        "index": 71,
+        "reserved_usd": 0.0118088,
+        "http_status": 200,
+        "input_tokens": 2368,
+        "output_tokens": 112,
+        "estimated_usd": 0.0011264
+      },
+      {
+        "index": 72,
+        "reserved_usd": 0.0111904,
+        "http_status": 200,
+        "input_tokens": 2678,
+        "output_tokens": 50,
+        "estimated_usd": 0.0011512
+      },
+      {
+        "index": 73,
+        "reserved_usd": 0.0077552,
+        "http_status": 200,
+        "input_tokens": 2090,
+        "output_tokens": 89,
+        "estimated_usd": 0.0009784
+      },
+      {
+        "index": 74,
+        "reserved_usd": 0.011474,
+        "http_status": 200,
+        "input_tokens": 2808,
+        "output_tokens": 45,
+        "estimated_usd": 0.0011952
+      },
+      {
+        "index": 75,
+        "reserved_usd": 0.0077492,
+        "http_status": 200,
+        "input_tokens": 2086,
+        "output_tokens": 82,
+        "estimated_usd": 0.0009656
+      },
+      {
+        "index": 76,
+        "reserved_usd": 0.011774,
+        "http_status": 200,
+        "input_tokens": 2355,
+        "output_tokens": 211,
+        "estimated_usd": 0.0012796
+      },
+      {
+        "index": 77,
+        "reserved_usd": 0.0083584,
+        "http_status": 200,
+        "input_tokens": 1054,
+        "output_tokens": 70,
+        "estimated_usd": 0.0005336
+      },
+      {
+        "index": 78,
+        "reserved_usd": 0.0052656,
+        "http_status": 200,
+        "input_tokens": 695,
+        "output_tokens": 62,
+        "estimated_usd": 0.0003772
+      },
+      {
+        "index": 79,
+        "reserved_usd": 0.0117748,
+        "http_status": 200,
+        "input_tokens": 2349,
+        "output_tokens": 123,
+        "estimated_usd": 0.0011364
+      },
+      {
+        "index": 80,
+        "reserved_usd": 0.008506,
+        "http_status": 200,
+        "input_tokens": 1129,
+        "output_tokens": 84,
+        "estimated_usd": 0.000586
+      },
+      {
+        "index": 81,
+        "reserved_usd": 0.0054552,
+        "http_status": 200,
+        "input_tokens": 784,
+        "output_tokens": 82,
+        "estimated_usd": 0.0004448
+      },
+      {
+        "index": 82,
+        "reserved_usd": 0.011804,
+        "http_status": 200,
+        "input_tokens": 2365,
+        "output_tokens": 191,
+        "estimated_usd": 0.0012516
+      },
+      {
+        "index": 83,
+        "reserved_usd": 0.0098324,
+        "http_status": 200,
+        "input_tokens": 1944,
+        "output_tokens": 109,
+        "estimated_usd": 0.000952
+      },
+      {
+        "index": 84,
+        "reserved_usd": 0.0066408,
+        "http_status": 200,
+        "input_tokens": 1510,
+        "output_tokens": 71,
+        "estimated_usd": 0.0007176
+      },
+      {
+        "index": 85,
+        "reserved_usd": 0.011788,
+        "http_status": 200,
+        "input_tokens": 2371,
+        "output_tokens": 219,
+        "estimated_usd": 0.0012988
+      },
+      {
+        "index": 86,
+        "reserved_usd": 0.008364,
+        "http_status": 200,
+        "input_tokens": 1076,
+        "output_tokens": 74,
+        "estimated_usd": 0.0005488
+      },
+      {
+        "index": 87,
+        "reserved_usd": 0.0052624,
+        "http_status": 200,
+        "input_tokens": 720,
+        "output_tokens": 101,
+        "estimated_usd": 0.0004496
+      },
+      {
+        "index": 88,
+        "reserved_usd": 0.008674,
+        "http_status": 200,
+        "input_tokens": 1241,
+        "output_tokens": 52,
+        "estimated_usd": 0.0005796
+      },
+      {
+        "index": 89,
+        "reserved_usd": 0.0052344,
+        "http_status": 200,
+        "input_tokens": 698,
+        "output_tokens": 85,
+        "estimated_usd": 0.0004152
+      },
+      {
+        "index": 90,
+        "reserved_usd": 0.0116988,
+        "http_status": 200,
+        "input_tokens": 2311,
+        "output_tokens": 104,
+        "estimated_usd": 0.0010908
+      },
+      {
+        "index": 91,
+        "reserved_usd": 0.009688,
+        "http_status": 200,
+        "input_tokens": 1878,
+        "output_tokens": 152,
+        "estimated_usd": 0.0009944
+      },
+      {
+        "index": 92,
+        "reserved_usd": 0.006566,
+        "http_status": 200,
+        "input_tokens": 1494,
+        "output_tokens": 75,
+        "estimated_usd": 0.0007176
+      },
+      {
+        "index": 93,
+        "reserved_usd": 0.0117896,
+        "http_status": 200,
+        "input_tokens": 2363,
+        "output_tokens": 104,
+        "estimated_usd": 0.0011116
+      },
+      {
+        "index": 94,
+        "reserved_usd": 0.0084304,
+        "http_status": 200,
+        "input_tokens": 1095,
+        "output_tokens": 69,
+        "estimated_usd": 0.0005484
+      },
+      {
+        "index": 95,
+        "reserved_usd": 0.008582,
+        "http_status": 200,
+        "input_tokens": 1180,
+        "output_tokens": 69,
+        "estimated_usd": 0.0005824
+      }
+    ]
+  },
+  "completed_at_utc": "2026-11-14T23:51:34.246344+00:00",
+  "scenario_count": 10,
+  "passed_scenarios": 9
+}

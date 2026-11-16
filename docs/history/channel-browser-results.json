@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "human_first": true,
+      "identity_input": "chat",
+      "status": "PASS",
+      "checks": [
+        "AI choice survives reload",
+        "repeated toggle resumes server AI state",
+        "claim follow-up is grounded",
+        "portal and email reuse one verification",
+        "policy-only chat/form lookup, four candidates, switch to auto, missing policy preserves auto, switch back without re-verification"
+      ]
+    },
+    {
+      "human_first": true,
+      "identity_input": "form",
+      "status": "PASS",
+      "checks": [
+        "AI choice survives reload",
+        "repeated toggle resumes server AI state",
+        "claim follow-up is grounded",
+        "portal and email reuse one verification",
+        "policy-only chat/form lookup, four candidates, switch to auto, missing policy preserves auto, switch back without re-verification"
+      ]
+    },
+    {
+      "human_first": false,
+      "identity_input": "chat",
+      "status": "PASS",
+      "checks": [
+        "AI choice survives reload",
+        "repeated toggle resumes server AI state",
+        "claim follow-up is grounded",
+        "portal and email reuse one verification",
+        "policy-only chat/form lookup, four candidates, switch to auto, missing policy preserves auto, switch back without re-verification"
+      ]
+    },
+    {
+      "human_first": false,
+      "identity_input": "form",
+      "status": "PASS",
+      "checks": [
+        "AI choice survives reload",
+        "repeated toggle resumes server AI state",
+        "claim follow-up is grounded",
+        "portal and email reuse one verification",
+        "policy-only chat/form lookup, four candidates, switch to auto, missing policy preserves auto, switch back without re-verification"
+      ]
+    }
+  ],
+  "errors": []
+}

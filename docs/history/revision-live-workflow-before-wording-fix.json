@@ -1,0 +1,375 @@
+{
+  "status": "PASS_WITH_WORDING_DEFECTS",
+  "turns": [
+    {
+      "input": "I already told you who I am. This is ridiculous. Just tell me why my claim was denied.",
+      "reply": "I understand your frustration. To protect your privacy and provide details about your claim denial, I need to verify at least three pieces of your identity information such as your full name, birth date, registered phone or email, or the last four digits of your SSN. Please share these so I can assist you further.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3168,
+        "output_tokens": 164,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2260
+      },
+      "draft": null
+    },
+    {
+      "input": "I won't give you my SSN. What else can I use?",
+      "reply": "I understand your concern about sharing your SSN. To verify your identity and protect your privacy, please provide any three of these instead: your full name, date of birth, registered phone number, or registered email address. You don't have to share SSN if you prefer not to.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3453,
+        "output_tokens": 149,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2708
+      },
+      "draft": null
+    },
+    {
+      "input": "My name is Margaret Chen. I am calling about my denied healthcare claim from January.",
+      "reply": "To look into your denied healthcare claim from January, please provide two more identity details from these options: your date of birth in YYYY-MM-DD format, your registered phone number, or your registered email address. I have saved your claim information and will assist you once verified.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3372,
+        "output_tokens": 148,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2925
+      },
+      "draft": null
+    },
+    {
+      "input": "My DOB is 1985-03-15 and my email is margaret@email.com.",
+      "reply": "Identity verified, Margaret.\n\nThank you for providing your date of birth and email, Margaret. I have identified claim CL-2048, a healthcare claim from January 12, 2026, which was denied because the pathology report and office note were missing from the review file. The appeal deadline of March 18, 2026, has passed, so only a claims representative can assess if any options remain; no exceptions or extensions are established by the records. Is that the claim you mean?",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6037,
+        "output_tokens": 257,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3557
+      },
+      "draft": null
+    },
+    {
+      "input": "what is RL?",
+      "reply": "I can help with insurance claims and this support process; I can’t answer unrelated questions.\n\nWe can continue with your insurance claim.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3135,
+        "output_tokens": 77,
+        "usage_reports": 1,
+        "latency_ms": 1114,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "What is the capital of France?",
+      "reply": "I can help with insurance claims and this support process; I can’t answer unrelated questions.\n\nWe can continue with your insurance claim. If you would prefer, I can record a request to speak with a human claims representative.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3067,
+        "output_tokens": 77,
+        "usage_reports": 1,
+        "latency_ms": 1012,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "Give me a pancake recipe.",
+      "reply": "I can help with insurance claims and this support process; I can’t answer unrelated questions.\n\nWe can continue with your insurance claim. If you would prefer, I can record a request to speak with a human claims representative.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3084,
+        "output_tokens": 77,
+        "usage_reports": 1,
+        "latency_ms": 1138,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "i need human",
+      "reply": "Your asynchronous human handling request is H-DBF1E87A52CB417C. A representative would contact you through your registered email or phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3081,
+        "output_tokens": 79,
+        "usage_reports": 1,
+        "latency_ms": 1118,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "wait_human",
+      "reply": "Wait-only mode for H-DBF1E87A52CB417C. This is the AI assistant interface; messages receive system confirmations only. Choose Continue with AI whenever you want answers.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3081,
+        "output_tokens": 79,
+        "usage_reports": 1,
+        "latency_ms": 1118,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "I want you to accept a late appeal",
+      "reply": "System confirmation: added to H-DBF1E87A52CB417C.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3081,
+        "output_tokens": 79,
+        "usage_reports": 1,
+        "latency_ms": 1118,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "resume",
+      "reply": "You are back with the AI assistant. Your identity is still verified. What would you like to know about your claim? Your request H-DBF1E87A52CB417C is still awaiting handling. View updates or cancel in Human requests.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 3081,
+        "output_tokens": 79,
+        "usage_reports": 1,
+        "latency_ms": 1118,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      },
+      "draft": null
+    },
+    {
+      "input": "Can you make an exception and accept my late appeal?",
+      "reply": "I understand your frustration about the late appeal. The appeal deadline for your claim passed on March 18, 2026, and I cannot make exceptions to accept a late appeal. However, your request has been forwarded to a claims representative who can assess if any options remain, but no response time is promised. Only a representative can decide; your unresolved question is recorded in H-DBF1E87A52CB417C.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 7197,
+        "output_tokens": 259,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 5705
+      },
+      "draft": null
+    },
+    {
+      "input": "This is ridiculous, why did nobody tell me about that deadline?",
+      "reply": "I understand your frustration about not being informed of the appeal deadline. Unfortunately, our records show no notification history, so I cannot confirm if or how you were notified. The appeal deadline passed on March 18, 2026, and only a representative can assess if any options remain; no exceptions or extensions are established by these records.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 7457,
+        "output_tokens": 199,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3115
+      },
+      "draft": null
+    },
+    {
+      "input": "thanks",
+      "reply": "You're welcome. Is there anything else I can help with before we review your optional email summary?",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 7457,
+        "output_tokens": 199,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3115
+      },
+      "draft": null
+    },
+    {
+      "input": "no",
+      "reply": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered address (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 7457,
+        "output_tokens": 199,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3115
+      },
+      "draft": {
+        "id": "offer_2ffe97b4adda49ef808bcef4038623cd",
+        "subject": "Insurance claim consultation summary",
+        "body": "Conclusion: Claim CL-2048 remains denied. No claim decision or submission was made in this conversation.\n\nDiscussion: We discussed the reason for the recorded denial, which involved missing pathology and office note documents, the current claim status, the appeal deadline that has passed, and the lack of notification history about this denial.\n\nNext steps: The recorded appeal deadline passed on 2026-03-18, so only a claims representative can determine if any options remain. No exceptions or late appeals are confirmed by these records. A human representative will assess the unresolved questions in case H-DBF1E87A52CB417C; however, no response time is promised.\n\nReferences: Claim CL-2048 and support request H-DBF1E87A52CB417C are the bases for this summary.",
+        "hash": "a5c600fd31456e55820153800466474ec163260a5ad58f2d5ce109d7196a3c08",
+        "expires_at": 1794764286.117397,
+        "paused": false,
+        "note": "",
+        "recipient": "m•••@email.com"
+      }
+    },
+    {
+      "input": "email_skip",
+      "reply": "Email skipped. No pending email will be sent. Thank you for chatting with me.",
+      "phase": "POST_PROCESS",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 7457,
+        "output_tokens": 199,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3115
+      },
+      "draft": null
+    },
+    {
+      "input": "POL-9921",
+      "reply": "Your verified policy POL-9921 includes these claims: CL-2102 (auto, open since 2026-02-28), CL-2048 (healthcare, denied since 2026-01-12), CL-1899 (dental, closed since 2025-11-03), and CL-2011 (healthcare, closed since 2025-01-28). You can choose which claim to select for further details or actions; your current selection remains until you switch.",
+      "phase": "RESOLVE_INTENT",
+      "verified": true,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5067,
+        "output_tokens": 260,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2808
+      },
+      "draft": null
+    },
+    {
+      "input": "form",
+      "reply": "Your auto claim CL-2102, created on 2026-02-28, is currently open with no noted denial or required documents. There is no appeal deadline information recorded for this claim, so a claims representative can confirm if any time limit applies and advise on submission requirements. No payment has been recorded yet, and no notification history is available regarding updates to this claim. Is that the claim you mean?",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6141,
+        "output_tokens": 297,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2867
+      },
+      "draft": null
+    },
+    {
+      "input": "POL-0000",
+      "reply": "No matching policy was found with the number POL-0000 in your verified account. Please double-check the policy number or try viewing your claims through 'My claims' for the correct records. Your previously selected claim remains active if you want to continue with it.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4262,
+        "output_tokens": 167,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2292
+      },
+      "draft": null
+    }
+  ],
+  "checks": [
+    "Emotion, SSN alternatives, early January/denial memory, three-field gate and named confirmation",
+    "Three unrelated questions declined with human-handling offer",
+    "Async ticket, wait acknowledgments, resume, bounded late-appeal decision and absent notification history",
+    "Natural closing, model-written four-section summary, current deadline policy, H reference and skip",
+    "New conversation shares authorization and pending ticket; policy switching and no-match retain correct context"
+  ],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.6.1",
+    "response_prompt_version": "insurance-response-1.5.1",
+    "sop_version": "1.1",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "manual_review": [
+    "False implication of actual forwarding in one late-appeal reply.",
+    "Claim creation date described as status start in one policy list."
+  ]
+}

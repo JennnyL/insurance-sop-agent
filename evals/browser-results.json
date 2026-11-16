@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "checks": [
+    "incorrect identity then complete sample in the same session",
+    "desktop sample",
+    "summary preview",
+    "consent send",
+    "simulated outbox",
+    "refresh persistence",
+    "reset",
+    "mobile layout",
+    "mobile skip",
+    "mobile form verifies and clears private fields",
+    "form-to-chat continuity"
+  ],
+  "viewport_sizes": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "browser_errors": []
+}

@@ -1,0 +1,172 @@
+{
+  "$defs": {
+    "LookupForm": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "default": "",
+          "maxLength": 100,
+          "title": "Name",
+          "type": "string"
+        },
+        "dob": {
+          "default": "",
+          "maxLength": 10,
+          "pattern": "^(?:\\d{4}-\\d{2}-\\d{2})?$",
+          "title": "Dob",
+          "type": "string"
+        },
+        "phone": {
+          "default": "",
+          "maxLength": 30,
+          "title": "Phone",
+          "type": "string"
+        },
+        "email": {
+          "default": "",
+          "maxLength": 150,
+          "title": "Email",
+          "type": "string"
+        },
+        "ssn_last4": {
+          "default": "",
+          "maxLength": 4,
+          "pattern": "^(?:\\d{4})?$",
+          "title": "Ssn Last4",
+          "type": "string"
+        },
+        "national_id_last4": {
+          "default": "",
+          "maxLength": 4,
+          "pattern": "^(?:\\d{4})?$",
+          "title": "National Id Last4",
+          "type": "string"
+        },
+        "policy_number": {
+          "default": "",
+          "maxLength": 30,
+          "pattern": "^(?:POL-\\d+)?$",
+          "title": "Policy Number",
+          "type": "string"
+        },
+        "case_id": {
+          "default": "",
+          "maxLength": 30,
+          "pattern": "^(?:CL-\\d+)?$",
+          "title": "Case Id",
+          "type": "string"
+        }
+      },
+      "title": "LookupForm",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "message_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "title": "Message Id",
+      "type": "string"
+    },
+    "expected_version": {
+      "minimum": 0,
+      "title": "Expected Version",
+      "type": "integer"
+    },
+    "text": {
+      "default": "",
+      "maxLength": 4000,
+      "title": "Text",
+      "type": "string"
+    },
+    "action": {
+      "default": "message",
+      "enum": [
+        "message",
+        "finish",
+        "email_send",
+        "email_skip",
+        "email_cancel",
+        "human",
+        "reset",
+        "cancel",
+        "resume",
+        "wait_human",
+        "confirm_claim",
+        "handoff_note_accept",
+        "handoff_note_decline",
+        "consent_check",
+        "consent_timeout",
+        "interrupt",
+        "form",
+        "my_claims",
+        "handoff_status",
+        "inquiry_status",
+        "email_edit",
+        "email_prepare"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "offer_id": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Offer Id"
+    },
+    "form": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LookupForm"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "email_note": {
+      "anyOf": [
+        {
+          "maxLength": 1000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Email Note"
+    },
+    "target_message_id": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Target Message Id"
+    }
+  },
+  "required": [
+    "message_id",
+    "expected_version"
+  ],
+  "title": "TurnRequest",
+  "type": "object"
+}

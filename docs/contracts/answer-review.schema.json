@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "supported": {
+      "title": "Supported",
+      "type": "boolean"
+    },
+    "addresses_question": {
+      "title": "Addresses Question",
+      "type": "boolean"
+    },
+    "follows_workflow": {
+      "title": "Follows Workflow",
+      "type": "boolean"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    }
+  },
+  "required": [
+    "supported",
+    "addresses_question",
+    "follows_workflow",
+    "reason"
+  ],
+  "title": "AnswerReview",
+  "type": "object"
+}

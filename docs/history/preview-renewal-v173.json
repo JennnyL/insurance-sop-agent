@@ -1,0 +1,22 @@
+{
+  "reason": "Local physical-request ceiling reached; no provider error recorded",
+  "retired_ledger": "<local-ledger-dir>/insurance-sop-v17-preview-spend.json",
+  "retired_calls": 150,
+  "retired_call_ceiling": 150,
+  "retired_estimated_usage_usd": 0.2092328,
+  "retired_unknown_usage_requests": 0,
+  "retired_last_http_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "closed_total_estimated_usage_usd": 1.2105168,
+  "new_ledger": "<local-ledger-dir>/insurance-sop-v173-preview-spend.json",
+  "new_limit_usd": 2,
+  "new_maximum_physical_requests": 1000,
+  "closed_plus_new_ceiling_usd": 3.2105168,
+  "authorized_total_limit_usd": 5,
+  "original_ledger": "preserved without changing limits or receipts"
+}

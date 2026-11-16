@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Policy number alone lists four owned claims; keeps previous selection and grant",
+    "Selecting auto claim replaces healthcare facts",
+    "Unknown policy and foreign claim leave current claim and authentication intact without disclosure",
+    "Returning to healthcare restores its discussion; exactly one verification across all turns"
+  ],
+  "turns": [
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "name": "Margaret Chen",
+          "dob": "1985-03-15",
+          "email": "margaret@email.com",
+          "case_id": "CL-2048"
+        }
+      },
+      "answer": "Your claim CL-2048 was denied because the pathology report and the treating provider office note were not included in the review file. These documents are needed for reconsideration. If you want, you can ask a human representative for help with submitting replacement or alternative documents.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5745,
+        "output_tokens": 209,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3284
+      }
+    },
+    {
+      "input": "POL-9921",
+      "answer": "Your policy POL-9921 has four claims: one open auto claim (CL-2102), one denied healthcare claim (CL-2048), and two closed claims—dental (CL-1899) and healthcare (CL-2011). You can select any claim to view or switch to it; your current claim remains selected until you do so.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3631,
+        "output_tokens": 204,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2853
+      }
+    },
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "case_id": "CL-2102"
+        }
+      },
+      "answer": "Your auto claim CL-2102 is currently open. The expected insurer reimbursement is $3,200, with an allowed maximum of $3,500, but no payment has yet been made. There is no denial reason or documents requested, and no appeal deadline is provided in this record.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4429,
+        "output_tokens": 270,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2938
+      }
+    },
+    {
+      "input": "POL-0000",
+      "answer": "No matching policy was found for the number POL-0000 in your verified account. Please double-check the policy number or use the My claims section to view your claims, which does not require a policy number. Your previous claim remains selected for further assistance.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2726,
+        "output_tokens": 146,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2042
+      }
+    },
+    {
+      "input": "CL-3001",
+      "answer": "No matching claim was found for claim number CL-3001 in your verified account. Please check the claim number or you can view your existing claims by selecting 'My claims' to find the correct one. Your previously selected claim remains active.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2723,
+        "output_tokens": 147,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2070
+      }
+    },
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "case_id": "CL-2048"
+        }
+      },
+      "answer": "Your claim CL-2048 was denied because the pathology report and the treating provider office note were not included in the review file. These documents are needed for reconsideration, but the original reports must be complete and readable, and sometimes the plan requires mailing the original pathology report. If you cannot provide them immediately, a human representative can help review alternative document options or confirm how to submit them correctly.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6206,
+        "output_tokens": 334,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 4151
+      }
+    },
+    {
+      "input": "What were we discussing on this case earlier?",
+      "answer": "Earlier, we discussed that your claim CL-2048 was denied because the pathology report and treating provider office note were missing from the review file. These documents are necessary for reconsideration, and they must be complete and readable. Sometimes the plan requires the original pathology report to be mailed. If you need help with document submission or alternatives, a human representative can assist you.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6475,
+        "output_tokens": 291,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3550
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.5.0",
+  "response_prompt_version": "insurance-response-1.4.1",
+  "model_name": "gpt-4.1-mini"
+}

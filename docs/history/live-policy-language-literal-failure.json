@@ -1,0 +1,85 @@
+{
+  "status": "FAIL",
+  "checks": [
+    "Policy number alone lists four owned claims; keeps previous selection and grant",
+    "Selecting auto claim replaces healthcare facts"
+  ],
+  "turns": [
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "name": "Margaret Chen",
+          "dob": "1985-03-15",
+          "email": "margaret@email.com",
+          "case_id": "CL-2048"
+        }
+      },
+      "answer": "Your claim CL-2048 was denied because the review file did not include the required pathology report and treating provider office note. These documents must be complete and legible to be accepted. Since the appeal deadline passed on 2026-03-18, options may be limited; a human representative can check if anything remains to be done.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5798,
+        "output_tokens": 269,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2853
+      }
+    },
+    {
+      "input": "POL-9921",
+      "answer": "Your policy POL-9921 includes four claims: one open auto claim (CL-2102), one denied healthcare claim (CL-2048), and two closed claims—dental (CL-1899) and healthcare (CL-2011). You can select any claim to view or manage; your current claim remains CL-2048 until you switch. Let me know if you'd like to switch to a specific claim or need details on any of them.",
+      "verified": true,
+      "selected_case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3651,
+        "output_tokens": 260,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2327
+      }
+    },
+    {
+      "input": {
+        "action": "form",
+        "form": {
+          "case_id": "CL-2102"
+        }
+      },
+      "answer": "Your auto claim CL-2102 is currently open, created on 2026-02-28. There are no denial reasons or document requests listed, and no insurer payment has been made yet. The expected reimbursement is $3,200 against an allowed maximum of $3,500, but this does not guarantee payment or define your out-of-pocket cost. If you have more specific questions or need further assistance, please let me know.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 4455,
+        "output_tokens": 283,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3022
+      }
+    },
+    {
+      "input": "POL-0000",
+      "answer": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+      "verified": true,
+      "selected_case_id": "CL-2102",
+      "model_status": {
+        "mode": "openai",
+        "status": "MODEL_ANSWER_UNAVAILABLE",
+        "calls": 2,
+        "input_tokens": 3362,
+        "output_tokens": 153,
+        "usage_reports": 2
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.5.0",
+  "response_prompt_version": "insurance-response-1.4.1",
+  "model_name": "gpt-4.1-mini",
+  "error": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused."
+}

@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-14",
+  "test": "Direct real-provider structured observation of the supplied Margaret sample",
+  "status": "BLOCKED_PROVIDER",
+  "response_code": 429,
+  "physical_attempts": 2,
+  "output_received": false,
+  "model": "gpt-4.1-mini",
+  "prompt_version": "insurance-observer-1.1.0",
+  "prompt_sha256": "5458ecefe5b8bb2599642c44b3f1605622fd411f17864b4a0c63b613cd5db15c",
+  "token_usage": "unknown: no usage receipt",
+  "full_live_journey": "NOT_RUN",
+  "reason": "Both bounded attempts returned MODEL_HTTP_429; no semantic or naturalness success is claimed."
+}

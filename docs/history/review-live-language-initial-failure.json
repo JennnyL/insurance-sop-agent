@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "journeys": [],
+  "turns": [
+    {
+      "input": "I'm David Chen, calling for my mother Margaret Chen about her denied healthcare claim from January.",
+      "reply": "To assist you with your mother's denied healthcare claim from January, I need to verify your identity with at least three pieces of information. You have provided your name, so please share two more from the following: date of birth, registered phone number, registered email, or the last four digits of the SSN. Once verified, I can access the claim details and help explain the denial.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 1,
+      "consent": null
+    },
+    {
+      "input": "Her DOB is 1985-03-15.",
+      "reply": "Thank you for providing your mother's date of birth. To verify your identity and access details about her denied January healthcare claim, please share one more piece of information from the following: registered phone number, registered email, or the last four digits of the SSN.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "identity_count": 1,
+      "consent": null
+    }
+  ],
+  "error": ""
+}

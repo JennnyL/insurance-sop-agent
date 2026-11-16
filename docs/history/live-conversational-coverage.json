@@ -1,0 +1,133 @@
+{
+  "status": "PASS_ACROSS_TWO_RUNS",
+  "scenario_count": 18,
+  "note": "The full attempt passed its first 9 scenarios and failed the 10th on an overly strict claim-ID literal check. After that fix, the remaining 9 scenarios including the failed one passed. This is not a claim of one fresh 18/18 run.",
+  "scenarios": [
+    {
+      "scenario": "cross_phase_memory_and_summary",
+      "report": "live-conversational-full-results.json",
+      "turns": 5,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "contextual_ai_followups",
+      "report": "live-conversational-full-results.json",
+      "turns": 6,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "contextual_verification_and_summary_detour",
+      "report": "live-conversational-full-results.json",
+      "turns": 5,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "form_then_contextual_chat",
+      "report": "live-conversational-full-results.json",
+      "turns": 3,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "identity_resubmission_after_failed_attempt",
+      "report": "live-conversational-full-results.json",
+      "turns": 2,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "identity_resubmission_after_partial_name",
+      "report": "live-conversational-full-results.json",
+      "turns": 2,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "identity_resubmission_drops_stale_extra_field",
+      "report": "live-conversational-full-results.json",
+      "turns": 2,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "wrong_extra_identity_then_correction",
+      "report": "live-conversational-full-results.json",
+      "turns": 2,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "ssn_refusal_and_case_switch",
+      "report": "live-conversational-full-results.json",
+      "turns": 3,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.2"
+    },
+    {
+      "scenario": "ambiguous_month_and_case_ownership",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 3,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "national_id_is_not_ssn",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 2,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "aliases_no_claims_and_skip",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 4,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "ava_zero_claims",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 1,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "emotion_mixed_scope_and_human",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 3,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "injection_and_quoted_identity",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 2,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "negated_identity",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 1,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "conditional_consent_and_new_question",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 4,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    },
+    {
+      "scenario": "representative_requires_authorization",
+      "report": "live-conversational-remaining-results.json",
+      "turns": 1,
+      "observer_prompt": "insurance-observer-1.2.2",
+      "response_prompt": "insurance-response-1.0.3"
+    }
+  ]
+}

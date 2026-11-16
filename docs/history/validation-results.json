@@ -1,0 +1,65 @@
+{
+  "tests": 329,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "date": "2026-11-15",
+  "version": "1.7.3",
+  "seconds": 37.376,
+  "focused_acceptance_tests": 17,
+  "lint": "PASS",
+  "format": "PASS",
+  "contracts": "REGENERATED",
+  "javascript_syntax": "PASS",
+  "pdf_pages": 5,
+  "docker": "NOT_RUN_DAEMON_PERMISSION_DENIED",
+  "deployment": {
+    "url": "http://demo-host:8000",
+    "status": "PASS",
+    "health": {
+      "status": "ok",
+      "profile": "R0",
+      "model_mode": "openai",
+      "app_version": "1.7.3"
+    },
+    "observer": "insurance-observer-1.7.1",
+    "writer": "insurance-response-1.7.5",
+    "reply": "Identity verified, Margaret.\n\nYour healthcare claim created on January 12, 2026, was denied because the pathology report and the treating provider's office note were missing from the review file. The appeal deadline was March 18, 2026, which has now passed. Only a claims representative can determine if any options remain; you may submit a human handling request for their assessment, but no guarantee of late appeal acceptance exists. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+    "verified": true,
+    "selected_case_id": "CL-2048"
+  },
+  "browser": {
+    "deployed_browser": {
+      "report": "representative-v171-live-browser.json",
+      "status": "PASS",
+      "checks": 6,
+      "turns": 12,
+      "version": "1.7.1",
+      "rerun_for_this_patch": false
+    },
+    "offline_browser": {
+      "report": "representative-v171-offline-browser.json",
+      "status": "PASS",
+      "checks": 6,
+      "turns": 12,
+      "version": "1.7.1",
+      "rerun_for_this_patch": false
+    }
+  },
+  "previous_validation": [
+    "review-v17-offline-browser.json",
+    "startup-browser-results.json",
+    "../evals/interrupt-browser-results.json",
+    "representative-v172-summary-live.json"
+  ],
+  "live_api": {
+    "report": "deployment-v173.json",
+    "status": "PASS",
+    "checks": 1,
+    "turns": 1
+  },
+  "budget_renewal": {
+    "report": "preview-renewal-v173.json",
+    "status": "PASS"
+  }
+}

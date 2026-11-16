@@ -1,0 +1,1468 @@
+{
+  "started_at_utc": "2026-11-14T23:44:10.714099+00:00",
+  "kind": "synthetic_live_fixture_smoke_not_holdout",
+  "suite": "full",
+  "model": "gpt-4.1-mini",
+  "prompt_version": "insurance-observer-1.2.1",
+  "response_prompt_version": "insurance-response-1.0.1",
+  "prompt_sha256": "bac78c16604511542321a53f777fd46f94080372f02d316a932c56a067c4292c",
+  "sop_version": "1.1",
+  "fixture_hashes": {
+    "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+    "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+    "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+    "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+    "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+    "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+  },
+  "schema_hash": "49867c2c992e65ba7abce47dc29214bc75a305ed00c337884cb91deca2a4d5c3",
+  "scenarios": [
+    {
+      "name": "contextual_ai_followups",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "I’m the policyholder. My name is Margaret Chen, policy POL-9921. I’m calling about my denied healthcare claim from January. DOB is 1985-03-15, SSN last four is 4472.",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048",
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file did not include the necessary pathology report and the treating provider office note. To address this, you would need to submit these documents. The pathology report should have the patient name, specimen details, testing date, and a clinician or lab signature if available. A high-quality scan is acceptable if fully readable, but some plans require the original, so check with support for mailing details. The office note must show patient name, visit date, assessment, and treatment or follow-up recommendations; uploading all pages in one PDF is best. Since the appeal deadline passed on March 18, 2026, further options depend on a representative's review. If you cannot obtain these documents promptly, a representative can discuss alternative clinical records or replacement report options with you.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "policy_number",
+                "value": "POL-9921",
+                "quote": "POL-9921",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "ssn_last4",
+                "value": "4472",
+                "quote": "4472",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": true,
+            "intents": [
+              "status_inquiry",
+              "denial_question"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file did not include the necessary pathology report and the treating provider office note. To address this, you would need to submit these documents. The pathology report should have the patient name, specimen details, testing date, and a clinician or lab signature if available. A high-quality scan is acceptable if fully readable, but some plans require the original, so check with support for mailing details. The office note must show patient name, visit date, assessment, and treatment or follow-up recommendations; uploading all pages in one PDF is best. Since the appeal deadline passed on March 18, 2026, further options depend on a representative's review. If you cannot obtain these documents promptly, a representative can discuss alternative clinical records or replacement report options with you.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:document_guidance.original pathology report",
+                      "CL-2048:document_guidance.treating provider office note",
+                      "CL-2048:document_alternative_guidance.original pathology report",
+                      "CL-2048:document_alternative_guidance.treating provider office note",
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately states that the claim from January was denied due to missing pathology report and treating provider office note, citing claim evidence CL-2048:denial_reason and documents_needed. It correctly details the document requirements consistent with document guidance and alternative guidance. It notes the appeal deadline has passed with evidence CL-2048:appeal_deadline and expired_deadline, and appropriately advises that a representative must review any remaining options. The answer aligns with server guidance to address the denial reason and next steps without unauthorized guarantees or assumptions, respecting verification and case phase."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 6282,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "how to resoleve it",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "deadline",
+              "passed"
+            ],
+            "answer_topics": [
+              "documents"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "denial",
+              "documents",
+              "alternatives",
+              "deadline"
+            ]
+          },
+          "assistant": "To resolve your denied claim, you need to submit the missing pathology report and treating provider office note. The pathology report should include patient name, specimen details, testing date, and a clinician or lab signature if available. A high-quality, fully readable scan is usually acceptable; however, if your plan requires the original, check with support for mailing instructions. The office note should contain patient name, visit date, assessment, and treatment or follow-up recommendations, ideally all pages combined in one PDF.\n\nIf you cannot get the original pathology report, ask your hospital, lab, or provider for a replacement or for the report to be sent directly. Similarly, if the office note is unavailable, request a complete visit summary, discharge paperwork, or a direct fax/upload from your provider. If these options are not feasible, a claims representative can review alternative documents with you.\n\nPlease note that the appeal deadline of March 18, 2026 has passed. Whether late options remain depends on a representative's review. Also, I cannot provide submission details or confirm receipt; a claims representative can assist further with those.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "next_steps"
+            ],
+            "topics": [
+              "unknown"
+            ],
+            "emotion": "confusion",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "To resolve your denied claim, you need to submit the missing pathology report and treating provider office note. The pathology report should include patient name, specimen details, testing date, and a clinician or lab signature if available. A high-quality, fully readable scan is usually acceptable; however, if your plan requires the original, check with support for mailing instructions. The office note should contain patient name, visit date, assessment, and treatment or follow-up recommendations, ideally all pages combined in one PDF.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed",
+                      "CL-2048:document_guidance.original pathology report",
+                      "CL-2048:document_guidance.treating provider office note"
+                    ]
+                  },
+                  {
+                    "text": "If you cannot get the original pathology report, ask your hospital, lab, or provider for a replacement or for the report to be sent directly. Similarly, if the office note is unavailable, request a complete visit summary, discharge paperwork, or a direct fax/upload from your provider. If these options are not feasible, a claims representative can review alternative documents with you.",
+                    "evidence_ids": [
+                      "CL-2048:document_alternative_guidance.original pathology report",
+                      "CL-2048:document_alternative_guidance.treating provider office note",
+                      "CL-2048:alternative_boundary"
+                    ]
+                  },
+                  {
+                    "text": "Please note that the appeal deadline of March 18, 2026 has passed. Whether late options remain depends on a representative's review. Also, I cannot provide submission details or confirm receipt; a claims representative can assist further with those.",
+                    "evidence_ids": [
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline",
+                      "CL-2048:submission_boundary",
+                      "CL-2048:receipt_boundary"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial",
+                  "documents",
+                  "alternatives",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed answer is fully supported by the authorized evidence, including the denial reasons, document requirements, alternative options, and deadline information. It correctly advises submitting missing pathology and office notes with specific content requirements, alternatives if originals are unavailable, and notes the expired appeal deadline and need for representative review of late options. It also appropriately limits statements based on guidance about submission and receipt verification. The answer addresses the user's question about resolution steps and follows the given server workflow instructions."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 5168,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "please explain why",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your claim was denied because it lacked the pathology report and the treating provider office note needed for review.\n\nThe pathology report must have patient name, specimen details, testing date, and a clinician or lab signature if available. A complete, fully readable scan usually works, but if your plan requires the original, check with support for mailing instructions.\n\nThe office note must include patient name, visit date, assessment, and treatment or follow-up recommendations, ideally all pages in one PDF.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your claim was denied because it lacked the pathology report and the treating provider office note needed for review.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed"
+                    ]
+                  },
+                  {
+                    "text": "The pathology report must have patient name, specimen details, testing date, and a clinician or lab signature if available. A complete, fully readable scan usually works, but if your plan requires the original, check with support for mailing instructions.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.original pathology report"
+                    ]
+                  },
+                  {
+                    "text": "The office note must include patient name, visit date, assessment, and treatment or follow-up recommendations, ideally all pages in one PDF.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.treating provider office note"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The proposed answer accurately states that the claim was denied due to missing pathology report and office note, matching the denial reason and documents needed facts. It correctly details the required contents and conditions for the pathology report and office note, citing the authorized document guidance. It avoids speculation and incorrect guarantees, respects the verification status, and limits recommendations to submitting these documents or contacting support for mailing instructions. It directly answers why the claim was denied and what documentation is required to resolve it, consistent with server workflow guidance."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3969,
+          "failures": []
+        },
+        {
+          "index": 3,
+          "synthetic_input": "why",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your claim was denied because the pathology report and the treating provider office note were missing from the review file. These documents are essential for verifying the services and medical care provided.\n\nThe pathology report must include patient name, specimen details, testing date, and a clinician or lab signature if available. A complete, fully readable scan is acceptable if the plan doesn't require the original document. The office note should include patient name, visit date, assessment, and treatment or follow-up recommendations.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question"
+            ],
+            "topics": [
+              "denial"
+            ],
+            "emotion": "confusion",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your claim was denied because the pathology report and the treating provider office note were missing from the review file. These documents are essential for verifying the services and medical care provided.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed"
+                    ]
+                  },
+                  {
+                    "text": "The pathology report must include patient name, specimen details, testing date, and a clinician or lab signature if available. A complete, fully readable scan is acceptable if the plan doesn't require the original document. The office note should include patient name, visit date, assessment, and treatment or follow-up recommendations.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.original pathology report",
+                      "CL-2048:document_guidance.treating provider office note"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer accurately cites the authorized evidence regarding the claim denial reason (missing pathology report and office note), and correctly states the document content requirements from the guidelines. It explains why the claim was denied as requested, without adding unsupported information, and follows the server guidance in answering the question clearly and appropriately."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4501,
+          "failures": []
+        },
+        {
+          "index": 4,
+          "synthetic_input": "那已经支付了多少钱？",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "assistant": "截至目前，您的索赔没有收到任何支付，最终支付金额为0美元。",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "amount_question"
+            ],
+            "topics": [
+              "amounts"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "截至目前，您的索赔没有收到任何支付，最终支付金额为0美元。",
+                    "evidence_ids": [
+                      "CL-2048:net_pay"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "amounts"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly states that no payment has been made so far and that the final insurer payment recorded is $0.00, which is directly supported by the evidence from claim CL-2048. The response answers the user's question about how much has been paid, matches all factual details from the sources, and follows the guidance to answer only with supported facts without unnecessary details."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3351,
+          "failures": []
+        },
+        {
+          "index": 5,
+          "synthetic_input": "Please approve my claim and pay me now.",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "operation": false
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "status": "denied",
+              "month": "1"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "HANDOFF_PENDING",
+            "handoff": true,
+            "model_calls": 1,
+            "dispatch_complete": false
+          },
+          "assistant": "I understand that repeating these steps is frustrating.\n\nI’ve recorded a request for a claims representative in this demo. No person has been contacted or connected, and no response time is promised. In a real service, the representative would complete any required verification. You can resume this chat or start a new session.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "next_steps",
+              "human_help"
+            ],
+            "topics": [
+              "status",
+              "amounts"
+            ],
+            "emotion": "frustration",
+            "action": "human",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [],
+          "physical_requests": 1,
+          "latency_ms": 1086,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "contextual_verification_and_summary_detour",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "My name is Margaret Chen. My healthcare claim from January was denied.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Thank you for providing your name. To look into your January healthcare claim denial, please provide two more pieces of your identity from date of birth, registered phone, registered email, or the last four digits of your SSN. This helps us securely verify your information.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "name",
+                "value": "Margaret Chen",
+                "quote": "Margaret Chen",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [
+              {
+                "field": "case_type",
+                "value": "healthcare",
+                "quote": "healthcare",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "month",
+                "value": "1",
+                "quote": "January",
+                "occurrence": 1,
+                "assertion": "affirm"
+              },
+              {
+                "field": "status",
+                "value": "denied",
+                "quote": "denied",
+                "occurrence": 1,
+                "assertion": "affirm"
+              }
+            ],
+            "case_relation": "new",
+            "subject_changed": false,
+            "intents": [
+              "denial_question",
+              "status_inquiry"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Thank you for providing your name. To look into your January healthcare claim denial, please provide two more pieces of your identity from date of birth, registered phone, registered email, or the last four digits of your SSN. This helps us securely verify your information.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "denial"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply correctly requests two additional identity verification fields as per the server guidance before discussing claim details, protecting user information. It acknowledges the January claim denial and aligns with the verification phase without making unsupported claims."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4371,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "Wait, why do you need all that? I don't want to share my SSN.",
+          "expected": {
+            "verified": false,
+            "no_lookup": true,
+            "refused_ssn": true
+          },
+          "actual": {
+            "phase": "VERIFY_ID",
+            "verified": false,
+            "identity_count": 1,
+            "case": null,
+            "no_lookup": true,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": null,
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "I understand your concern about sharing these details. We ask for at least three identity fields to securely verify your information and protect your private claim details. This helps ensure that sensitive claim information is only shared with you and keeps your data safe.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "ssn_last4",
+                "value": "",
+                "quote": "I don't want to share my SSN",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "refuse"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question",
+              "status_inquiry"
+            ],
+            "topics": [
+              "verification"
+            ],
+            "emotion": "refusal",
+            "action": "continue",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "I understand your concern about sharing these details. We ask for at least three identity fields to securely verify your information and protect your private claim details. This helps ensure that sensitive claim information is only shared with you and keeps your data safe.",
+                    "evidence_ids": []
+                  }
+                ],
+                "answered_topics": [
+                  "verification"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately explains the reason for requesting three identity fields to protect privacy and security, in line with the server guidance. It addresses the user's concern and follows the verification workflow without unsupported claims."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3468,
+          "failures": []
+        },
+        {
+          "index": 2,
+          "synthetic_input": "DOB is 1985-03-15. Email is margaret@email.com.",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false
+          },
+          "assistant": "Your healthcare claim from January was denied because the review file did not include both the pathology report and the treating provider office note, which are needed for the claim assessment.\n\nThe pathology report needs to contain patient name, specimen details, testing date, and clinician or lab signature if applicable. A complete, high-quality scan is acceptable if fully readable; otherwise, confirm with member support if the original is required and where to send it.\n\nThe treating provider office note should include patient name, visit date, assessment, and treatment or follow-up recommendations. Upload all pages together, preferably as one PDF.\n\nIf you cannot obtain these original documents, ask the hospital, lab, or provider for a replacement copy or a direct resend. A readable scan or certified copy is often a good interim substitute. If not available, a human representative can discuss other options with you.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [
+              {
+                "field": "dob",
+                "value": "1985-03-15",
+                "quote": "1985-03-15",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              },
+              {
+                "field": "email",
+                "value": "margaret@email.com",
+                "quote": "margaret@email.com",
+                "occurrence": 1,
+                "subject": "self",
+                "assertion": "affirm"
+              }
+            ],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "denial_question",
+              "status_inquiry"
+            ],
+            "topics": [
+              "status",
+              "denial"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "want",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your healthcare claim from January was denied because the review file did not include both the pathology report and the treating provider office note, which are needed for the claim assessment.",
+                    "evidence_ids": [
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed"
+                    ]
+                  },
+                  {
+                    "text": "The pathology report needs to contain patient name, specimen details, testing date, and clinician or lab signature if applicable. A complete, high-quality scan is acceptable if fully readable; otherwise, confirm with member support if the original is required and where to send it.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.original pathology report"
+                    ]
+                  },
+                  {
+                    "text": "The treating provider office note should include patient name, visit date, assessment, and treatment or follow-up recommendations. Upload all pages together, preferably as one PDF.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.treating provider office note"
+                    ]
+                  },
+                  {
+                    "text": "If you cannot obtain these original documents, ask the hospital, lab, or provider for a replacement copy or a direct resend. A readable scan or certified copy is often a good interim substitute. If not available, a human representative can discuss other options with you.",
+                    "evidence_ids": [
+                      "CL-2048:document_alternative_guidance.original pathology report",
+                      "CL-2048:document_alternative_guidance.treating provider office note",
+                      "CL-2048:alternative_boundary"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "denial",
+                  "documents"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately reports the denial reason and missing documents as per the evidence. It provides detailed requirements for the pathology report and office note directly from the authorized document guidelines. It also explains alternatives and the need for a human representative if necessary, consistent with policy. The answer focuses on the question context without unsupported claims and respects verification and case handling rules."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 4915,
+          "failures": []
+        },
+        {
+          "index": 3,
+          "synthetic_input": "That's all. Prepare the summary.",
+          "expected": {
+            "phase": "POST_PROCESS",
+            "offer": true
+          },
+          "actual": {
+            "phase": "POST_PROCESS",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": true,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 1,
+            "dispatch_complete": false
+          },
+          "assistant": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered address (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [],
+            "topics": [],
+            "emotion": "neutral",
+            "action": "finish",
+            "email_preference": "unmentioned",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "warm"
+          },
+          "answer_attempts": [],
+          "physical_requests": 1,
+          "latency_ms": 2515,
+          "failures": []
+        },
+        {
+          "index": 4,
+          "synthetic_input": "No email, wait: how much has actually been paid?",
+          "expected": {
+            "phase": "PROCESS_CASE",
+            "operation": false,
+            "offer": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": true,
+            "hints": {
+              "case_type": "healthcare",
+              "month": "1",
+              "status": "denied"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 3,
+            "dispatch_complete": false,
+            "answer_topics": [
+              "amounts"
+            ]
+          },
+          "assistant": "No payment has been made on this claim; the finalized insurer payment recorded is $0.00.",
+          "observation": {
+            "scope": "in_scope",
+            "role": "self",
+            "identity": [],
+            "hints": [],
+            "case_relation": "same",
+            "subject_changed": false,
+            "intents": [
+              "amount_question"
+            ],
+            "topics": [
+              "amounts"
+            ],
+            "emotion": "neutral",
+            "action": "continue",
+            "email_preference": "skip",
+            "alternatives_exhausted": false,
+            "resolved_confirmation": false,
+            "style": "concise"
+          },
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "No payment has been made on this claim; the finalized insurer payment recorded is $0.00.",
+                    "evidence_ids": [
+                      "CL-2048:net_pay"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "amounts"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The answer directly states the amount paid as $0.00, which is explicitly supported by the evidence CL-2048:net_pay. It answers the user's question about how much has been paid, aligns with the server guidance to only answer the specific question, and follows workflow by not including unauthorized information or actions."
+              }
+            }
+          ],
+          "physical_requests": 3,
+          "latency_ms": 3593,
+          "failures": []
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "form_then_contextual_chat",
+      "turns": [
+        {
+          "index": 0,
+          "synthetic_input": "",
+          "expected": {
+            "verified": true,
+            "case": "CL-2048"
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-2048"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 2,
+            "dispatch_complete": false
+          },
+          "assistant": "Your claim CL-2048 was denied because the review file did not include the pathology report and the treating provider office note. These documents are necessary to process your claim further.\n\nYou can provide a high-quality, fully readable scan of the pathology report including patient name, specimen details, testing date, and clinician or lab signature if available. If the plan requires an original, please check member portal instructions or contact support for mailing details.\n\nThe treating provider office note should include patient name, visit date, assessment, and treatment or follow-up recommendation, preferably uploaded as one PDF.\n\nIf you cannot immediately get these documents, ask the hospital, lab, or provider for a replacement or direct submission. Substitute documents are subject to review and acceptance is not guaranteed.\n\nNote that the appeal deadline for this claim was 2026-03-18, which has passed, so submitting an appeal now may not be accepted.",
+          "observation": null,
+          "answer_attempts": [
+            {
+              "draft": {
+                "paragraphs": [
+                  {
+                    "text": "Your claim CL-2048 was denied because the review file did not include the pathology report and the treating provider office note. These documents are necessary to process your claim further.",
+                    "evidence_ids": [
+                      "CL-2048:status,case_type,created_at",
+                      "CL-2048:denial_reason",
+                      "CL-2048:documents_needed"
+                    ]
+                  },
+                  {
+                    "text": "You can provide a high-quality, fully readable scan of the pathology report including patient name, specimen details, testing date, and clinician or lab signature if available. If the plan requires an original, please check member portal instructions or contact support for mailing details.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.original pathology report"
+                    ]
+                  },
+                  {
+                    "text": "The treating provider office note should include patient name, visit date, assessment, and treatment or follow-up recommendation, preferably uploaded as one PDF.",
+                    "evidence_ids": [
+                      "CL-2048:document_guidance.treating provider office note"
+                    ]
+                  },
+                  {
+                    "text": "If you cannot immediately get these documents, ask the hospital, lab, or provider for a replacement or direct submission. Substitute documents are subject to review and acceptance is not guaranteed.",
+                    "evidence_ids": [
+                      "CL-2048:document_alternative_guidance.original pathology report",
+                      "CL-2048:document_alternative_guidance.treating provider office note",
+                      "CL-2048:alternative_boundary"
+                    ]
+                  },
+                  {
+                    "text": "Note that the appeal deadline for this claim was 2026-03-18, which has passed, so submitting an appeal now may not be accepted.",
+                    "evidence_ids": [
+                      "CL-2048:appeal_deadline",
+                      "CL-2048:expired_deadline"
+                    ]
+                  }
+                ],
+                "answered_topics": [
+                  "status",
+                  "denial",
+                  "documents",
+                  "deadline"
+                ]
+              },
+              "review": {
+                "supported": true,
+                "addresses_question": true,
+                "follows_workflow": true,
+                "reason": "The reply accurately states the claim denial reason with reference to missing pathology report and office note, cites the specific evidence IDs supporting this, and provides detailed instructions for document submission and alternatives using the authorized document guidance. It clearly notes the passage of the appeal deadline and references the policy limitations on acceptance of late appeals. The answer follows the server guidance to respond to the current question and does not repeat verification or irrelevant details. It respects limitations about no guarantee of acceptance and proper document quality requirements, aligning with the policy. The response thus fully complies with the provided authorized evidence and workflow directions."
+              }
+            }
+          ],
+          "physical_requests": 2,
+          "latency_ms": 4300,
+          "failures": []
+        },
+        {
+          "index": 1,
+          "synthetic_input": "why was it rejected?",
+          "expected": {
+            "contains": [
+              "pathology",
+              "office"
+            ]
+          },
+          "actual": {
+            "phase": "PROCESS_CASE",
+            "verified": true,
+            "identity_count": 0,
+            "case": "CL-2048",
+            "no_lookup": false,
+            "offer": false,
+            "operation": false,
+            "refused_ssn": false,
+            "hints": {
+              "case_id": "CL-2048"
+            },
+            "candidates": [],
+            "resolution": "MATCH",
+            "lifecycle": "ACTIVE",
+            "handoff": false,
+            "model_calls": 2,
+            "dispatch_complete": false
+          },
+          "assistant": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+          "observation": null,
+          "answer_attempts": [],
+          "physical_requests": 2,
+          "latency_ms": 2797,
+          "failures": [
+            "contains: pathology",
+            "contains: office",
+            "MODEL_SOURCE_INVALID"
+          ]
+        }
+      ],
+      "status": "FAIL"
+    }
+  ],
+  "status": "BLOCKED_PROVIDER",
+  "business_date": "2026-11-14",
+  "spend": {
+    "limit_usd": 1.0,
+    "maximum_physical_requests": 60,
+    "physical_requests": 33,
+    "price_source": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+    "price_checked_date": "2026-11-14",
+    "input_usd_per_million": 0.4,
+    "output_usd_per_million": 1.6,
+    "input_tokens": 76005,
+    "output_tokens": 4343,
+    "usage_unknown_requests": 0,
+    "estimated_usage_usd": 0.0373508,
+    "conservative_reserved_usd": 0.3394348,
+    "note": "Per-run guard; reservations are not refunded. Estimates are not billing receipts.",
+    "receipts": [
+      {
+        "index": 1,
+        "reserved_usd": 0.0117284,
+        "http_status": 200,
+        "input_tokens": 2350,
+        "output_tokens": 283,
+        "estimated_usd": 0.0013928
+      },
+      {
+        "index": 2,
+        "reserved_usd": 0.0109124,
+        "http_status": 200,
+        "input_tokens": 2546,
+        "output_tokens": 294,
+        "estimated_usd": 0.0014888
+      },
+      {
+        "index": 3,
+        "reserved_usd": 0.008068,
+        "http_status": 200,
+        "input_tokens": 2268,
+        "output_tokens": 133,
+        "estimated_usd": 0.00112
+      },
+      {
+        "index": 4,
+        "reserved_usd": 0.0119644,
+        "http_status": 200,
+        "input_tokens": 2435,
+        "output_tokens": 73,
+        "estimated_usd": 0.0010908
+      },
+      {
+        "index": 5,
+        "reserved_usd": 0.011234,
+        "http_status": 200,
+        "input_tokens": 2692,
+        "output_tokens": 382,
+        "estimated_usd": 0.001688
+      },
+      {
+        "index": 6,
+        "reserved_usd": 0.008566,
+        "http_status": 200,
+        "input_tokens": 2507,
+        "output_tokens": 113,
+        "estimated_usd": 0.0011836
+      },
+      {
+        "index": 7,
+        "reserved_usd": 0.0120952,
+        "http_status": 200,
+        "input_tokens": 2497,
+        "output_tokens": 75,
+        "estimated_usd": 0.0011188
+      },
+      {
+        "index": 8,
+        "reserved_usd": 0.0117488,
+        "http_status": 200,
+        "input_tokens": 2942,
+        "output_tokens": 176,
+        "estimated_usd": 0.0014584
+      },
+      {
+        "index": 9,
+        "reserved_usd": 0.0086764,
+        "http_status": 200,
+        "input_tokens": 2541,
+        "output_tokens": 120,
+        "estimated_usd": 0.0012084
+      },
+      {
+        "index": 10,
+        "reserved_usd": 0.011806,
+        "http_status": 200,
+        "input_tokens": 2361,
+        "output_tokens": 76,
+        "estimated_usd": 0.001066
+      },
+      {
+        "index": 11,
+        "reserved_usd": 0.011842,
+        "http_status": 200,
+        "input_tokens": 2978,
+        "output_tokens": 168,
+        "estimated_usd": 0.00146
+      },
+      {
+        "index": 12,
+        "reserved_usd": 0.0087668,
+        "http_status": 200,
+        "input_tokens": 2567,
+        "output_tokens": 80,
+        "estimated_usd": 0.0011548
+      },
+      {
+        "index": 13,
+        "reserved_usd": 0.0118428,
+        "http_status": 200,
+        "input_tokens": 2395,
+        "output_tokens": 74,
+        "estimated_usd": 0.0010764
+      },
+      {
+        "index": 14,
+        "reserved_usd": 0.0116884,
+        "http_status": 200,
+        "input_tokens": 2906,
+        "output_tokens": 48,
+        "estimated_usd": 0.0012392
+      },
+      {
+        "index": 15,
+        "reserved_usd": 0.0083536,
+        "http_status": 200,
+        "input_tokens": 2371,
+        "output_tokens": 95,
+        "estimated_usd": 0.0011004
+      },
+      {
+        "index": 16,
+        "reserved_usd": 0.0116952,
+        "http_status": 200,
+        "input_tokens": 2374,
+        "output_tokens": 80,
+        "estimated_usd": 0.0010776
+      },
+      {
+        "index": 17,
+        "reserved_usd": 0.0116856,
+        "http_status": 200,
+        "input_tokens": 2310,
+        "output_tokens": 183,
+        "estimated_usd": 0.0012168
+      },
+      {
+        "index": 18,
+        "reserved_usd": 0.008212,
+        "http_status": 200,
+        "input_tokens": 985,
+        "output_tokens": 74,
+        "estimated_usd": 0.0005124
+      },
+      {
+        "index": 19,
+        "reserved_usd": 0.0052428,
+        "http_status": 200,
+        "input_tokens": 684,
+        "output_tokens": 61,
+        "estimated_usd": 0.0003712
+      },
+      {
+        "index": 20,
+        "reserved_usd": 0.0117028,
+        "http_status": 200,
+        "input_tokens": 2318,
+        "output_tokens": 114,
+        "estimated_usd": 0.0011096
+      },
+      {
+        "index": 21,
+        "reserved_usd": 0.0084884,
+        "http_status": 200,
+        "input_tokens": 1126,
+        "output_tokens": 67,
+        "estimated_usd": 0.0005576
+      },
+      {
+        "index": 22,
+        "reserved_usd": 0.0055212,
+        "http_status": 200,
+        "input_tokens": 818,
+        "output_tokens": 59,
+        "estimated_usd": 0.0004216
+      },
+      {
+        "index": 23,
+        "reserved_usd": 0.011702,
+        "http_status": 200,
+        "input_tokens": 2316,
+        "output_tokens": 150,
+        "estimated_usd": 0.0011664
+      },
+      {
+        "index": 24,
+        "reserved_usd": 0.0112012,
+        "http_status": 200,
+        "input_tokens": 2684,
+        "output_tokens": 300,
+        "estimated_usd": 0.0015536
+      },
+      {
+        "index": 25,
+        "reserved_usd": 0.0083856,
+        "http_status": 200,
+        "input_tokens": 2413,
+        "output_tokens": 90,
+        "estimated_usd": 0.0011092
+      },
+      {
+        "index": 26,
+        "reserved_usd": 0.011992,
+        "http_status": 200,
+        "input_tokens": 2450,
+        "output_tokens": 67,
+        "estimated_usd": 0.0010872
+      },
+      {
+        "index": 27,
+        "reserved_usd": 0.0117312,
+        "http_status": 200,
+        "input_tokens": 2350,
+        "output_tokens": 73,
+        "estimated_usd": 0.0010568
+      },
+      {
+        "index": 28,
+        "reserved_usd": 0.01145,
+        "http_status": 200,
+        "input_tokens": 2802,
+        "output_tokens": 50,
+        "estimated_usd": 0.0012008
+      },
+      {
+        "index": 29,
+        "reserved_usd": 0.0081164,
+        "http_status": 200,
+        "input_tokens": 2268,
+        "output_tokens": 84,
+        "estimated_usd": 0.0010416
+      },
+      {
+        "index": 30,
+        "reserved_usd": 0.010836,
+        "http_status": 200,
+        "input_tokens": 2510,
+        "output_tokens": 355,
+        "estimated_usd": 0.001572
+      },
+      {
+        "index": 31,
+        "reserved_usd": 0.0081024,
+        "http_status": 200,
+        "input_tokens": 2301,
+        "output_tokens": 136,
+        "estimated_usd": 0.001138
+      },
+      {
+        "index": 32,
+        "reserved_usd": 0.011984,
+        "http_status": 200,
+        "input_tokens": 2446,
+        "output_tokens": 105,
+        "estimated_usd": 0.0011464
+      },
+      {
+        "index": 33,
+        "reserved_usd": 0.0120928,
+        "http_status": 200,
+        "input_tokens": 2494,
+        "output_tokens": 105,
+        "estimated_usd": 0.0011656
+      }
+    ]
+  },
+  "completed_at_utc": "2026-11-14T23:45:01.076680+00:00",
+  "scenario_count": 3,
+  "passed_scenarios": 2
+}

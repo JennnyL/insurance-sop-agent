@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "Paragraph": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 2400,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "evidence_ids"
+      ],
+      "title": "Paragraph",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "paragraphs": {
+      "items": {
+        "$ref": "#/$defs/Paragraph"
+      },
+      "maxItems": 6,
+      "minItems": 1,
+      "title": "Paragraphs",
+      "type": "array"
+    },
+    "answered_topics": {
+      "items": {
+        "enum": [
+          "status",
+          "denial",
+          "documents",
+          "alternatives",
+          "amounts",
+          "deadline",
+          "timing",
+          "submission",
+          "receipt",
+          "unknown",
+          "verification"
+        ],
+        "type": "string"
+      },
+      "title": "Answered Topics",
+      "type": "array"
+    }
+  },
+  "required": [
+    "paragraphs",
+    "answered_topics"
+  ],
+  "title": "AnswerDraft",
+  "type": "object"
+}

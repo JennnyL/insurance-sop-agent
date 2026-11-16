@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "live_model": true,
+  "checks": [
+    "left human-help button works before verification; chat stays usable",
+    "identity-only form lists all four owned claims; selecting one resumes chat",
+    "natural human request, persistent reference, customer follow-up, simulated feedback, refresh and natural progress query",
+    "ordinary contextual claim questions still work while human request is open",
+    "visible email entry, preview and note editing, fresh consent, simulated outbox history, human help after completion",
+    "mobile portal accessible without overflow; reset hides protected ticket feedback"
+  ],
+  "browser_errors": []
+}

@@ -1,0 +1,309 @@
+{
+  "status": "FAIL",
+  "base_url": "http://demo-host:8000",
+  "checks": [
+    "Seeded Margaret notification/document-alternative discussion, H request and summary"
+  ],
+  "turns": [
+    {
+      "input": "I'm Margaret Chen, DOB 1985-03-15, email margaret@email.com. My denied healthcare claim from January.",
+      "reply": "Identity verified, Margaret.\n\nYour healthcare claim from January 2026 was denied because the review file did not include the pathology report and the treating provider office note. The appeal deadline was March 18, 2026, and it has now passed; only a claims representative can assess if any options remain. I cannot extend deadlines or guarantee acceptance of late appeals. Claim reference: CL-2048 (healthcare, created 2026-01-12).",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "Why did nobody tell me? How was I notified?",
+      "reply": "I understand this is frustrating.\n\nThe available claim records do not include any notification history, so I cannot confirm whether or how you were notified about the decision on your claim.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "What document alternatives are available if I cannot get the report?",
+      "reply": "If you cannot obtain the pathology report or treating provider office note required for your claim, the records do not specify alternative documents accepted for review. Since the appeal deadline has passed, only a claims representative can assess if there might be other options for your claim.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "i need human",
+      "reply": "Your asynchronous human handling request is H-1C7735A7D610461E. A representative would follow up through your registered email or the policyholder’s registered phone; no response time is promised. This demo saves the request and simulates feedback; no real person is contacted. You are still with the AI assistant. Choose Continue with AI for insurance questions, or Wait for human only to save messages with a system acknowledgment. View updates or cancel in Human requests.\n\nCreated human handling request H-1C7735A7D610461E.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "#finish",
+      "reply": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered email (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "caller": {
+        "role": "policyholder",
+        "name": "Margaret Chen"
+      }
+    },
+    {
+      "input": "I'm David Chen, calling for my mother Margaret Chen. DOB 1985-03-15, email margaret@email.com. Her denied healthcare claim from January.",
+      "reply": "The policyholder’s three identity fields matched. A consent request has been started and is still pending. Claim details stay private until approval. Choose Check policyholder consent or request human help.",
+      "phase": "VERIFY_ID",
+      "caller": null
+    },
+    {
+      "input": "#suggestions button:has-text(\"Check policyholder consent\")",
+      "reply": "Policyholder consent approved. David Chen, you are authorized to discuss policyholder Margaret Chen’s claims.\n\nIs CL-2048 (healthcare, created 2026-01-12) the claim you want to discuss?",
+      "phase": "RESOLVE_INTENT",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    },
+    {
+      "input": "#suggestions button:has-text(\"Yes, this claim\")",
+      "reply": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+      "phase": "PROCESS_CASE",
+      "caller": {
+        "role": "representative",
+        "name": "David Chen"
+      }
+    }
+  ],
+  "browser_errors": [],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.7.1",
+    "response_prompt_version": "insurance-response-1.7.4",
+    "sop_version": "1.1",
+    "app_version": "1.7.1",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "failure": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+  "state_at_failure": {
+    "session_id": "s_cf9e670cbafb47489eebc2a31fa846fe",
+    "episode_id": "ep_ad96560f621a44ee8ec53eecf9a1cdb1",
+    "phase": "PROCESS_CASE",
+    "lifecycle": "ACTIVE",
+    "version": 11,
+    "authorization_epoch": 1,
+    "verified": true,
+    "caller": {
+      "role": "representative",
+      "name": "David Chen"
+    },
+    "data_subject": {
+      "party_id": "P9",
+      "name": "Margaret Chen"
+    },
+    "authorization_method": "policyholder_consent",
+    "claim_confirmation": null,
+    "handoff_note_offer": null,
+    "representative_consent": {
+      "status": "approved",
+      "consent_id": "consent_719cde7de37245d19c704d044f77b0d2",
+      "index": 1,
+      "scenario": "default"
+    },
+    "support_mode": "ai",
+    "anonymous_support_active": false,
+    "closing_pending": false,
+    "next_steps": {
+      "expired": true,
+      "deadline": "2026-03-18",
+      "actions": [
+        {
+          "label": "Request representative assessment",
+          "action": "human"
+        }
+      ],
+      "text": "The recorded appeal deadline has passed. Only a representative can assess whether any options remain; no exception, extension or late acceptance is established by these records. You can submit a human handling request for representative assessment; no response time is promised."
+    },
+    "identity_collected": [],
+    "identity_count": 3,
+    "refused_fields": [],
+    "verification_locked": false,
+    "memory": {
+      "hints": {
+        "case_type": {
+          "value": "healthcare",
+          "source_turn": "90120008-b7e1-4a7a-acda-bafa3531e760",
+          "provenance": "user_reported"
+        },
+        "status": {
+          "value": "denied",
+          "source_turn": "90120008-b7e1-4a7a-acda-bafa3531e760",
+          "provenance": "user_reported"
+        },
+        "month": {
+          "value": "1",
+          "source_turn": "90120008-b7e1-4a7a-acda-bafa3531e760",
+          "provenance": "user_reported"
+        },
+        "case_id": {
+          "value": "CL-2048",
+          "source_turn": "t_5714783e56954580837c588f2064bc54",
+          "provenance": "user_reported"
+        }
+      },
+      "intents": [
+        "status_inquiry"
+      ],
+      "pending_topics": [
+        "denial",
+        "status"
+      ],
+      "recent_cases": [],
+      "case_history": {
+        "case_id": "CL-2048",
+        "turn_count": 0,
+        "discussed_topics": [],
+        "open_questions": [],
+        "updated_at": null
+      }
+    },
+    "selected_case_id": "CL-2048",
+    "candidates": [],
+    "case_picker": null,
+    "resolution_kind": "MATCH",
+    "messages": [
+      {
+        "role": "assistant",
+        "text": "You are signed out or your authorization has expired. Hello, I’m your claims support assistant. I can help explain a claim, its amounts, or the documents you need. First, to protect your information, please share any three: full name, date of birth, registered phone, registered email, or the last four digits of your SSN. You can tell me what you’re calling about at the same time.",
+        "at": 0
+      },
+      {
+        "role": "user",
+        "text": "I'm [NAME], calling for my mother [NAME]. DOB [DOB], email [EMAIL]. Her denied healthcare claim from January.",
+        "at": 1794775362.4219313
+      },
+      {
+        "role": "assistant",
+        "text": "The policyholder’s three identity fields matched. A consent request has been started and is still pending. Claim details stay private until approval. Choose Check policyholder consent or request human help.",
+        "at": 1794775362.4220877
+      },
+      {
+        "role": "system",
+        "text": "Checked policyholder consent",
+        "at": 1794775362.8841968
+      },
+      {
+        "role": "assistant",
+        "text": "Policyholder consent approved. David Chen, you are authorized to discuss policyholder Margaret Chen’s claims.\n\nIs CL-2048 (healthcare, created 2026-01-12) the claim you want to discuss?",
+        "at": 1794775362.884201
+      },
+      {
+        "role": "system",
+        "text": "Confirmed the selected claim",
+        "at": 1794775366.1159732
+      },
+      {
+        "role": "assistant",
+        "text": "I couldn’t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused.",
+        "at": 1794775366.1159773
+      }
+    ],
+    "draft": null,
+    "email_operation": null,
+    "handoff": null,
+    "evidence": [
+      {
+        "id": "CL-2048:permitted_next_steps",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "permitted_next_steps",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794775362.9966793
+      },
+      {
+        "id": "CL-2048:status,case_type,created_at",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "status,case_type,created_at",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775362.9966834
+      },
+      {
+        "id": "CL-2048:denial_reason",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "denial_reason",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775362.9966853
+      },
+      {
+        "id": "CL-2048:documents_needed",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "documents_needed",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775362.9966908
+      },
+      {
+        "id": "CL-2048:appeal_deadline",
+        "source": "claims.json",
+        "record_id": "CL-2048",
+        "field_path": "appeal_deadline",
+        "kind": "fact",
+        "source_as_of": null,
+        "retrieved_at": 1794775362.9967012
+      },
+      {
+        "id": "CL-2048:expired_deadline",
+        "source": "sop-policy",
+        "record_id": "CL-2048",
+        "field_path": "expired_deadline",
+        "kind": "limitation",
+        "source_as_of": null,
+        "retrieved_at": 1794775362.996703
+      }
+    ],
+    "visited_phases": [
+      "VERIFY_ID",
+      "RESOLVE_INTENT",
+      "PROCESS_CASE",
+      "POST_PROCESS"
+    ],
+    "model_status": {
+      "mode": "openai",
+      "status": "MODEL_ANSWER_UNAVAILABLE",
+      "calls": 2,
+      "input_tokens": 8052,
+      "output_tokens": 330,
+      "usage_reports": 2
+    },
+    "user_confirmed_resolved": false,
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "handoffs": [],
+    "support_availability": {
+      "channel": "MOCK",
+      "configured": true,
+      "demo_staff_enabled": false,
+      "online_count": 0
+    },
+    "available_claims": []
+  }
+}

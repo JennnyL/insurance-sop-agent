@@ -1,0 +1,154 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Human first -> explicit AI resume -> sample identity verifies -> grounded follow-up and account access; no repeated handoff receipt",
+    "Chinese enquiry question points to built-in insurer enquiry form; tracked simulated sending is reported without re-verification",
+    "Human request creates online text-chat receipt and honestly reports unavailable/waiting status",
+    "All four phases reached; mandatory summary content provided and customer skip is honored without signing out"
+  ],
+  "turns": [
+    {
+      "question": "i need human",
+      "answer": "Your request for a live representative is H-539EE42EAF3D41A5. No representative is online right now. Your request is saved; you can leave a message and check for updates. Use the current message box to message the representative, or choose Continue with AI. You can track this request in Online customer service. No response time is promised.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2763,
+        "output_tokens": 70,
+        "usage_reports": 1,
+        "latency_ms": 1382,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    },
+    {
+      "question": "resume",
+      "answer": "You are back with the AI assistant. To protect your claim details, I need to verify at least three different identity fields. I have received 0; please provide 3 more from: full name, date of birth (YYYY-MM-DD), registered phone, registered email, last four SSN digits.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2763,
+        "output_tokens": 70,
+        "usage_reports": 1,
+        "latency_ms": 1382,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    },
+    {
+      "question": "My name is Margaret Chen. DOB is 1985-03-15. SSN last four is 4472. I'm calling about my denied healthcare claim from January.",
+      "answer": "Your healthcare claim from January was denied because the review file lacked both the pathology report and the treating provider's office note. Unfortunately, the appeal deadline was March 18, 2026, which has now passed. If you want to explore next steps or check if any late options remain, you could send a question using the Email enquiry button or request a human representative via Online customer service for further help.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6279,
+        "output_tokens": 246,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2511
+      }
+    },
+    {
+      "question": "please explain why",
+      "answer": "Your claim was denied because the review file did not include the required pathology report and the treating provider's office note. Additionally, the appeal deadline of March 18, 2026, has passed, so the denial stands unless a human representative reviews possible late options.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6389,
+        "output_tokens": 227,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2503
+      }
+    },
+    {
+      "question": "我想写邮件给保险公司询问这个理赔的问题，在哪里写？",
+      "answer": "您可以点击界面上方导航的“Email enquiry”按钮，打开一个内置的表单，在那里填写邮件主题、您的问题以及相关理赔信息，然后发送给保险公司。",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3637,
+        "output_tokens": 167,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2609
+      }
+    },
+    {
+      "question": "What is the progress of my email enquiry E-DA0CFAAB7A754A72?",
+      "answer": "Your email enquiry with reference E-DA0CFAAB7A754A72 has been queued and simulated as sent; however, no real external email was sent, and a simulated official reply is awaited. You can check this enquiry's progress or send additional follow-ups using the Email enquiry function in the interface.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3872,
+        "output_tokens": 197,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2793
+      }
+    },
+    {
+      "question": "i need human",
+      "answer": "Your request for a live representative is H-4286F9B6244D4506. No representative is online right now. Your request is saved; you can leave a message and check for updates. Use the current message box to message the representative, or choose Continue with AI. You can track this request in Online customer service. No response time is promised.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2814,
+        "output_tokens": 73,
+        "usage_reports": 1,
+        "latency_ms": 1045,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    },
+    {
+      "question": "finish",
+      "answer": "I’ve prepared a summary of what we discussed, the recorded outcome, and next steps. Review it below. Would you like me to record an email to your registered address (m•••@email.com) in the demo outbox, or skip email? No real email is sent in this demo.",
+      "phase": "POST_PROCESS",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2814,
+        "output_tokens": 73,
+        "usage_reports": 1,
+        "latency_ms": 1045,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    },
+    {
+      "question": "email_skip",
+      "answer": "Email skipped. No pending email will be sent. Thank you for chatting with me.",
+      "phase": "POST_PROCESS",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 1,
+        "input_tokens": 2814,
+        "output_tokens": 73,
+        "usage_reports": 1,
+        "latency_ms": 1045,
+        "status": "ok",
+        "rejected_hint_sources": 0
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.4.3",
+  "response_prompt_version": "insurance-response-1.3.1",
+  "model_name": "gpt-4.1-mini"
+}

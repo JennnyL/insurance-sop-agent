@@ -1,0 +1,553 @@
+{
+  "limit_usd": 0.8,
+  "maximum_physical_requests": 150,
+  "physical_requests": 67,
+  "price_source": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+  "price_checked_date": "2026-11-14",
+  "input_usd_per_million": 0.4,
+  "output_usd_per_million": 1.6,
+  "input_tokens": 156883,
+  "output_tokens": 7263,
+  "usage_unknown_requests": 0,
+  "estimated_usage_usd": 0.074374,
+  "conservative_reserved_usd": 0.6907736,
+  "note": "Per-run guard; reservations are not refunded. Estimates are not billing receipts.",
+  "receipts": [
+    {
+      "index": 1,
+      "reserved_usd": 0.0124488,
+      "http_status": 200,
+      "input_tokens": 2688,
+      "output_tokens": 71,
+      "estimated_usd": 0.0011888
+    },
+    {
+      "index": 2,
+      "reserved_usd": 0.012494,
+      "http_status": 200,
+      "input_tokens": 2720,
+      "output_tokens": 220,
+      "estimated_usd": 0.00144
+    },
+    {
+      "index": 3,
+      "reserved_usd": 0.010068,
+      "http_status": 200,
+      "input_tokens": 1919,
+      "output_tokens": 71,
+      "estimated_usd": 0.0008812
+    },
+    {
+      "index": 4,
+      "reserved_usd": 0.0066516,
+      "http_status": 200,
+      "input_tokens": 1423,
+      "output_tokens": 91,
+      "estimated_usd": 0.0007148
+    },
+    {
+      "index": 5,
+      "reserved_usd": 0.0125976,
+      "http_status": 200,
+      "input_tokens": 2763,
+      "output_tokens": 70,
+      "estimated_usd": 0.0012172
+    },
+    {
+      "index": 6,
+      "reserved_usd": 0.0126428,
+      "http_status": 200,
+      "input_tokens": 2795,
+      "output_tokens": 246,
+      "estimated_usd": 0.0015116
+    },
+    {
+      "index": 7,
+      "reserved_usd": 0.012742,
+      "http_status": 200,
+      "input_tokens": 3451,
+      "output_tokens": 148,
+      "estimated_usd": 0.0016172
+    },
+    {
+      "index": 8,
+      "reserved_usd": 0.0091624,
+      "http_status": 200,
+      "input_tokens": 2828,
+      "output_tokens": 98,
+      "estimated_usd": 0.001288
+    },
+    {
+      "index": 9,
+      "reserved_usd": 0.0127492,
+      "http_status": 200,
+      "input_tokens": 2836,
+      "output_tokens": 75,
+      "estimated_usd": 0.0012544
+    },
+    {
+      "index": 10,
+      "reserved_usd": 0.0129296,
+      "http_status": 200,
+      "input_tokens": 3530,
+      "output_tokens": 103,
+      "estimated_usd": 0.0015768
+    },
+    {
+      "index": 11,
+      "reserved_usd": 0.0092636,
+      "http_status": 200,
+      "input_tokens": 2859,
+      "output_tokens": 124,
+      "estimated_usd": 0.001342
+    },
+    {
+      "index": 12,
+      "reserved_usd": 0.012742,
+      "http_status": 200,
+      "input_tokens": 2884,
+      "output_tokens": 70,
+      "estimated_usd": 0.0012656
+    },
+    {
+      "index": 13,
+      "reserved_usd": 0.010458,
+      "http_status": 200,
+      "input_tokens": 2071,
+      "output_tokens": 62,
+      "estimated_usd": 0.0009276
+    },
+    {
+      "index": 14,
+      "reserved_usd": 0.0070236,
+      "http_status": 200,
+      "input_tokens": 1566,
+      "output_tokens": 105,
+      "estimated_usd": 0.0007944
+    },
+    {
+      "index": 15,
+      "reserved_usd": 0.0127656,
+      "http_status": 200,
+      "input_tokens": 2977,
+      "output_tokens": 142,
+      "estimated_usd": 0.001418
+    },
+    {
+      "index": 16,
+      "reserved_usd": 0.010592,
+      "http_status": 200,
+      "input_tokens": 2178,
+      "output_tokens": 83,
+      "estimated_usd": 0.001004
+    },
+    {
+      "index": 17,
+      "reserved_usd": 0.0071968,
+      "http_status": 200,
+      "input_tokens": 1694,
+      "output_tokens": 114,
+      "estimated_usd": 0.00086
+    },
+    {
+      "index": 18,
+      "reserved_usd": 0.0126896,
+      "http_status": 200,
+      "input_tokens": 2814,
+      "output_tokens": 73,
+      "estimated_usd": 0.0012424
+    },
+    {
+      "index": 19,
+      "reserved_usd": 0.012174,
+      "http_status": 200,
+      "input_tokens": 3109,
+      "output_tokens": 151,
+      "estimated_usd": 0.0014852
+    },
+    {
+      "index": 20,
+      "reserved_usd": 0.0086064,
+      "http_status": 200,
+      "input_tokens": 2492,
+      "output_tokens": 96,
+      "estimated_usd": 0.0011504
+    },
+    {
+      "index": 21,
+      "reserved_usd": 0.0128308,
+      "http_status": 200,
+      "input_tokens": 2873,
+      "output_tokens": 133,
+      "estimated_usd": 0.001362
+    },
+    {
+      "index": 22,
+      "reserved_usd": 0.0099744,
+      "http_status": 200,
+      "input_tokens": 1805,
+      "output_tokens": 86,
+      "estimated_usd": 0.0008596
+    },
+    {
+      "index": 23,
+      "reserved_usd": 0.0066156,
+      "http_status": 200,
+      "input_tokens": 1327,
+      "output_tokens": 101,
+      "estimated_usd": 0.0006924
+    },
+    {
+      "index": 24,
+      "reserved_usd": 0.0103744,
+      "http_status": 200,
+      "input_tokens": 1986,
+      "output_tokens": 83,
+      "estimated_usd": 0.0009272
+    },
+    {
+      "index": 25,
+      "reserved_usd": 0.0066076,
+      "http_status": 200,
+      "input_tokens": 1324,
+      "output_tokens": 105,
+      "estimated_usd": 0.0006976
+    },
+    {
+      "index": 26,
+      "reserved_usd": 0.0107452,
+      "http_status": 200,
+      "input_tokens": 2348,
+      "output_tokens": 217,
+      "estimated_usd": 0.0012864
+    },
+    {
+      "index": 27,
+      "reserved_usd": 0.0074176,
+      "http_status": 200,
+      "input_tokens": 1894,
+      "output_tokens": 94,
+      "estimated_usd": 0.000908
+    },
+    {
+      "index": 28,
+      "reserved_usd": 0.0129036,
+      "http_status": 200,
+      "input_tokens": 2929,
+      "output_tokens": 102,
+      "estimated_usd": 0.0013348
+    },
+    {
+      "index": 29,
+      "reserved_usd": 0.0112608,
+      "http_status": 200,
+      "input_tokens": 2619,
+      "output_tokens": 113,
+      "estimated_usd": 0.0012284
+    },
+    {
+      "index": 30,
+      "reserved_usd": 0.0077588,
+      "http_status": 200,
+      "input_tokens": 2050,
+      "output_tokens": 139,
+      "estimated_usd": 0.0010424
+    },
+    {
+      "index": 31,
+      "reserved_usd": 0.0127956,
+      "http_status": 200,
+      "input_tokens": 2872,
+      "output_tokens": 103,
+      "estimated_usd": 0.0013136
+    },
+    {
+      "index": 32,
+      "reserved_usd": 0.0101172,
+      "http_status": 200,
+      "input_tokens": 1889,
+      "output_tokens": 46,
+      "estimated_usd": 0.0008292
+    },
+    {
+      "index": 33,
+      "reserved_usd": 0.0066504,
+      "http_status": 200,
+      "input_tokens": 1368,
+      "output_tokens": 82,
+      "estimated_usd": 0.0006784
+    },
+    {
+      "index": 34,
+      "reserved_usd": 0.0127228,
+      "http_status": 200,
+      "input_tokens": 2832,
+      "output_tokens": 98,
+      "estimated_usd": 0.0012896
+    },
+    {
+      "index": 35,
+      "reserved_usd": 0.01011,
+      "http_status": 200,
+      "input_tokens": 1890,
+      "output_tokens": 58,
+      "estimated_usd": 0.0008488
+    },
+    {
+      "index": 36,
+      "reserved_usd": 0.0066664,
+      "http_status": 200,
+      "input_tokens": 1381,
+      "output_tokens": 104,
+      "estimated_usd": 0.0007188
+    },
+    {
+      "index": 37,
+      "reserved_usd": 0.0127464,
+      "http_status": 200,
+      "input_tokens": 2845,
+      "output_tokens": 98,
+      "estimated_usd": 0.0012948
+    },
+    {
+      "index": 38,
+      "reserved_usd": 0.0125724,
+      "http_status": 200,
+      "input_tokens": 3280,
+      "output_tokens": 128,
+      "estimated_usd": 0.0015168
+    },
+    {
+      "index": 39,
+      "reserved_usd": 0.008956,
+      "http_status": 200,
+      "input_tokens": 2636,
+      "output_tokens": 76,
+      "estimated_usd": 0.001176
+    },
+    {
+      "index": 40,
+      "reserved_usd": 0.0128252,
+      "http_status": 200,
+      "input_tokens": 2875,
+      "output_tokens": 104,
+      "estimated_usd": 0.0013164
+    },
+    {
+      "index": 41,
+      "reserved_usd": 0.0100836,
+      "http_status": 200,
+      "input_tokens": 1833,
+      "output_tokens": 81,
+      "estimated_usd": 0.0008628
+    },
+    {
+      "index": 42,
+      "reserved_usd": 0.0066932,
+      "http_status": 200,
+      "input_tokens": 1348,
+      "output_tokens": 111,
+      "estimated_usd": 0.0007168
+    },
+    {
+      "index": 43,
+      "reserved_usd": 0.0104712,
+      "http_status": 200,
+      "input_tokens": 2017,
+      "output_tokens": 75,
+      "estimated_usd": 0.0009268
+    },
+    {
+      "index": 44,
+      "reserved_usd": 0.0066724,
+      "http_status": 200,
+      "input_tokens": 1342,
+      "output_tokens": 92,
+      "estimated_usd": 0.000684
+    },
+    {
+      "index": 45,
+      "reserved_usd": 0.0124212,
+      "http_status": 200,
+      "input_tokens": 3223,
+      "output_tokens": 173,
+      "estimated_usd": 0.001566
+    },
+    {
+      "index": 46,
+      "reserved_usd": 0.0088396,
+      "http_status": 200,
+      "input_tokens": 2592,
+      "output_tokens": 107,
+      "estimated_usd": 0.001208
+    },
+    {
+      "index": 47,
+      "reserved_usd": 0.0128088,
+      "http_status": 200,
+      "input_tokens": 2866,
+      "output_tokens": 103,
+      "estimated_usd": 0.0013112
+    },
+    {
+      "index": 48,
+      "reserved_usd": 0.0102184,
+      "http_status": 200,
+      "input_tokens": 2064,
+      "output_tokens": 116,
+      "estimated_usd": 0.0010112
+    },
+    {
+      "index": 49,
+      "reserved_usd": 0.0067352,
+      "http_status": 200,
+      "input_tokens": 1551,
+      "output_tokens": 70,
+      "estimated_usd": 0.0007324
+    },
+    {
+      "index": 50,
+      "reserved_usd": 0.0110344,
+      "http_status": 200,
+      "input_tokens": 2486,
+      "output_tokens": 178,
+      "estimated_usd": 0.0012792
+    },
+    {
+      "index": 51,
+      "reserved_usd": 0.0075664,
+      "http_status": 200,
+      "input_tokens": 1951,
+      "output_tokens": 107,
+      "estimated_usd": 0.0009516
+    },
+    {
+      "index": 52,
+      "reserved_usd": 0.012818,
+      "http_status": 200,
+      "input_tokens": 2885,
+      "output_tokens": 104,
+      "estimated_usd": 0.0013204
+    },
+    {
+      "index": 53,
+      "reserved_usd": 0.011486,
+      "http_status": 200,
+      "input_tokens": 2741,
+      "output_tokens": 112,
+      "estimated_usd": 0.0012756
+    },
+    {
+      "index": 54,
+      "reserved_usd": 0.0079132,
+      "http_status": 200,
+      "input_tokens": 2137,
+      "output_tokens": 133,
+      "estimated_usd": 0.0010676
+    },
+    {
+      "index": 55,
+      "reserved_usd": 0.012754,
+      "http_status": 200,
+      "input_tokens": 2851,
+      "output_tokens": 103,
+      "estimated_usd": 0.0013052
+    },
+    {
+      "index": 56,
+      "reserved_usd": 0.009656,
+      "http_status": 200,
+      "input_tokens": 1623,
+      "output_tokens": 72,
+      "estimated_usd": 0.0007644
+    },
+    {
+      "index": 57,
+      "reserved_usd": 0.0098268,
+      "http_status": 200,
+      "input_tokens": 1711,
+      "output_tokens": 72,
+      "estimated_usd": 0.0007996
+    },
+    {
+      "index": 58,
+      "reserved_usd": 0.0124528,
+      "http_status": 200,
+      "input_tokens": 3234,
+      "output_tokens": 146,
+      "estimated_usd": 0.0015272
+    },
+    {
+      "index": 59,
+      "reserved_usd": 0.0087632,
+      "http_status": 200,
+      "input_tokens": 2564,
+      "output_tokens": 123,
+      "estimated_usd": 0.0012224
+    },
+    {
+      "index": 60,
+      "reserved_usd": 0.0128156,
+      "http_status": 200,
+      "input_tokens": 2877,
+      "output_tokens": 103,
+      "estimated_usd": 0.0013156
+    },
+    {
+      "index": 61,
+      "reserved_usd": 0.01025,
+      "http_status": 200,
+      "input_tokens": 2075,
+      "output_tokens": 141,
+      "estimated_usd": 0.0010556
+    },
+    {
+      "index": 62,
+      "reserved_usd": 0.0067932,
+      "http_status": 200,
+      "input_tokens": 1576,
+      "output_tokens": 119,
+      "estimated_usd": 0.0008208
+    },
+    {
+      "index": 63,
+      "reserved_usd": 0.011066,
+      "http_status": 200,
+      "input_tokens": 2497,
+      "output_tokens": 182,
+      "estimated_usd": 0.00129
+    },
+    {
+      "index": 64,
+      "reserved_usd": 0.0075812,
+      "http_status": 200,
+      "input_tokens": 1958,
+      "output_tokens": 101,
+      "estimated_usd": 0.0009448
+    },
+    {
+      "index": 65,
+      "reserved_usd": 0.0128396,
+      "http_status": 200,
+      "input_tokens": 2899,
+      "output_tokens": 103,
+      "estimated_usd": 0.0013244
+    },
+    {
+      "index": 66,
+      "reserved_usd": 0.0096928,
+      "http_status": 200,
+      "input_tokens": 1634,
+      "output_tokens": 77,
+      "estimated_usd": 0.0007768
+    },
+    {
+      "index": 67,
+      "reserved_usd": 0.009872,
+      "http_status": 200,
+      "input_tokens": 1728,
+      "output_tokens": 76,
+      "estimated_usd": 0.0008128
+    }
+  ]
+}

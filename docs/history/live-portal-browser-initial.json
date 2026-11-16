@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "live_model": true,
+  "checks": [
+    "left human-help button works before verification; chat stays usable",
+    "identity-only form lists all four owned claims; selecting one resumes chat"
+  ],
+  "browser_errors": [],
+  "error": "I couldn\u2019t produce a reliable answer because the language service is unavailable or its response did not pass validation. Your confirmed progress is saved. Please try again, use the available buttons, or request human help. Any pending email remains paused."
+}

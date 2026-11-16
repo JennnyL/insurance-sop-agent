@@ -1,0 +1,103 @@
+{
+  "status": "FAIL",
+  "checks": [
+    "Emotional refusal before verification preserves identity gate, offers non-SSN options, then uses early denied-healthcare-January context",
+    "Exact user follow-ups get distinct, grounded reason versus next-step responses"
+  ],
+  "turns": [
+    {
+      "question": "My name is Margaret Chen. I'm calling about my denied healthcare claim from January.",
+      "answer": "Thank you for providing your name. To securely access details about your denied January healthcare claim, please share at least two more pieces of your identity: your date of birth, registered phone number, registered email, or the last four digits of your SSN. Once verified, I can assist you further with your claim.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2274,
+        "output_tokens": 175,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2442
+      }
+    },
+    {
+      "question": "I already told you who I am. This is ridiculous. Just tell me why my claim was denied. I do not want to share my SSN.",
+      "answer": "I understand your frustration. To protect your privacy and look into why your January healthcare claim was denied, I need to verify at least two more pieces of your identity information, such as your date of birth, registered phone number, or registered email. Once verified, I can provide you with the exact reason for the denial.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 2501,
+        "output_tokens": 165,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2542
+      }
+    },
+    {
+      "question": "DOB is 1985-03-15. My email is margaret@email.com.",
+      "answer": "Your January healthcare claim was denied because the review file did not include the required pathology report and the treating provider office note. To move forward, you'll need to submit these documents, either as original reports or high-quality complete scans if allowed. Please note the appeal deadline has passed, but a representative can discuss any remaining options with you.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5423,
+        "output_tokens": 275,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2918
+      }
+    },
+    {
+      "question": "please explain why",
+      "answer": "Your claim was denied because the review file did not include the required pathology report and treating provider office note. Without these documents, the insurer could not properly assess the claim. Since the appeal deadline has passed, a representative can discuss if any options remain for you.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5532,
+        "output_tokens": 174,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2627
+      }
+    },
+    {
+      "question": "how to resoleve it",
+      "answer": "To resolve the denial, you will need to submit the missing pathology report and the treating provider office note. These should be complete and legible, either as the original documents or high-quality scans if allowed by your plan. Since the appeal deadline has passed, I recommend contacting a claims representative to explore any remaining options or assistance with submitting these documents.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5674,
+        "output_tokens": 255,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 3481
+      }
+    },
+    {
+      "question": "我想写邮件给保险公司询问这个理赔的问题，在哪里写？",
+      "answer": "您可以使用会员门户或理赔上传链接来写邮件或提交相关问题和文件。如果您不确定具体入口或需要邮寄地址，请联系理赔代表确认正确的联系方式和方式。理赔代表能够帮助您完成邮件发送或文件提交的具体步骤。",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5797,
+        "output_tokens": 212,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2478
+      }
+    }
+  ],
+  "prompt_version": "insurance-observer-1.4.0",
+  "response_prompt_version": "insurance-response-1.3.0",
+  "model_name": "gpt-4.1-mini",
+  "error": ""
+}

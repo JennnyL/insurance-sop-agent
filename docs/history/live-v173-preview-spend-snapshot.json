@@ -1,0 +1,41 @@
+{
+  "limit_usd": 2.0,
+  "maximum_physical_requests": 1000,
+  "physical_requests": 3,
+  "price_source": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+  "price_checked_date": "2026-11-14",
+  "input_usd_per_million": 0.4,
+  "output_usd_per_million": 1.6,
+  "input_tokens": 10134,
+  "output_tokens": 526,
+  "usage_unknown_requests": 0,
+  "estimated_usage_usd": 0.0048952,
+  "conservative_reserved_usd": 0.0372084,
+  "note": "Per-run guard; reservations are not refunded. Estimates are not billing receipts.",
+  "receipts": [
+    {
+      "index": 1,
+      "reserved_usd": 0.0136168,
+      "http_status": 200,
+      "input_tokens": 3263,
+      "output_tokens": 260,
+      "estimated_usd": 0.0017212
+    },
+    {
+      "index": 2,
+      "reserved_usd": 0.013972,
+      "http_status": 200,
+      "input_tokens": 3924,
+      "output_tokens": 166,
+      "estimated_usd": 0.0018352
+    },
+    {
+      "index": 3,
+      "reserved_usd": 0.0096196,
+      "http_status": 200,
+      "input_tokens": 2947,
+      "output_tokens": 100,
+      "estimated_usd": 0.0013388
+    }
+  ]
+}

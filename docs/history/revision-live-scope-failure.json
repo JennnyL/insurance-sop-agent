@@ -1,0 +1,148 @@
+{
+  "status": "FAIL",
+  "turns": [
+    {
+      "input": "I already told you who I am. This is ridiculous. Just tell me why my claim was denied.",
+      "reply": "I understand your frustration. To protect your privacy and access details about your denied claim, I need to verify at least three identity fields such as your full name, date of birth, registered phone, registered email, or last four digits of your SSN. Please provide these so I can assist you further.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3166,
+        "output_tokens": 187,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2296
+      },
+      "draft": null
+    },
+    {
+      "input": "I won't give you my SSN. What else can I use?",
+      "reply": "I understand your concern about sharing your SSN. To verify your identity and help with your claim details, please provide any three of the following instead: your full name, date of birth, registered phone number, or registered email address. You do not have to share your SSN if you prefer not to.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3448,
+        "output_tokens": 193,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2256
+      },
+      "draft": null
+    },
+    {
+      "input": "My name is Margaret Chen. I am calling about my denied healthcare claim from January.",
+      "reply": "To assist you with your denied healthcare claim from January, I still need two more identity fields to verify you. Please provide your date of birth (YYYY-MM-DD), registered phone number, or registered email address so I can access your claim details securely.",
+      "phase": "VERIFY_ID",
+      "verified": false,
+      "case_id": null,
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 3365,
+        "output_tokens": 164,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2163
+      },
+      "draft": null
+    },
+    {
+      "input": "My DOB is 1985-03-15 and my email is margaret@email.com.",
+      "reply": "Identity verified, Margaret.\n\nThank you for confirming your date of birth and email; your identity is now verified. I have found your healthcare claim CL-2048 created on January 12, 2026, which was denied because the review file was missing the pathology report and treating provider office note. The appeal deadline of March 18, 2026, has passed, so only a claims representative can assess if any options remain. You can submit a human handling request for this assessment, though no response time is guaranteed.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 6043,
+        "output_tokens": 306,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 4031
+      },
+      "draft": null
+    },
+    {
+      "input": "what is RL?",
+      "reply": "RL is not defined in the available claim records or supported documents. If you mean a term related to your claim or insurance, please clarify or I can request a human representative to review your question.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5678,
+        "output_tokens": 156,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2015
+      },
+      "draft": null
+    },
+    {
+      "input": "What is the capital of France?",
+      "reply": "I'm here to help with your insurance claims questions. However, I can't answer general knowledge questions such as what the capital of France is. If you have any questions about your healthcare claim or insurance, please let me know.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5752,
+        "output_tokens": 150,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2253
+      },
+      "draft": null
+    },
+    {
+      "input": "Give me a pancake recipe.",
+      "reply": "I’m here to help with insurance claims questions, but I can’t provide cooking recipes like for pancakes. If you have any questions about your healthcare claim or insurance, please let me know.",
+      "phase": "PROCESS_CASE",
+      "verified": true,
+      "case_id": "CL-2048",
+      "model_status": {
+        "mode": "openai",
+        "calls": 2,
+        "input_tokens": 5726,
+        "output_tokens": 147,
+        "usage_reports": 2,
+        "status": "ok",
+        "latency_ms": 2272
+      },
+      "draft": null
+    }
+  ],
+  "checks": [
+    "Emotion, SSN alternatives, early January/denial memory, three-field gate and named confirmation"
+  ],
+  "config": {
+    "model_mode": "openai",
+    "model_name": "gpt-4.1-mini",
+    "prompt_version": "insurance-observer-1.6.1",
+    "response_prompt_version": "insurance-response-1.5.1",
+    "sop_version": "1.1",
+    "business_date": "2026-11-15",
+    "historical_clock": false,
+    "email_mode": "simulated",
+    "handoff_mode": "asynchronous_simulated",
+    "inquiry_mode": "simulated",
+    "fixture_hashes": {
+      "claim_schema.json": "f95f0b49b4522e56b4b65dbdf4d74204b348bf43a333920a07d8d6589969ec4a",
+      "claims.json": "16466e43f33eb7fb4f8aa0a3120f5e636ff38e337fc2673ee5aacdd9deaad76f",
+      "consent_scenarios.json": "e1c49b14f21d7f956042f0737a4f5b9c2b09f63e5b4abfbe203df089cd678304",
+      "policyholders.json": "7eb92602a256cabe628ddbe31d739609ebf00d9672e327f73ff31ae9bee1189c",
+      "representatives.json": "ebc55c04c068a762e3596048fef0ebfeef21b19f595b64e0bdd64cc2c26c8b34",
+      "required_document_guideline.json": "bc5425b0970c6e4c4c64b262f1c3c0020287e3e9adc437034c2f96fa6ff36c4b"
+    }
+  },
+  "error": ""
+}

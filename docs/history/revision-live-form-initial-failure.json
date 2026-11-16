@@ -1,0 +1,41 @@
+{
+  "status": "FAIL",
+  "scenario": "Human before verification, then identity/claim form",
+  "cause": "Selection packet excluded deadline but old guidance still requested it",
+  "attempts": [
+    {
+      "draft": {
+        "paragraphs": [
+          {
+            "text": "Claim CL-2048 is a healthcare claim created on 2026-01-12 and it has been denied. The appeal deadline was 2026-03-18, which has passed, so no further appeals can be accepted without a representative's assessment. You have an open human request for representative review, but no response or decision is guaranteed from this demo system.",
+            "evidence_ids": [
+              "CL-2048:status,case_type,created_at"
+            ]
+          }
+        ],
+        "answered_topics": [
+          "status",
+          "deadline"
+        ]
+      },
+      "rejection": "Date is absent from authorized tool facts"
+    },
+    {
+      "draft": {
+        "paragraphs": [
+          {
+            "text": "Claim CL-2048 is a healthcare claim created on 2026-01-12 that was denied. The appeal deadline was 2026-03-18, which has now passed. Only a claims representative can assess if any options remain, and you have an active human request for this review, but no response is guaranteed from this demo. What else can I help you clarify?",
+            "evidence_ids": [
+              "CL-2048:status,case_type,created_at"
+            ]
+          }
+        ],
+        "answered_topics": [
+          "status",
+          "deadline"
+        ]
+      },
+      "rejection": "Date is absent from authorized tool facts"
+    }
+  ]
+}

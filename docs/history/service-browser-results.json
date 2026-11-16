@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "model_mode": "offline",
+  "checks": [
+    "Natural human request opens current text chat; offline message, second-window acceptance and actual typed representative reply with stable H-reference",
+    "Continue with AI preserves verification and claim context; mixed AI/human timeline is chronological; staff sign-out changes availability",
+    "Email enquiry form, E-reference, simulated send/reply, follow-up and lookup persist on the same verified account across panels and reload",
+    "Mandatory post-process summary includes discussion/outcome/next steps and visible send/skip; simulated copy history is separate from insurer enquiries; exactly one verification for all operations",
+    "Mobile service entry and form fit viewport; explicit new session hides private history until re-verification"
+  ],
+  "browser_errors": []
+}

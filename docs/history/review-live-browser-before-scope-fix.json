@@ -1,0 +1,13 @@
+{
+  "status": "PASS_WITH_SCOPE_DEFECT_FOUND_IN_SCREENSHOT",
+  "checks": [
+    "Representative: three policyholder fields, locked consent pending, approved fixture grant and visible receipt",
+    "New tab: shared representative authorization, four claim choices, hidden identity form",
+    "Emotion stays in current turn; human request reuse and decision note are acknowledged with the existing reference",
+    "Mode buttons are system events; refresh restores authorization, claim, full messages, ticket and wait mode together",
+    "In-chat summary card: customer-facing body, existing H reference, Send/Skip and separate demo footer",
+    "Logout clears every tab, request reference/count/banner and old summary; welcome and fixed SSN alternatives remain"
+  ],
+  "errors": [],
+  "note": "Browser assertions passed, but manual screenshot review found RL incorrectly clarified. The final browser run now asserts the scope boundary on each unrelated question."
+}
