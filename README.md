@@ -1,5 +1,9 @@
 # Harbor · Insurance SOP claims agent
 
+**Repository:** https://github.com/JennnyL/insurance-sop-agent
+
+**Jump to:** [Quick start (Docker)](#quick-start-docker) · [Run without Docker](#run-without-docker) · [Tests](#tests) · [Demo scripts](#demo-scripts-all-four-phases--bonus) · [Requirements → tests](#requirements--implementation--tests)
+
 A claims-support agent that converses naturally but follows a fixed, server-enforced SOP: **VERIFY_ID → RESOLVE_INTENT → PROCESS_CASE → POST_PROCESS**. The LLM interprets language and phrases answers. The server owns identity, claim ownership, phase order, allowed actions and consent, and grounds every answer in the bundled sample data.
 
 ## Quick start (Docker)
@@ -107,6 +111,8 @@ Details: [technical guide](docs/TECHNICAL_GUIDE.md) · [architecture](docs/ARCHI
 ## Run without Docker
 
 ```bash
+git clone https://github.com/JennnyL/insurance-sop-agent.git
+cd insurance-sop-agent
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env          # set MODEL_API_KEY
