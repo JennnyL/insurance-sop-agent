@@ -2,9 +2,62 @@
 
 **Repository:** https://github.com/JennnyL/insurance-sop-agent
 
-**Jump to:** [Quick start (Docker)](#quick-start-docker) · [Run without Docker](#run-without-docker) · [Tests](#tests) · [Demo scripts](#demo-scripts-all-four-phases--bonus) · [Requirements → tests](#requirements--implementation--tests)
+**Jump to:** [Features](#features) · [Customer experience](#customer-experience) · [Guide for customers](#guide-for-customers) · [Guide for insurers and operators](#guide-for-insurers-and-operators) · [Quick start (Docker)](#quick-start-docker) · [Run without Docker](#run-without-docker) · [Tests](#tests) · [Demo scripts](#demo-scripts-all-four-phases--bonus) · [Requirements → tests](#requirements--implementation--tests)
 
 A claims-support agent that converses naturally but follows a fixed, server-enforced SOP: **VERIFY_ID → RESOLVE_INTENT → PROCESS_CASE → POST_PROCESS**. The LLM interprets language and phrases answers. The server owns identity, claim ownership, phase order, allowed actions and consent, and grounds every answer in the bundled sample data.
+
+## Features
+
+**Identity and privacy**
+- Verifies a caller with any three of: full name, date of birth, registered phone, registered email, SSN last four (or national ID last four for policyholders without an SSN). Accepts aliases, different phone/date formats, corrections, and a mix of chat and a structured form.
+- Discloses nothing — not even whether a claim exists — before verification. A mismatch never says which field was wrong. Three failed checks lock verification in that browser for 30 minutes.
+- Encrypted storage, PII masked in stored transcripts, HttpOnly session cookie. Sessions expire after 30 minutes idle (2 hours at most); *Logout* signs out every tab.
+
+**Claims help**
+- Finds the claim from a description ("my denied healthcare claim from January"), a claim ID, a policy number, or the *My claims* panel. When several claims match, it lists them and asks.
+- Answers status, denial reason, billed / allowed / paid amounts, required documents, deadlines and the one available next step. Every date, amount and claim ID is checked against the record before it is shown.
+- Remembers what you asked before verifying and answers it afterwards; switching between claims keeps each claim's context.
+- Understands English and Chinese messages.
+
+**Beyond the AI**
+- **Representatives:** a registered family member can call on behalf of a policyholder, with the policyholder's consent (simulated). Answers are addressed to the representative by name.
+- **Human help:** an asynchronous request with an H-reference. *Continue with AI* keeps answering; *Wait for human only* saves each message with a confirmation. Requests can be viewed or cancelled.
+- **Email enquiry:** a written question to the insurer's help desk with an E-reference (simulated).
+- **Conversation summary:** Conclusion → Discussion → Next steps → References, sent only to the policyholder's registered email, and only if the customer chooses *Send* (or *Skip*).
+
+**Reliability**
+- If the model's wording fails validation, a grounded server template answers instead. If the model is unreachable or the per-conversation call limit is reached, a scripted assistant takes over with a visible note. Security gates never change.
+
+## Customer experience
+
+Insurance questions often come when people are worried or upset. The agent is designed to be calm, honest and respectful:
+
+- **Feelings acknowledged once, then action.** It recognizes frustration, anger, anxiety, confusion and refusal from *your current message* (never from earlier ones), says one short sentence about it, and moves on to helping. No stacked apologies.
+- **It explains the "why".** Verification is explained as protecting your private claim information; a representative who pushes back hears that consent protects the policyholder's privacy even from family.
+- **Your choices are respected.** You never have to give an SSN; other fields work. After a second refusal the human-help option is named explicitly, and after a third the agent stops asking.
+- **No repeating yourself.** A question asked before verification is answered right after it, without asking again.
+- **Honest answers.** No invented processing times, no promised approvals or extensions. If a deadline has passed it says so plainly, and says what can still be done (a representative review). Simulated actions (consent, human handling, email) are labelled as such.
+- **Matched to how you feel.** Confusion is met with an offer to break things into simpler steps, worry with "let's take this one step at a time", and the identity gate stays the same either way.
+
+## Guide for customers
+
+1. **Open the page** and say what you need in your own words, e.g. *"Why was my healthcare claim from January denied?"*
+2. **Verify** with any three identity details in the chat or the form. You can skip the SSN.
+3. **Ask anything about your claim**: status, why it was denied, amounts, documents, deadlines, what to do next. If you have several claims, pick one when asked or use *My claims*.
+4. **Need a person?** Choose *Request human help* at any time. You get an H-reference; keep chatting with the AI or choose *Wait for human only*.
+5. **Finish** with *Finish consultation* or just say you're done. Review the summary, then *Send this summary* to your registered email or *Skip email*.
+6. **On a shared computer**, use *Logout / Switch caller* when you're done.
+
+Calling for a family member? Give your own name and three of the policyholder's details; claim details are shared only after the policyholder consents.
+
+## Guide for insurers and operators
+
+- **Deploy:** one Docker container (see [Quick start](#quick-start-docker)). Keep `/data` on a volume and back up `harness.sqlite3` and `state.key` together. Set `COOKIE_SECURE=true` behind HTTPS.
+- **Control cost:** `MODEL_MAX_CALLS_PER_CONVERSATION` caps model calls per conversation (one turn uses about 2–5); also set a usage limit in your OpenAI account. `gpt-4.1-mini` is the default model.
+- **Monitor:** `/healthz` for readiness and the app version; `GET /v1/sessions/{id}/trace` shows redacted events and model token usage per conversation.
+- **Integrate:** the bundled sample data (`apps/insurance_claims/fixtures`) stands in for a claims system. Consent, the human-request queue and email delivery are simulated behind their own modules (`representatives.py`, `handoff_store.py`, the outbox in `store.py`), which is where real services would connect.
+- **Adjust wording:** empathy lines, the SSN alternatives text and interface capabilities are in `app/capabilities.py`. SOP gates, lockout and disclosure rules are in code and covered by tests; change them only together with the tests.
+- **Know the limits:** three-field PII matching is the assignment's gate, not production authentication. There are no cross-device accounts.
 
 ## Quick start (Docker)
 
