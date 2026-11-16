@@ -56,6 +56,8 @@ There is no spending cap in the app beyond the per-conversation call ceiling; se
 
 Any mismatched field fails the check without saying which. Three failed checks lock verification for this browser for 30 minutes.
 
+**Unlocking while testing:** the lock is tied to this browser's session cookie, not to your IP address. To start over at once, open a new private/incognito window (or another browser, or clear the cookies for this site). *Logout / Switch caller* and *New session* do **not** reset it, by design. Each IP can open at most 30 new sessions per hour.
+
 ## Demo scripts (all four phases + bonus)
 
 Type these in the chat. Buttons (Request human help, Finish consultation, Send / Skip email, Logout / Switch caller) appear as the conversation progresses.
